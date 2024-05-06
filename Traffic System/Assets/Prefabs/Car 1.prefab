@@ -193,11 +193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9278f39951a4b244bb3b2946085574e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: 0
   maxAcceleration: 30
+  accelerationSpeed: 1
   brakeAcceleration: 50
   turnSensitivity: 1
   maxSteerAngle: 30
   _centerOfMass: {x: 0, y: 0, z: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
   wheels:
   - wheelModel: {fileID: 3711273678920108275}
     wheelCollider: {fileID: 4265911101674488790}

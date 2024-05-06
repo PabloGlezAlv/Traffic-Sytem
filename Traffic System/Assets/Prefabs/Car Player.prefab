@@ -309,7 +309,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -25.017458, y: 1.16, z: -10.097203}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.69948, y: 0.69948, z: 0.69948}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1491787520032276462}
@@ -357,11 +357,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9278f39951a4b244bb3b2946085574e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAcceleration: 120
+  playerController: 0
+  maxAcceleration: 50
+  accelerationSpeed: 2
   brakeAcceleration: 50
   turnSensitivity: 1
   maxSteerAngle: 30
   _centerOfMass: {x: 0, y: 0, z: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
   wheels:
   - wheelModel: {fileID: 1932381532077046823}
     wheelCollider: {fileID: 1023752295391393234}

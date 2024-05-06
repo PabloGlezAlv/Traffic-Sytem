@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CarMovement : MonoBehaviour
@@ -21,20 +23,43 @@ public class CarMovement : MonoBehaviour
         public Axel axel;
     }
 
-    public float maxAcceleration = 30.0f;
-    public float brakeAcceleration = 50.0f;
+    [Header("Car Parameter")]
+    [SerializeField]
+    bool playerController = false;
 
-    public float turnSensitivity = 1.0f;
-    public float maxSteerAngle = 30.0f;
+    [SerializeField]
+    float maxAcceleration = 30.0f;
+    [SerializeField]
+    float accelerationSpeed = 5.0f;
+    [SerializeField] 
+    float brakeAcceleration = 50.0f;
 
-    public Vector3 _centerOfMass;
+    [SerializeField]
+    float turnSensitivity = 1.0f;
+    [SerializeField] 
+    float maxSteerAngle = 30.0f;
 
+
+    [SerializeField]
+    Vector3 _centerOfMass;
+    [Header("Target")]
+    [SerializeField]
+    Vector3 targetPosition;
+
+    [Header("Car Wheels")]
+    [SerializeField]
     public List<Wheel> wheels;
+
 
     float moveInput;
     float steerInput;
 
     private Rigidbody carRb;
+
+    //Line to follow
+
+    private float maxDeadAngle = 20;
+    private float amxDeadDistance = 20;
 
 
     void Start()
@@ -56,6 +81,19 @@ public class CarMovement : MonoBehaviour
         Brake();
     }
 
+    public Vector3 getTarget()
+    {
+        return targetPosition;
+    }
+    public void setTarget(List<Vector3> pos)
+    {
+        targetPosition = pos[Random.Range(0, pos.Count)];
+    }
+    public void setTarget(Vector3 pos)
+    {
+        targetPosition = pos;
+    }
+
     public void MoveInput(float input)
     {
         moveInput = input;
@@ -68,9 +106,26 @@ public class CarMovement : MonoBehaviour
 
     void GetInputs()
     {
-        
-        moveInput = Input.GetAxis("Vertical");
-        steerInput = Input.GetAxis("Horizontal");
+        if(playerController)
+        {
+            moveInput = Input.GetAxis("Vertical");
+            steerInput = Input.GetAxis("Horizontal");
+        }
+        else
+        {
+            //----------ROTATION----------------------
+            Vector3 targetDirection = (targetPosition - transform.position).normalized;
+
+            float angle = Vector3.SignedAngle(transform.forward, targetDirection, Vector3.up);
+            angle = Mathf.Clamp(angle, -maxSteerAngle, maxSteerAngle);
+
+            float steerObjective = angle / maxSteerAngle;
+
+            steerInput = steerObjective;
+
+            //-------SPEED------------
+            moveInput = 1;
+        }
         
     }
 
@@ -89,7 +144,7 @@ public class CarMovement : MonoBehaviour
             if (wheel.axel == Axel.Front)
             {
                 var _steerAngle = steerInput * turnSensitivity * maxSteerAngle;
-                wheel.wheelCollider.steerAngle = Mathf.Lerp(wheel.wheelCollider.steerAngle, _steerAngle, 0.6f);
+                wheel.wheelCollider.steerAngle = Mathf.Lerp(wheel.wheelCollider.steerAngle, _steerAngle, 0.3f);
             }
         }
     }
