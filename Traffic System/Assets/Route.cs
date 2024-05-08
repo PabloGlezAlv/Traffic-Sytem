@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using Unity.VisualScripting;
 using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
 using static UnityEditor.FilePathAttribute;
@@ -10,6 +11,8 @@ public class Route : MonoBehaviour
 {
     [SerializeField]
     int numberLanes = 1;
+    [SerializeField]
+    float lanesDistance = 1.4f;
     [SerializeField]
     int pointsDensity = 7;
     [SerializeField]
@@ -68,12 +71,23 @@ public class Route : MonoBehaviour
         conectionLocations.Clear();
     }
 
+
+    public List<Vector3> GetStartPosition()
+    {
+        List<Vector3> positions = new List<Vector3>();
+
+        Vector3 p1 = transform.GetChild(0).position;
+        Vector3 p2 = transform.GetChild(1).position;
+
+        positions.Add(getPerpendicularPoint(p1, p2, lanesDistance));
+        return positions;
+    }
+
     private void OnValidate()
     {
         ClearInfo();
         // Add start position
         Transform child = transform.GetChild(0);
-        locations.Add(new PointType(child.position, true));
 
         // Add route points
         Vector3 p1 = child.position;
@@ -81,13 +95,16 @@ public class Route : MonoBehaviour
         {
             Vector3 p2 = transform.GetChild(i).position;
 
+            locations.Add(new PointType(getPerpendicularPoint(p1, p2, lanesDistance), true));
+
             for (int j = 1; j <= pointsDensity; j++)
             {
-                locations.Add(new PointType(Vector3.Lerp(p1, p2, (float)j / (pointsDensity + 1)), false));
+                locations.Add(new PointType(getPerpendicularPoint(Vector3.Lerp(p1, p2, (float)j / (pointsDensity + 1)), p2, lanesDistance), false));
             }
-            p1 = p2;
 
-            locations.Add(new PointType(p2, true));
+            locations.Add(new PointType(getPerpendicularPoint(p2, p1, -lanesDistance), true));
+
+            p1 = p2;
         }
 
         //Add connections points
@@ -95,7 +112,11 @@ public class Route : MonoBehaviour
         for (int i = 0; i < routeDirections.Count; i++) // Points with intersections
         {
             Vector3 start = locations[locations.Count - 1].pos;
-            Vector3 end = routeDirections[i].directionObject.transform.position;
+            Vector3 end;
+            List<Vector3> endList;
+            
+            endList = routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition();
+            end = endList[0];
 
             int numPoints = routeDirections[i].density;
             for (int j = 1; j < numPoints + 1; j++)
@@ -105,6 +126,25 @@ public class Route : MonoBehaviour
                 conectionLocations.Add(point);
             }
         }
+    }
+
+    private Vector3 getPerpendicularPoint(Vector3 start, Vector3 end, float distance)
+    {
+        Vector2 start2D = new Vector2(start.x, start.z);
+        Vector2 end2D = new Vector2(end.x, end.z);
+
+        Vector2 direction = (end2D - start2D).normalized;
+
+        Vector2 perpendicular = new Vector2(-direction.y, direction.x);
+
+        Vector2 offset = perpendicular * distance;
+
+        Vector2 perpendicularPoint2D = start2D + offset;
+
+        Vector3 perpendicularPoint = new Vector3(perpendicularPoint2D.x, start.y, perpendicularPoint2D.y);
+
+        // Retorna el punto perpendicular
+        return perpendicularPoint;
     }
     private Vector3 HermiteInterpolation(Vector3 startPoint, Vector3 endPoint, Vector3 startTangent, Vector3 endTangent, float t)
     {
@@ -137,12 +177,12 @@ public class Route : MonoBehaviour
             {
                 movingPoints[i - 1].GetComponent<Point>().AddConexion(movingPoints[i].transform.position);
 
-                
+
             }
         }
         // First point is a Spawner
 
-        if(spawnerRoute) spawner.addSpawnPoint(movingPoints[0]);
+        if (spawnerRoute) spawner.addSpawnPoint(movingPoints[0]);
 
         //Connect route with next ones
 
@@ -161,7 +201,7 @@ public class Route : MonoBehaviour
             }
 
             //Add last conexion to next Route
-            conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddConexion(routeDirections[i].directionObject.transform.position);
+            conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddConexion(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[0]);
 
             pointIndex += routeDirections[i].density;
         }
@@ -200,7 +240,7 @@ public class Route : MonoBehaviour
         {
             Gizmos.DrawSphere(conectionLocations[pointIndex], 0.15f);
 
-            Gizmos.DrawLine(conectionLocations[0], conectionLocations[pointIndex]); 
+            Gizmos.DrawLine(conectionLocations[0], conectionLocations[pointIndex]);
 
             for (int j = pointIndex + 1; j < pointIndex + routeDirections[i].density; j++) // Points each direction
             {
@@ -209,7 +249,7 @@ public class Route : MonoBehaviour
                 Gizmos.DrawLine(conectionLocations[j - 1], conectionLocations[j]);
             }
 
-            Gizmos.DrawLine(conectionLocations[pointIndex + routeDirections[i].density - 1], routeDirections[i].directionObject.transform.position);
+            Gizmos.DrawLine(conectionLocations[pointIndex + routeDirections[i].density - 1], routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[0]);
 
             pointIndex += routeDirections[i].density;
         }

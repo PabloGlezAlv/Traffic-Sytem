@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -56,10 +57,7 @@ public class CarMovement : MonoBehaviour
 
     private Rigidbody carRb;
 
-    //Line to follow
-
-    private float maxDeadAngle = 20;
-    private float amxDeadDistance = 20;
+    private Vector3 previousTarget = Vector3.zero;
 
 
     void Start()
@@ -87,10 +85,12 @@ public class CarMovement : MonoBehaviour
     }
     public void setTarget(List<Vector3> pos)
     {
+        previousTarget = targetPosition;
         targetPosition = pos[Random.Range(0, pos.Count)];
     }
     public void setTarget(Vector3 pos)
     {
+        previousTarget = targetPosition;
         targetPosition = pos;
     }
 
@@ -114,14 +114,27 @@ public class CarMovement : MonoBehaviour
         else
         {
             //----------ROTATION----------------------
-            Vector3 targetDirection = (targetPosition - transform.position).normalized;
+            Vector3 lineDirection = targetPosition - previousTarget;
+            Vector3 pointToLinePoint1 = transform.position - previousTarget;
+            float projection = Vector3.Dot(pointToLinePoint1, lineDirection.normalized);
+            Vector3 projectedPoint = previousTarget + projection * lineDirection.normalized;
+            float distance = Vector3.Distance(transform.position, projectedPoint);
+            Debug.Log(distance);
+            if(distance < 0.4)
+            {
+                steerInput = 0;
+            }
+            else
+            {
+                Vector3 targetDirection = (targetPosition - transform.position).normalized;
 
-            float angle = Vector3.SignedAngle(transform.forward, targetDirection, Vector3.up);
-            angle = Mathf.Clamp(angle, -maxSteerAngle, maxSteerAngle);
+                float angle = Vector3.SignedAngle(transform.forward, targetDirection, Vector3.up);
+                angle = Mathf.Clamp(angle, -maxSteerAngle, maxSteerAngle);
 
-            float steerObjective = angle / maxSteerAngle;
+                float steerObjective = angle / maxSteerAngle;
 
-            steerInput = steerObjective;
+                steerInput = steerObjective;
+            }
 
             //-------SPEED------------
             moveInput = 1;
