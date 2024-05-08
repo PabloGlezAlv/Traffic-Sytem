@@ -214,6 +214,12 @@ public class Route : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.white;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Gizmos.DrawSphere(transform.GetChild(i).position, 0.3f);
+        }
+           
         for (int i = 0; i < locations.Count; i++)
         {
             if (locations[i].endPoint)
