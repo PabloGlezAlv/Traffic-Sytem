@@ -172,50 +172,56 @@ public class Route : MonoBehaviour
 
     void Awake()
     {
-        int endPointIndex = 0;
-        for (int i = 0; i < locations.Count; i++) // Points with intersections
+        //-------------Route points--------------------------
+        int points = locations.Count / numberLanes;
+        for (int l = 0; l < numberLanes; l++) //Route conecction
         {
-            if (locations[i].endPoint)
+            int endPointIndex = 0;
+            int limit = ((points * (l + 1)));
+            for (int i = points * l; i < limit; i++)
             {
-                movingPoints.Add(Instantiate(endPoint, locations[i].pos, transform.GetChild(endPointIndex).transform.rotation, transform));
-                endPointIndex++;
-            }
-            else
-            {
-                movingPoints.Add(Instantiate(midPoint, locations[i].pos, transform.rotation, transform));
-            }
+                if (locations[i].endPoint)
+                {
+                    movingPoints.Add(Instantiate(endPoint, locations[i].pos, transform.GetChild(endPointIndex).transform.rotation, transform));
+                    endPointIndex++;
+                    if (spawnerRoute && l == 1 && i != 0) spawner.addSpawnPoint(movingPoints[movingPoints.Count - 1]);
+                }
+                else
+                {
+                    movingPoints.Add(Instantiate(midPoint, locations[i].pos, transform.rotation, transform));
+                }
 
-            if (i != 0) //Add to the previous point the last one
-            {
-                movingPoints[i - 1].GetComponent<Point>().AddConexion(movingPoints[i].transform.position);
-
-
+                if (i != points * l) //Add to the previous point the last one
+                {
+                    movingPoints[i - 1].GetComponent<Point>().AddConexion(movingPoints[i].transform.position);
+                }
             }
         }
-        // First point is a Spawner
 
-        if (spawnerRoute) spawner.addSpawnPoint(movingPoints[0]);
 
-        //Connect route with next ones
-
+        //-------------Conection points---------------------------
         int pointIndex = 1; //First one is the start
-        for (int i = 0; i < routeDirections.Count; i++) // Each Direction
+        for (int l = 0; l < numberLanes; l++)
         {
-            conectionPoints.Add(Instantiate(midPoint, conectionLocations[pointIndex], transform.rotation, transform));
-
-            movingPoints[movingPoints.Count - 1].GetComponent<Point>().AddConexion(conectionLocations[pointIndex]); //Firs element always connected with end of route
-
-            for (int j = pointIndex + 1; j < pointIndex + routeDirections[i].density; j++) // Points each direction
+            int startIndex = points * (l + 1) - 1;
+            for (int i = 0; i < routeDirections.Count; i++) // Each Direction
             {
-                conectionPoints.Add(Instantiate(midPoint, conectionLocations[j], transform.rotation, transform));
+                conectionPoints.Add(Instantiate(midPoint, conectionLocations[pointIndex], transform.rotation, transform));
 
-                conectionPoints[conectionPoints.Count - 2].GetComponent<Point>().AddConexion(conectionLocations[j]);
+                movingPoints[startIndex].GetComponent<Point>().AddConexion(conectionLocations[pointIndex]); //Firs element always connected with end of rout
+
+                for (int j = pointIndex + 1; j < pointIndex + routeDirections[i].density; j++) // Points each direction
+                {
+                    conectionPoints.Add(Instantiate(midPoint, conectionLocations[j], transform.rotation, transform));
+
+                    conectionPoints[j - 1].GetComponent<Point>().AddConexion(conectionLocations[j]);
+                }
+
+                //Add last conexion to next Route
+                conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddConexion(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
+
+                pointIndex += routeDirections[i].density;
             }
-
-            //Add last conexion to next Route
-            conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddConexion(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[0]);
-
-            pointIndex += routeDirections[i].density;
         }
     }
 
@@ -262,11 +268,12 @@ public class Route : MonoBehaviour
         int pointIndex = 1;
         for (int l = 0; l < numberLanes; l++)
         {
+            int startIndex = pointIndex - 1;
             for (int i = 0; i < routeDirections.Count; i++) // Each Direction
             {
                 Gizmos.DrawSphere(conectionLocations[pointIndex], 0.15f);
 
-                Gizmos.DrawLine(conectionLocations[l * (routeDirections[i].density +1)], conectionLocations[pointIndex]);
+                Gizmos.DrawLine(conectionLocations[startIndex], conectionLocations[pointIndex]);
 
                 for (int j = pointIndex + 1; j < pointIndex + routeDirections[i].density; j++) // Points each direction
                 {

@@ -388,7 +388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778217621071786192, guid: 442a56f617cd4f5488484bbcb5187113, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6992851810674420799, guid: 442a56f617cd4f5488484bbcb5187113, type: 3}
       propertyPath: m_LocalPosition.x
@@ -616,7 +616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9038369037941741517, guid: 442a56f617cd4f5488484bbcb5187113, type: 3}
       propertyPath: routeDirections.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9038369037941741517, guid: 442a56f617cd4f5488484bbcb5187113, type: 3}
       propertyPath: routeDirections.Array.data[0]
@@ -643,12 +643,16 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9038369037941741517, guid: 442a56f617cd4f5488484bbcb5187113, type: 3}
+      propertyPath: routeDirections.Array.data[1].endTangent.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038369037941741517, guid: 442a56f617cd4f5488484bbcb5187113, type: 3}
       propertyPath: routeDirections.Array.data[0].startTangent.x
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9038369037941741517, guid: 442a56f617cd4f5488484bbcb5187113, type: 3}
       propertyPath: routeDirections.Array.data[1].startTangent.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9038369037941741517, guid: 442a56f617cd4f5488484bbcb5187113, type: 3}
       propertyPath: routeDirections.Array.data[0].directionObject
