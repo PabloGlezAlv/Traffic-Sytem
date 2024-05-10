@@ -119,7 +119,7 @@ public class CarMovement : MonoBehaviour
             float projection = Vector3.Dot(pointToLinePoint1, lineDirection.normalized);
             Vector3 projectedPoint = previousTarget + projection * lineDirection.normalized;
             float distance = Vector3.Distance(transform.position, projectedPoint);
-            Debug.Log(distance);
+            //Debug.Log(distance);
             if(distance < 0.4)
             {
                 steerInput = 0;
