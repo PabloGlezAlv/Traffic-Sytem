@@ -10,6 +10,7 @@ public class Point : MonoBehaviour
     [SerializeField]
     bool endPoint = false;
 
+    [SerializeField]
     List<Vector3> nextPoints = new List<Vector3>();
 
 

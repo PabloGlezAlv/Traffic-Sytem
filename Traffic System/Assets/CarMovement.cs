@@ -87,6 +87,7 @@ public class CarMovement : MonoBehaviour
     {
         previousTarget = targetPosition;
         targetPosition = pos[Random.Range(0, pos.Count)];
+        Debug.Log("New target: " + targetPosition);
     }
     public void setTarget(Vector3 pos)
     {
