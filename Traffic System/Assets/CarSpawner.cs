@@ -22,9 +22,12 @@ public class CarSpawner : MonoBehaviour
 
     private void Start()
     {
-        carSpawned.Add(Instantiate(carPrefab, spawn[0].transform.position, spawn[0].transform.rotation));
+        for(int i = 0; i < spawn.Count; i++)
+        {
+            carSpawned.Add(Instantiate(carPrefab, spawn[i].transform.position, spawn[i].transform.rotation));
 
-        
-        carSpawned[0].GetComponent<CarMovement>().setTarget(spawn[0].transform.position);
+
+            carSpawned[i].GetComponent<CarMovement>().setTarget(spawn[i].transform.position);
+        }
     }
 }

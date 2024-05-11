@@ -184,7 +184,7 @@ public class Route : MonoBehaviour
                 {
                     movingPoints.Add(Instantiate(endPoint, locations[i].pos, transform.GetChild(endPointIndex).transform.rotation, transform));
                     endPointIndex++;
-                    if (spawnerRoute && l == 0 && i == points * l) spawner.addSpawnPoint(movingPoints[movingPoints.Count - 1]);
+                    if (spawnerRoute && i == points * l) spawner.addSpawnPoint(movingPoints[movingPoints.Count - 1]);
                 }
                 else
                 {
