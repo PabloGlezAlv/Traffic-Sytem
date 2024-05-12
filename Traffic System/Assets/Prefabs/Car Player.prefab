@@ -272,6 +272,7 @@ MonoBehaviour:
   maxSteerAngle: 30
   checkFrontCar: 8
   distanceFrontSensor: 0.4
+  checkSidesCar: 1.5
   _centerOfMass: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   wheels:

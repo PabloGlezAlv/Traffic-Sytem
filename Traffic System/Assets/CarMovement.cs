@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Net.Http.Headers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -50,6 +51,8 @@ public class CarMovement : MonoBehaviour
     float checkFrontCar = 3.0f;
     [SerializeField]
     float distanceFrontSensor = 0.35f;
+    [SerializeField]
+    float checkSidesCar = 3.0f;
 
     [SerializeField]
     Vector3 _centerOfMass;
@@ -71,6 +74,7 @@ public class CarMovement : MonoBehaviour
 
     private float speedLimit = 30;
     private float speedValue = 0;
+
 
     DriveDirection direction = DriveDirection.Front;
 
@@ -113,12 +117,10 @@ public class CarMovement : MonoBehaviour
         int rng = Random.Range(0, pos.Count);
         targetPosition = pos[rng];
 
-        if(endPoint)
+        if(endPoint) //Check direction to turn
         {
             Vector3 targetDirection = (endLane[rng] - transform.position).normalized;
             float angle = Vector3.SignedAngle(transform.forward, targetDirection, Vector3.up);
-
-            Debug.Log("Start: " + previousTarget + "End: " + targetPosition);
 
             Debug.Log(angle);
             if (angle > 10)
@@ -188,17 +190,54 @@ public class CarMovement : MonoBehaviour
 
             RaycastHit hitR;
             RaycastHit hitL;
-            if (Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar) ||
-                Physics.Raycast(transform.position + -transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar))
+            RaycastHit hitSB; //Side sensor in the back
+            RaycastHit hitSF; //Side sensor in the front
+            switch (direction)
             {
-                moveInput = 0;
+                case DriveDirection.Left:
+                    if (Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar / 5) ||
+                        Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar / 5) ||
+                         Physics.Raycast(transform.position - transform.right * distanceFrontSensor, -transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSB, checkSidesCar) ||
+                         Physics.Raycast(transform.position - transform.right * distanceFrontSensor + transform.forward * 1.3f, -transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSF, checkSidesCar))
+                    {
+                        moveInput = 0;
+                    }
+                    else
+                    {
+                        moveInput = speedValue;
+                    }
+                    break;
+
+                case DriveDirection.Right: //Leave front sensor just in case another close car
+                    if (Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar / 5) ||
+                        Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar / 5) ||
+                         Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSB, checkSidesCar) ||
+                         Physics.Raycast(transform.position + transform.right * distanceFrontSensor + transform.forward * 1.3f, transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSF, checkSidesCar))
+                    {
+                        moveInput = 0;
+                    }
+                    else
+                    {
+                        moveInput = speedValue;
+                    }
+                    break;
+                case DriveDirection.Front:
+                    if (Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar) ||
+                        Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar))
+                    {
+                        moveInput = 0;
+                    }
+                    else
+                    {
+                        moveInput = speedValue;
+                    }
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                moveInput = speedValue;
-            };
+            
         }
-        
+
     }
 
     void Move()
@@ -253,8 +292,17 @@ public class CarMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = UnityEngine.Color.blue;
+        Gizmos.color = UnityEngine.Color.blue; 
+        //Front Sensor
         Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.forward * checkFrontCar);
         Gizmos.DrawLine(transform.position + -transform.right * distanceFrontSensor, transform.position + -transform.right * distanceFrontSensor + transform.forward * checkFrontCar);
+
+        //Right Sensor
+        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + transform.forward * checkSidesCar / 2);
+        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor + transform.forward * 1.3f, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + transform.forward * checkSidesCar / 2 + transform.forward * 1.3f);
+
+        //Left Sensor
+        Gizmos.DrawLine(transform.position - transform.right * distanceFrontSensor, transform.position - transform.right * distanceFrontSensor - transform.right * checkSidesCar + transform.forward * checkSidesCar / 2);
+        Gizmos.DrawLine(transform.position - transform.right * distanceFrontSensor + transform.forward * 1.3f, transform.position - transform.right * distanceFrontSensor - transform.right * checkSidesCar + transform.forward * checkSidesCar / 2 + transform.forward * 1.3f);
     }
 }

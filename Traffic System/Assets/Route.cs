@@ -206,6 +206,7 @@ public class Route : MonoBehaviour
                 if (i != points * l) //Add to the previous point the last one
                 {
                     movingPoints[i - 1].GetComponent<Point>().AddConexion(movingPoints[i].transform.position);
+                    movingPoints[i - 1].GetComponent<Point>().AddTrailEnd(locations[limit - 1].pos);
                 }
             }
         }
@@ -220,21 +221,30 @@ public class Route : MonoBehaviour
             startIndex += pointsDensity + 1;
             for (int i = 0; i < routeDirections.Count; i++) // Each Direction
             {
-               // Debug.Log("Direccion: " + i);
+                
                 conectionPoints.Add(Instantiate(midPoint, conectionLocations[pointIndex], transform.rotation, transform));
-               // Debug.Log("Creacion: " + pointIndex);
+                
+                //Add next point to first of line
                 movingPoints[startIndex].GetComponent<Point>().AddConexion(conectionLocations[pointIndex]);
                 pointIndex++;
+                //Add to first point the end of conection
+                movingPoints[startIndex].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
+
+                //Add the rest of points;
                 for (int j = pointIndex; j < pointIndex + routeDirections[i].density - 1; j++) // Points each direction
                 {
                     conectionPoints.Add(Instantiate(midPoint, conectionLocations[j], transform.rotation, transform));
                     
                     conectionPoints[conectionPoints.Count - 2].GetComponent<Point>().AddConexion(conectionPoints[conectionPoints.Count - 1].transform.position);
-
+                    conectionPoints[conectionPoints.Count - 2].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
                 }
+
+                //Last point conected with start of next line
                 conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddConexion(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
+                conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
 
                 pointIndex += routeDirections[i].density - 1;
+
             }
             pointIndex++; //Add the start of the next line
             startIndex++; //Add the start of the next line
