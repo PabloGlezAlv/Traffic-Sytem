@@ -19,6 +19,10 @@ public class Route : MonoBehaviour
     bool spawnerRoute = true;
     [SerializeField]
     CarSpawner spawner;
+    [SerializeField]
+    float enterSpeed = 60;
+    [SerializeField]
+    float exitSpeed = 20;
 
 
     [SerializeField]
@@ -183,6 +187,14 @@ public class Route : MonoBehaviour
                 if (locations[i].endPoint)
                 {
                     movingPoints.Add(Instantiate(endPoint, locations[i].pos, transform.GetChild(endPointIndex).transform.rotation, transform));
+                    if(endPointIndex%2 == 0) //Set speed for start 
+                    {
+                        movingPoints[movingPoints.Count - 1].GetComponent<Point>().setSpeedLimit(enterSpeed);
+                    }
+                    else
+                    {
+                        movingPoints[movingPoints.Count - 1].GetComponent<Point>().setSpeedLimit(exitSpeed);
+                    }
                     endPointIndex++;
                     if (spawnerRoute && i == points * l) spawner.addSpawnPoint(movingPoints[movingPoints.Count - 1]);
                 }

@@ -11,6 +11,10 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Rigidbody))]
 public class CarMovement : MonoBehaviour
 {
+    public enum DriveDirection
+    {
+        Front, Left, Right
+    }
     public enum Axel
     {
         Front,
@@ -65,11 +69,25 @@ public class CarMovement : MonoBehaviour
 
     private Vector3 previousTarget = Vector3.zero;
 
+    private float speedLimit = 30;
+    private float speedValue = 0;
+
+    DriveDirection direction = DriveDirection.Front;
 
     void Start()
     {
         carRb = GetComponent<Rigidbody>();
         carRb.centerOfMass = _centerOfMass;
+
+        speedValue = speedLimit / maxAcceleration;
+    }
+    
+    public void setSpeedLimit(float speedLimit)
+    {
+        this.speedLimit = speedLimit;
+
+
+        speedValue = speedLimit / maxAcceleration;
     }
 
     void Update()
@@ -89,10 +107,34 @@ public class CarMovement : MonoBehaviour
     {
         return targetPosition;
     }
-    public void setTarget(List<Vector3> pos)
+    public void setTarget(List<Vector3> pos, List<Vector3> endLane, bool endPoint)//Chek if endPoint to check if movement left rotation
     {
         previousTarget = targetPosition;
-        targetPosition = pos[Random.Range(0, pos.Count)];
+        int rng = Random.Range(0, pos.Count);
+        targetPosition = pos[rng];
+
+        if(endPoint)
+        {
+            Vector3 targetDirection = (endLane[rng] - transform.position).normalized;
+            float angle = Vector3.SignedAngle(transform.forward, targetDirection, Vector3.up);
+
+            Debug.Log("Start: " + previousTarget + "End: " + targetPosition);
+
+            Debug.Log(angle);
+            if (angle > 10)
+            {
+                direction = DriveDirection.Right;
+            }
+            else if (angle < 10)
+            {
+                direction = DriveDirection.Left;
+            }
+            else
+            {
+                direction = DriveDirection.Front;
+            }
+        }
+
     }
     public void setTarget(Vector3 pos)
     {
@@ -153,7 +195,7 @@ public class CarMovement : MonoBehaviour
             }
             else
             {
-                moveInput = 1;
+                moveInput = speedValue;
             };
         }
         

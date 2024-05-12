@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: 0
-  maxAcceleration: 50
+  maxAcceleration: 180
   accelerationSpeed: 2
   brakeAcceleration: 50
   turnSensitivity: 1

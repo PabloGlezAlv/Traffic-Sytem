@@ -11,8 +11,30 @@ public class Point : MonoBehaviour
     bool endPoint = false;
 
     [SerializeField]
+    float speedLimit = -1;
+
+    [SerializeField]
     List<Vector3> nextPoints = new List<Vector3>();
 
+    [SerializeField]
+    List<Vector3> endTrail = new List<Vector3>();
+
+    void SendCarSpeedLimit(CarMovement car)
+    {
+        if (speedLimit == -1) return;
+
+        car.setSpeedLimit(speedLimit);
+    }
+
+    public void setSpeedLimit(float speedLimit)
+    { 
+        this.speedLimit = speedLimit;
+    }
+
+    public void AddTrailEnd(Vector3 p)
+    {
+        endTrail.Add(p);
+    }
 
     public void AddConexion(Vector3 p)
     {
@@ -34,7 +56,9 @@ public class Point : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target) < 0.1) 
             {
-                car.setTarget(nextPoints);
+                car.setTarget(nextPoints, endTrail, endPoint);
+
+                SendCarSpeedLimit(car);
             }
             
         }
