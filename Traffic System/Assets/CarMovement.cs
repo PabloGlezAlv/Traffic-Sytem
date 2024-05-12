@@ -5,6 +5,7 @@ using System.Drawing;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -40,6 +41,11 @@ public class CarMovement : MonoBehaviour
     [SerializeField] 
     float maxSteerAngle = 30.0f;
 
+    [Header("CollisionSensors")]
+    [SerializeField]
+    float checkFrontCar = 3.0f;
+    [SerializeField]
+    float distanceFrontSensor = 0.35f;
 
     [SerializeField]
     Vector3 _centerOfMass;
@@ -87,7 +93,6 @@ public class CarMovement : MonoBehaviour
     {
         previousTarget = targetPosition;
         targetPosition = pos[Random.Range(0, pos.Count)];
-        Debug.Log("New target: " + targetPosition);
     }
     public void setTarget(Vector3 pos)
     {
@@ -138,7 +143,18 @@ public class CarMovement : MonoBehaviour
             }
 
             //-------SPEED------------
-            moveInput = 1;
+
+            RaycastHit hitR;
+            RaycastHit hitL;
+            if (Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar) ||
+                Physics.Raycast(transform.position + -transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar))
+            {
+                moveInput = 0;
+            }
+            else
+            {
+                moveInput = 1;
+            };
         }
         
     }
@@ -165,7 +181,7 @@ public class CarMovement : MonoBehaviour
 
     void Brake()
     {
-        if (Input.GetKey(KeyCode.Space) || moveInput == 0)
+        if (moveInput == 0)
         {
             foreach (var wheel in wheels)
             {
@@ -191,5 +207,12 @@ public class CarMovement : MonoBehaviour
             wheel.wheelModel.transform.position = pos;
             wheel.wheelModel.transform.rotation = rot;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = UnityEngine.Color.blue;
+        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.forward * checkFrontCar);
+        Gizmos.DrawLine(transform.position + -transform.right * distanceFrontSensor, transform.position + -transform.right * distanceFrontSensor + transform.forward * checkFrontCar);
     }
 }
