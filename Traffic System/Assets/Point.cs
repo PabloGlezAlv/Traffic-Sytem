@@ -54,11 +54,10 @@ public class Point : MonoBehaviour
             
             Vector3 target = car.getTarget();
 
-            if (Vector3.Distance(transform.position, target) < 0.1) 
+            if (Vector3.Distance(transform.position, target) < 0.1)
             {
-                car.setTarget(nextPoints, endTrail, endPoint);
-
                 SendCarSpeedLimit(car);
+                car.setTarget(nextPoints, endTrail, endPoint);
             }
             
         }

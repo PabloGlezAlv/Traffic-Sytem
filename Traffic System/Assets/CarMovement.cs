@@ -135,6 +135,13 @@ public class CarMovement : MonoBehaviour
             {
                 direction = DriveDirection.Front;
             }
+
+            if(Vector3.Distance(transform.position, endLane[rng]) < 7)
+            {
+                speedValue /= 2;
+            }
+
+            Debug.Log(Vector3.Distance(transform.position, endLane[rng]));
         }
 
     }

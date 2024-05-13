@@ -228,7 +228,9 @@ public class Route : MonoBehaviour
             startIndex += pointsDensity + 1;
             for (int i = 0; i < routeDirections.Count; i++) // Each Direction
             {
-                
+                if (routeDirections[i].onlyLeft && l != 0) continue;
+                if (routeDirections[i].onlyRight && l != numberLanes - 1) continue;
+
                 conectionPoints.Add(Instantiate(midPoint, conectionLocations[pointIndex], transform.rotation, transform));
                 
                 //Add next point to first of line
@@ -256,11 +258,6 @@ public class Route : MonoBehaviour
             pointIndex++; //Add the start of the next line
             startIndex++; //Add the start of the next line
         }
-    }
-
-    void Update()
-    {
-
     }
 
     private void OnDrawGizmos()
