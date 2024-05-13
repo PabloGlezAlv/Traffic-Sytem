@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using Unity.VisualScripting;
+using UnityEditor.MemoryProfiler;
 using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
 using static UnityEditor.FilePathAttribute;
@@ -40,13 +41,17 @@ public class Route : MonoBehaviour
         public Vector3 startTangent;
         public Vector3 endTangent;
         public GameObject directionObject;
+        public bool onlyLeft;
+        public bool onlyRight;
 
-        public RouteDirection(int dens, Vector3 start, Vector3 end, GameObject obj)
+        public RouteDirection(int dens, Vector3 start, Vector3 end, GameObject obj, bool left, bool right)
         {
             density = dens;
             startTangent = start;
             endTangent = end;
             directionObject = obj;
+            onlyLeft = left;
+            onlyRight = right;
         }
     }
 
@@ -122,10 +127,12 @@ public class Route : MonoBehaviour
             }
 
             //Add connections points
-
             conectionLocations.Add(locations[locations.Count - 1].pos); //First one is last point
             for (int i = 0; i < routeDirections.Count; i++) // Points with intersections
             {
+                if (routeDirections[i].onlyLeft && l != 0) continue;
+                if (routeDirections[i].onlyRight && l != numberLanes -1) continue;
+
                 Vector3 start = locations[locations.Count - 1].pos;
                 Vector3 end;
                 List<Vector3> endList;
@@ -297,6 +304,9 @@ public class Route : MonoBehaviour
             int startIndex = pointIndex - 1;
             for (int i = 0; i < routeDirections.Count; i++) // Each Direction
             {
+                if (routeDirections[i].onlyLeft && l != 0) continue;
+                if (routeDirections[i].onlyRight && l != numberLanes - 1) continue;
+
                 Gizmos.DrawSphere(conectionLocations[pointIndex], 0.15f);
 
                 Gizmos.DrawLine(conectionLocations[startIndex], conectionLocations[pointIndex]);
