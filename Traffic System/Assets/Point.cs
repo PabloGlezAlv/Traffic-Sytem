@@ -23,6 +23,9 @@ public class Point : MonoBehaviour
     List<Vector3> nextPoints = new List<Vector3>();
 
     [SerializeField]
+    List<DrivingLane> nextLane = new List<DrivingLane>();
+
+    [SerializeField]
     List<Vector3> endTrail = new List<Vector3>();
 
     void SendCarSpeedLimit(CarMovement car)
@@ -51,6 +54,10 @@ public class Point : MonoBehaviour
     {
         nextPoints.Add(p);
     }
+    public void AddConexionLane(DrivingLane p)
+    {
+        nextLane.Add(p);
+    }
 
     public List<Vector3> getNextPoint()
     {
@@ -68,7 +75,7 @@ public class Point : MonoBehaviour
             if (Vector3.Distance(transform.position, target) < 0.1)
             {
                 SendCarSpeedLimit(car);
-                car.setTarget(nextPoints, endTrail, type);
+                car.setTarget(nextPoints, endTrail, nextLane, type);
             }
             
         }

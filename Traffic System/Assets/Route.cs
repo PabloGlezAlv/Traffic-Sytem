@@ -115,64 +115,69 @@ public class Route : MonoBehaviour
         DrivingLane lane = DrivingLane.OneLane;
         for(int l = 0; l < numberLanes; l++) //Run all lanes
         {
-            if(numberLanes != 1)
+            if (numberLanes != 1)
             {
                 if (l == 0) lane = DrivingLane.Left;
                 else if (l == 1) lane = DrivingLane.Right;
             }
             // Add route points
-            Vector3 p1 = child.position;
-            for (int i = 1; i < transform.childCount; i++) //Create each point in the lane
-            {
-                Vector3 p2 = transform.GetChild(i).position;
-
-                locations.Add(new PointInfo(getPerpendicularPoint(p1, p2, lanesDistance * routeIndex[l]), PointType.Start, lane));
-                
-                for (int j = 1; j <= pointsDensity; j++)
-                {
-                    locations.Add(new PointInfo(getPerpendicularPoint(Vector3.Lerp(p1, p2, (float)j / (pointsDensity + 1)), p2, lanesDistance * routeIndex[l]), PointType.Mid, lane));
-                }
-
-                locations.Add(new PointInfo(getPerpendicularPoint(p2, p1, -lanesDistance * routeIndex[l]), PointType.End, lane));
-
-                p1 = p2;
-            }
+            CreateLanePoints(child, lane, l);
 
             //Add connections points
-            conectionLocations.Add(locations[locations.Count - 1].pos); //First one is last point
-            for (int i = 0; i < routeDirections.Count; i++) // Points with intersections
+            CreateConectionPoints(l);
+        }
+    }
+
+    private void CreateConectionPoints(int l)
+    {
+        conectionLocations.Add(locations[locations.Count - 1].pos); //First one is last point
+        for (int i = 0; i < routeDirections.Count; i++) // Points with intersections
+        {
+            if (routeDirections[i].onlyLeft && l != 0) continue;
+            if (routeDirections[i].onlyRight && l != numberLanes - 1) continue;
+
+            Vector3 start = locations[locations.Count - 1].pos;
+            Vector3 end;
+            List<Vector3> endList = new List<Vector3>();
+
+            try
             {
-                if (routeDirections[i].onlyLeft && l != 0) continue;
-                if (routeDirections[i].onlyRight && l != numberLanes -1) continue;
-
-                Vector3 start = locations[locations.Count - 1].pos;
-                Vector3 end;
-                List<Vector3> endList = new List<Vector3>();
-
-                if(gameObject.name == "RouteLineL S2")
-                {
-                    int r  = 0;
-                }
-
-                try
-                {
-                    endList = routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition();
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError("Error cargar conexiones de " + gameObject.name + " en la linea " + l + "con la conexion " + i);
-                }
-
-                end = endList[l];
-
-                int numPoints = routeDirections[i].density;
-                for (int j = 1; j < numPoints + 1; j++)
-                {
-                    float t = j / (float)(numPoints + 1);
-                    Vector3 point = HermiteInterpolation(start, end, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
-                    conectionLocations.Add(point);
-                }
+                endList = routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition();
             }
+            catch (Exception e)
+            {
+                Debug.LogError("Error cargar conexiones de " + gameObject.name + " en la linea " + l + "con la conexion " + i);
+            }
+
+            end = endList[l];
+
+            int numPoints = routeDirections[i].density;
+            for (int j = 1; j < numPoints + 1; j++)
+            {
+                float t = j / (float)(numPoints + 1);
+                Vector3 point = HermiteInterpolation(start, end, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
+                conectionLocations.Add(point);
+            }
+        }
+    }
+
+    private void CreateLanePoints(Transform child, DrivingLane lane, int l)
+    {
+        Vector3 p1 = child.position;
+        for (int i = 1; i < transform.childCount; i++) //Create each point in the lane
+        {
+            Vector3 p2 = transform.GetChild(i).position;
+
+            locations.Add(new PointInfo(getPerpendicularPoint(p1, p2, lanesDistance * routeIndex[l]), PointType.Start, lane));
+
+            for (int j = 1; j <= pointsDensity; j++)
+            {
+                locations.Add(new PointInfo(getPerpendicularPoint(Vector3.Lerp(p1, p2, (float)j / (pointsDensity + 1)), p2, lanesDistance * routeIndex[l]), PointType.Mid, lane));
+            }
+
+            locations.Add(new PointInfo(getPerpendicularPoint(p2, p1, -lanesDistance * routeIndex[l]), PointType.End, lane));
+
+            p1 = p2;
         }
     }
 
@@ -208,7 +213,55 @@ public class Route : MonoBehaviour
 
     void Awake()
     {
-        //-------------Route points--------------------------
+        SpawnLinePoints();
+
+        SpawnConectionPoints();
+    }
+
+    private void SpawnConectionPoints()
+    {
+        int pointIndex = 1; //First one is the start
+        int startIndex = 0; //Postion of last point in route
+        for (int l = 0; l < numberLanes; l++)
+        {
+            //Debug.Log("Linea: " + l);
+            startIndex += pointsDensity + 1;
+            for (int i = 0; i < routeDirections.Count; i++) // Each Direction
+            {
+                if (routeDirections[i].onlyLeft && l != 0) continue;
+                if (routeDirections[i].onlyRight && l != numberLanes - 1) continue;
+
+                conectionPoints.Add(Instantiate(midPoint, conectionLocations[pointIndex], transform.rotation, transform));
+
+                //Add next point to first of line
+                movingPoints[startIndex].GetComponent<Point>().AddConexion(conectionLocations[pointIndex]);
+                pointIndex++;
+                //Add to first point the end of conection
+                movingPoints[startIndex].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
+
+                //Add the rest of points;
+                for (int j = pointIndex; j < pointIndex + routeDirections[i].density - 1; j++) // Points each direction
+                {
+                    conectionPoints.Add(Instantiate(midPoint, conectionLocations[j], transform.rotation, transform));
+
+                    conectionPoints[conectionPoints.Count - 2].GetComponent<Point>().AddConexion(conectionPoints[conectionPoints.Count - 1].transform.position);
+                    conectionPoints[conectionPoints.Count - 2].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
+                }
+
+                //Last point conected with start of next line
+                conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddConexion(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
+                conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
+
+                pointIndex += routeDirections[i].density - 1;
+
+            }
+            pointIndex++; //Add the start of the next line
+            startIndex++; //Add the start of the next line
+        }
+    }
+
+    private void SpawnLinePoints()
+    {
         int points = locations.Count / numberLanes;
         for (int l = 0; l < numberLanes; l++) //Route conecction
         {
@@ -219,12 +272,12 @@ public class Route : MonoBehaviour
                 if (locations[i].type == PointType.End)
                 {
                     movingPoints.Add(Instantiate(endPoint, locations[i].pos, transform.GetChild(endPointIndex).transform.rotation, transform));
-                   
+
                     movingPoints[movingPoints.Count - 1].GetComponent<Point>().setSpeedLimit(exitSpeed);
-                    
+
                     endPointIndex++;
                 }
-                else if(locations[i].type == PointType.Start)
+                else if (locations[i].type == PointType.Start)
                 {
                     movingPoints.Add(Instantiate(startPoint, locations[i].pos, transform.GetChild(endPointIndex).transform.rotation, transform));
 
@@ -242,52 +295,12 @@ public class Route : MonoBehaviour
                 {
                     movingPoints[i - 1].GetComponent<Point>().AddConexion(movingPoints[i].transform.position);
                     movingPoints[i - 1].GetComponent<Point>().AddTrailEnd(locations[limit - 1].pos);
+                    movingPoints[i - 1].GetComponent<Point>().AddConexionLane(locations[limit - 1].lane);
                 }
 
                 //Tell the lane of the point
                 movingPoints[i].GetComponent<Point>().setLane(locations[i].lane);
             }
-        }
-
-
-        //-------------Conection points---------------------------
-        int pointIndex = 1; //First one is the start
-        int startIndex = 0; //Postion of last point in route
-        for (int l = 0; l < numberLanes; l++)
-        {
-            //Debug.Log("Linea: " + l);
-            startIndex += pointsDensity + 1;
-            for (int i = 0; i < routeDirections.Count; i++) // Each Direction
-            {
-                if (routeDirections[i].onlyLeft && l != 0) continue;
-                if (routeDirections[i].onlyRight && l != numberLanes - 1) continue;
-
-                conectionPoints.Add(Instantiate(midPoint, conectionLocations[pointIndex], transform.rotation, transform));
-                
-                //Add next point to first of line
-                movingPoints[startIndex].GetComponent<Point>().AddConexion(conectionLocations[pointIndex]);
-                pointIndex++;
-                //Add to first point the end of conection
-                movingPoints[startIndex].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
-
-                //Add the rest of points;
-                for (int j = pointIndex; j < pointIndex + routeDirections[i].density - 1; j++) // Points each direction
-                {
-                    conectionPoints.Add(Instantiate(midPoint, conectionLocations[j], transform.rotation, transform));
-                    
-                    conectionPoints[conectionPoints.Count - 2].GetComponent<Point>().AddConexion(conectionPoints[conectionPoints.Count - 1].transform.position);
-                    conectionPoints[conectionPoints.Count - 2].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
-                }
-
-                //Last point conected with start of next line
-                conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddConexion(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
-                conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
-
-                pointIndex += routeDirections[i].density - 1;
-
-            }
-            pointIndex++; //Add the start of the next line
-            startIndex++; //Add the start of the next line
         }
     }
 

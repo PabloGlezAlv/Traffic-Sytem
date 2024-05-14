@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Net.Http.Headers;
 using TMPro;
@@ -80,8 +81,10 @@ public class CarMovement : MonoBehaviour
     private float speedLimit = 30;
     private float speedValue = 0;
 
-
+    [Header("Debug Parameters")]
+    [SerializeField]
     DriveDirection direction = DriveDirection.Front;
+    [SerializeField]
     DrivingLane carLane = DrivingLane.OneLane;
 
     bool safeRouteChange = false;
@@ -124,11 +127,19 @@ public class CarMovement : MonoBehaviour
     {
         return targetPosition;
     }
-    public void setTarget(List<Vector3> pos, List<Vector3> endLane, PointType type)//Chek if endPoint to check if movement left rotation
+    public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes,PointType type)//Chek if endPoint to check if movement left rotation
     {
         previousTarget = targetPosition;
         int rng = Random.Range(0, pos.Count);
+
+        //Set car parameters
         targetPosition = pos[rng];
+
+        if(lanes.Count > 0) //This means next point is a conection
+        {
+            carLane = lanes[rng];
+        }
+
 
         if (type == PointType.End) //Check direction to turn
         {
