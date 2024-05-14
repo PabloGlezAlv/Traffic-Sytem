@@ -7,6 +7,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEditor.MemoryProfiler;
 using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
+using static CarMovement;
 using static Point;
 using static UnityEditor.FilePathAttribute;
 
@@ -61,11 +62,13 @@ public class Route : MonoBehaviour
     private struct PointInfo
     {
         public Vector3 pos;
+        public DrivingLane lane;
         public PointType type;
-        public PointInfo(Vector3 position, PointType isEndPoint)
+        public PointInfo(Vector3 position, PointType isEndPoint, DrivingLane l)
         {
             pos = position;
             type = isEndPoint;
+            lane = l;
         }
     }
 
@@ -109,22 +112,28 @@ public class Route : MonoBehaviour
         Transform child = transform.GetChild(0);
 
 
+        DrivingLane lane = DrivingLane.OneLane;
         for(int l = 0; l < numberLanes; l++) //Run all lanes
         {
+            if(numberLanes != 1)
+            {
+                if (l == 0) lane = DrivingLane.Left;
+                else if (l == 1) lane = DrivingLane.Right;
+            }
             // Add route points
             Vector3 p1 = child.position;
             for (int i = 1; i < transform.childCount; i++) //Create each point in the lane
             {
                 Vector3 p2 = transform.GetChild(i).position;
 
-                locations.Add(new PointInfo(getPerpendicularPoint(p1, p2, lanesDistance * routeIndex[l]), PointType.Start));
+                locations.Add(new PointInfo(getPerpendicularPoint(p1, p2, lanesDistance * routeIndex[l]), PointType.Start, lane));
                 
                 for (int j = 1; j <= pointsDensity; j++)
                 {
-                    locations.Add(new PointInfo(getPerpendicularPoint(Vector3.Lerp(p1, p2, (float)j / (pointsDensity + 1)), p2, lanesDistance * routeIndex[l]), PointType.Mid));
+                    locations.Add(new PointInfo(getPerpendicularPoint(Vector3.Lerp(p1, p2, (float)j / (pointsDensity + 1)), p2, lanesDistance * routeIndex[l]), PointType.Mid, lane));
                 }
 
-                locations.Add(new PointInfo(getPerpendicularPoint(p2, p1, -lanesDistance * routeIndex[l]), PointType.End));
+                locations.Add(new PointInfo(getPerpendicularPoint(p2, p1, -lanesDistance * routeIndex[l]), PointType.End, lane));
 
                 p1 = p2;
             }
@@ -138,9 +147,22 @@ public class Route : MonoBehaviour
 
                 Vector3 start = locations[locations.Count - 1].pos;
                 Vector3 end;
-                List<Vector3> endList;
-                
-                endList = routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition();
+                List<Vector3> endList = new List<Vector3>();
+
+                if(gameObject.name == "RouteLineL S2")
+                {
+                    int r  = 0;
+                }
+
+                try
+                {
+                    endList = routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition();
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError("Error cargar conexiones de " + gameObject.name + " en la linea " + l + "con la conexion " + i);
+                }
+
                 end = endList[l];
 
                 int numPoints = routeDirections[i].density;
@@ -221,6 +243,9 @@ public class Route : MonoBehaviour
                     movingPoints[i - 1].GetComponent<Point>().AddConexion(movingPoints[i].transform.position);
                     movingPoints[i - 1].GetComponent<Point>().AddTrailEnd(locations[limit - 1].pos);
                 }
+
+                //Tell the lane of the point
+                movingPoints[i].GetComponent<Point>().setLane(locations[i].lane);
             }
         }
 

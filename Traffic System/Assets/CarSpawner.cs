@@ -28,6 +28,8 @@ public class CarSpawner : MonoBehaviour
 
 
             carSpawned[i].GetComponent<CarMovement>().setTarget(spawn[i].transform.position);
+
+            
         }
     }
 }

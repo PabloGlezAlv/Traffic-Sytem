@@ -17,6 +17,10 @@ public class CarMovement : MonoBehaviour
     {
         Front, Left, Right
     }
+    public enum DrivingLane
+    {
+        OneLane, Left, Right
+    }
     public enum Axel
     {
         Front,
@@ -78,6 +82,7 @@ public class CarMovement : MonoBehaviour
 
 
     DriveDirection direction = DriveDirection.Front;
+    DrivingLane carLane = DrivingLane.OneLane;
 
     bool safeRouteChange = false;
     void Start()
@@ -87,7 +92,13 @@ public class CarMovement : MonoBehaviour
 
         speedValue = speedLimit / maxAcceleration;
     }
-    
+
+    public void setLane(DrivingLane lane)
+    {
+        carLane = lane;
+    }
+
+
     public void setSpeedLimit(float speedLimit)
     {
         this.speedLimit = speedLimit;

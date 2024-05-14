@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static CarMovement;
 
 public class Point : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Point : MonoBehaviour
 
     [SerializeField]
     PointType type = PointType.Mid;
+
+    [SerializeField]
+    DrivingLane lane = DrivingLane.OneLane;
 
     [SerializeField]
     float speedLimit = -1;
@@ -31,6 +35,11 @@ public class Point : MonoBehaviour
     public void setSpeedLimit(float speedLimit)
     { 
         this.speedLimit = speedLimit;
+    }
+
+    public void setLane(DrivingLane lane)
+    {
+        this.lane = lane;
     }
 
     public void AddTrailEnd(Vector3 p)
