@@ -10,6 +10,7 @@ using UnityEngine;
 using static CarMovement;
 using static Point;
 using static UnityEditor.FilePathAttribute;
+using static UnityEditor.PlayerSettings;
 
 public class Route : MonoBehaviour
 {
@@ -302,6 +303,32 @@ public class Route : MonoBehaviour
                 movingPoints[i].GetComponent<Point>().setLane(locations[i].lane);
             }
         }
+
+        if(numberLanes > 1)
+        {
+            for (int l = 0; l < numberLanes; l++)
+            {
+                for (int i = points * l + 1; i < points * (l + 1) - 1; i++)
+                {
+                    
+                    if (l == 0)
+                    {
+                        int dest = points + i + 1; // THE 1 represent the point in the line of l = 1
+                        
+
+                        movingPoints[i].GetComponent<Point>().AddConexion(movingPoints[dest].transform.position);
+                        movingPoints[i].GetComponent<Point>().AddConexionLane(DrivingLane.Right);
+                    }
+                    else if (l == 1)
+                    {
+                        int dest = i + 1 - points;
+
+                        movingPoints[i].GetComponent<Point>().AddConexion(movingPoints[dest].transform.position);
+                        movingPoints[i].GetComponent<Point>().AddConexionLane(DrivingLane.Left);
+                    }
+                }
+            }
+        }
     }
 
     private void OnDrawGizmos()
@@ -340,6 +367,24 @@ public class Route : MonoBehaviour
             for (int i = points * l; i < (points *(l+1)) - 1; i++)
             {
                 Gizmos.DrawLine(locations[i].pos, locations[i + 1].pos);
+
+                if(numberLanes > 1 && i > points *l + 1 && i < points *(l+1) -1)
+                {
+                    Gizmos.color = Color.green;
+                    if (l == 0)
+                    {
+                        int dest = points * 1 + i - points * l - 1; // THE 1 represent the point in the line of l = 1
+
+                        Gizmos.DrawLine(locations[i].pos, locations[dest].pos);
+                    }
+                    else if(l == 1)
+                    {
+                        int dest = i - points * l - 1;
+                        Gizmos.DrawLine(locations[i].pos, locations[dest].pos);
+                    }
+
+                    Gizmos.color = Color.red;
+                }
             }
         }
 
