@@ -118,4 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6643def1433869249b25a5c47e7dad8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: 1
+  type: 1
+  speedLimit: -1
+  nextPoints: []
+  endTrail: []

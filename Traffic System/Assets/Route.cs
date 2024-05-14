@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.MemoryProfiler;
 using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
+using static Point;
 using static UnityEditor.FilePathAttribute;
 
 public class Route : MonoBehaviour
@@ -25,7 +27,8 @@ public class Route : MonoBehaviour
     [SerializeField]
     float exitSpeed = 20;
 
-
+    [SerializeField]
+    GameObject startPoint;
     [SerializeField]
     GameObject midPoint;
     [SerializeField]
@@ -55,18 +58,18 @@ public class Route : MonoBehaviour
         }
     }
 
-    private struct PointType
+    private struct PointInfo
     {
         public Vector3 pos;
-        public bool endPoint;
-        public PointType(Vector3 position, bool isEndPoint)
+        public PointType type;
+        public PointInfo(Vector3 position, PointType isEndPoint)
         {
             pos = position;
-            endPoint = isEndPoint;
+            type = isEndPoint;
         }
     }
 
-    List<PointType> locations = new List<PointType>();
+    List<PointInfo> locations = new List<PointInfo>();
 
     List<Vector3> conectionLocations = new List<Vector3>();
 
@@ -114,14 +117,14 @@ public class Route : MonoBehaviour
             {
                 Vector3 p2 = transform.GetChild(i).position;
 
-                locations.Add(new PointType(getPerpendicularPoint(p1, p2, lanesDistance * routeIndex[l]), true));
+                locations.Add(new PointInfo(getPerpendicularPoint(p1, p2, lanesDistance * routeIndex[l]), PointType.Start));
                 
                 for (int j = 1; j <= pointsDensity; j++)
                 {
-                    locations.Add(new PointType(getPerpendicularPoint(Vector3.Lerp(p1, p2, (float)j / (pointsDensity + 1)), p2, lanesDistance * routeIndex[l]), false));
+                    locations.Add(new PointInfo(getPerpendicularPoint(Vector3.Lerp(p1, p2, (float)j / (pointsDensity + 1)), p2, lanesDistance * routeIndex[l]), PointType.Mid));
                 }
 
-                locations.Add(new PointType(getPerpendicularPoint(p2, p1, -lanesDistance * routeIndex[l]), true));
+                locations.Add(new PointInfo(getPerpendicularPoint(p2, p1, -lanesDistance * routeIndex[l]), PointType.End));
 
                 p1 = p2;
             }
@@ -191,17 +194,20 @@ public class Route : MonoBehaviour
             int limit = ((points * (l + 1)));
             for (int i = points * l; i < limit; i++)
             {
-                if (locations[i].endPoint)
+                if (locations[i].type == PointType.End)
                 {
                     movingPoints.Add(Instantiate(endPoint, locations[i].pos, transform.GetChild(endPointIndex).transform.rotation, transform));
-                    if(endPointIndex%2 == 0) //Set speed for start 
-                    {
-                        movingPoints[movingPoints.Count - 1].GetComponent<Point>().setSpeedLimit(enterSpeed);
-                    }
-                    else
-                    {
-                        movingPoints[movingPoints.Count - 1].GetComponent<Point>().setSpeedLimit(exitSpeed);
-                    }
+                   
+                    movingPoints[movingPoints.Count - 1].GetComponent<Point>().setSpeedLimit(exitSpeed);
+                    
+                    endPointIndex++;
+                }
+                else if(locations[i].type == PointType.Start)
+                {
+                    movingPoints.Add(Instantiate(startPoint, locations[i].pos, transform.GetChild(endPointIndex).transform.rotation, transform));
+
+                    movingPoints[movingPoints.Count - 1].GetComponent<Point>().setSpeedLimit(enterSpeed);
+
                     endPointIndex++;
                     if (spawnerRoute && i == points * l) spawner.addSpawnPoint(movingPoints[movingPoints.Count - 1]);
                 }
@@ -263,7 +269,7 @@ public class Route : MonoBehaviour
     private void OnDrawGizmos()
     {
         // Position of the points
-        Gizmos.color = Color.white;
+        Gizmos.color = Color.blue;
         for (int i = 0; i < transform.childCount; i++)
         {
             Gizmos.DrawSphere(transform.GetChild(i).position, 0.3f);
@@ -271,9 +277,14 @@ public class Route : MonoBehaviour
         // Position of points in the line
         for (int i = 0; i < locations.Count; i++)
         {
-            if (locations[i].endPoint)
+            if (locations[i].type == PointType.Start)
             {
-                Gizmos.color = Color.blue;
+                Gizmos.color = Color.white;
+                Gizmos.DrawSphere(locations[i].pos, 0.3f);
+            }
+            else if (locations[i].type == PointType.End)
+            {
+                Gizmos.color = Color.black;
                 Gizmos.DrawSphere(locations[i].pos, 0.3f);
             }
             else

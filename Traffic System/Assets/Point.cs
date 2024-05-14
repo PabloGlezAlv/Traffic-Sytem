@@ -7,8 +7,10 @@ using UnityEngine;
 
 public class Point : MonoBehaviour
 {
+    public enum PointType { Start, End, Mid }
+
     [SerializeField]
-    bool endPoint = false;
+    PointType type = PointType.Mid;
 
     [SerializeField]
     float speedLimit = -1;
@@ -57,7 +59,7 @@ public class Point : MonoBehaviour
             if (Vector3.Distance(transform.position, target) < 0.1)
             {
                 SendCarSpeedLimit(car);
-                car.setTarget(nextPoints, endTrail, endPoint);
+                car.setTarget(nextPoints, endTrail, type);
             }
             
         }

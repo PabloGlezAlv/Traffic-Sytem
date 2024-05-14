@@ -78,10 +78,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberLanes: 1
+  lanesDistance: 1.4
   pointsDensity: 7
+  spawnerRoute: 1
   spawner: {fileID: 0}
+  enterSpeed: 60
+  exitSpeed: 20
+  startPoint: {fileID: 5637818702618719893, guid: f1603f98e9fb38d4a963cc13a88c050d, type: 3}
   midPoint: {fileID: 5637818702618719893, guid: a3555faec85418d418181c20a0ca93d1, type: 3}
   endPoint: {fileID: 5637818702618719893, guid: 8adc0159baec1e4469cfdbc7ec2cdbec, type: 3}
+  routeDirections: []
 --- !u!1 &2004545702665467025
 GameObject:
   m_ObjectHideFlags: 0
