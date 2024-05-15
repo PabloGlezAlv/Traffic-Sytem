@@ -300,7 +300,6 @@ public class CarMovement : MonoBehaviour
         {
             wheel.wheelCollider.motorTorque = moveInput * 600 * maxAcceleration * Time.deltaTime;
         }
-        Debug.Log(Time.deltaTime);
     }
 
     void Steer()
