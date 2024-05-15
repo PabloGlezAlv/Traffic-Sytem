@@ -130,7 +130,12 @@ public class CarMovement : MonoBehaviour
     public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes,PointType type)//Chek if endPoint to check if movement left rotation
     {
         previousTarget = targetPosition;
-        int rng = Random.Range(0, pos.Count);
+        int rng; 
+        rng = Random.Range(0, pos.Count);
+
+        if(type == PointType.Mid)
+            rng = Random.Range(0, pos.Count -1);
+
 
         //Set car parameters
         targetPosition = pos[rng];
@@ -295,6 +300,7 @@ public class CarMovement : MonoBehaviour
         {
             wheel.wheelCollider.motorTorque = moveInput * 600 * maxAcceleration * Time.deltaTime;
         }
+        Debug.Log(Time.deltaTime);
     }
 
     void Steer()

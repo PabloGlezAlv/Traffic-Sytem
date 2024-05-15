@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Console
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -165,7 +165,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1181.6
-    height: 429.6
+    height: 430.4
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 245.6
-    height: 429.6
+    height: 430.4
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
@@ -214,7 +214,7 @@ MonoBehaviour:
     x: 245.6
     y: 0
     width: 936
-    height: 429.6
+    height: 430.4
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
@@ -241,9 +241,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 429.6
+    y: 430.4
     width: 1181.6
-    height: 293.19998
+    height: 292.4
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
@@ -349,7 +349,7 @@ MonoBehaviour:
     x: 0
     y: 73.6
     width: 244.6
-    height: 408.6
+    height: 409.4
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -362,10 +362,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a094feff
-      m_LastClickedID: 0
-      m_ExpandedIDs: 18fbffff2cfbffff
+      scrollPos: {x: 0, y: 395.6}
+      m_SelectedIDs: 3e46ffff
+      m_LastClickedID: -47554
+      m_ExpandedIDs: 44f6ffffc6f8ffff2efaffff32faffff0cfbffff1afbffff20fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -412,7 +412,7 @@ MonoBehaviour:
     x: 245.6
     y: 73.6
     width: 934
-    height: 408.6
+    height: 409.4
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -784,9 +784,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -39.608242, y: -3.4823475, z: -7.688505}
+    m_Target: {x: -42.22403, y: -3.0382767, z: -6.056638}
     speed: 2
-    m_Value: {x: -39.608242, y: -3.4823475, z: -7.688505}
+    m_Value: {x: -42.22403, y: -3.0382767, z: -6.056638}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -832,13 +832,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.54476917, y: 0.15680043, z: -0.10453314, w: 0.8171602}
+    m_Target: {x: 0.5353953, y: 0.034676008, z: -0.022006543, w: 0.8436247}
     speed: 2
-    m_Value: {x: 0.5446015, y: 0.15802301, z: -0.1053482, w: 0.8169087}
+    m_Value: {x: 0.5353853, y: 0.03467536, z: -0.022006132, w: 0.8436089}
   m_Size:
-    m_Target: 10.209287
+    m_Target: 14.988562
     speed: 2
-    m_Value: 10.690352
+    m_Value: 14.988562
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -886,7 +886,7 @@ MonoBehaviour:
     x: 245.6
     y: 73.6
     width: 934
-    height: 408.6
+    height: 409.4
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -940,22 +940,22 @@ MonoBehaviour:
       x: 0
       y: 21
       width: 934
-      height: 387.6
-    m_Scale: {x: 0.4486111, y: 0.4486111}
-    m_Translation: {x: 467, y: 193.8}
+      height: 388.4
+    m_Scale: {x: 0.44953704, y: 0.44953704}
+    m_Translation: {x: 467, y: 194.2}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1040.9907
+      x: -1038.8466
       y: -432
-      width: 2081.9814
+      width: 2077.693
       height: 864
     m_MinimalGUI: 1
-  m_defaultScale: 0.4486111
-  m_LastWindowPixelSize: {x: 1167.5, y: 510.75}
+  m_defaultScale: 0.44953704
+  m_LastWindowPixelSize: {x: 1167.5, y: 511.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -1232,9 +1232,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 503.2
+    y: 504
     width: 1180.6
-    height: 272.19998
+    height: 271.4
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0

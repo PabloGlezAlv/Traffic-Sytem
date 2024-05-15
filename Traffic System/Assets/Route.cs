@@ -285,7 +285,7 @@ public class Route : MonoBehaviour
                     movingPoints[movingPoints.Count - 1].GetComponent<Point>().setSpeedLimit(enterSpeed);
 
                     endPointIndex++;
-                    if (spawnerRoute && i == points * l) spawner.addSpawnPoint(movingPoints[movingPoints.Count - 1]);
+                    if (spawnerRoute && l ==1) spawner.addSpawnPoint(movingPoints[movingPoints.Count - 1]);
                 }
                 else
                 {
