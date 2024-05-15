@@ -364,6 +364,7 @@
 "Assets/Point.cs"
 "Assets/RoadManager.cs"
 "Assets/Route.cs"
+"Assets/StopLightSystem.cs"
 "Assets/Store/FreeFlyCamera/Scripts/FreeFlyCamera.cs"
 -langversion:9.0
 
