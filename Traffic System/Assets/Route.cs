@@ -141,14 +141,9 @@ public class Route : MonoBehaviour
             Vector3 end;
             List<Vector3> endList = new List<Vector3>();
 
-            try
-            {
-                endList = routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition();
-            }
-            catch (Exception e)
-            {
-                Debug.LogError("Error cargar conexiones de " + gameObject.name + " en la linea " + l + "con la conexion " + i);
-            }
+            
+            endList = routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition();
+
 
             end = endList[l];
 
@@ -290,6 +285,14 @@ public class Route : MonoBehaviour
                 else
                 {
                     movingPoints.Add(Instantiate(midPoint, locations[i].pos, transform.rotation, transform));
+
+                    float speed = enterSpeed;
+
+                    if(exitSpeed < enterSpeed && points > 2 && limit - 2 <= i) //Close to the end if endspeeed lower reduce in the last 2 points
+                    {
+                        speed = Mathf.Lerp(exitSpeed, enterSpeed,  limit - i/ 3);
+                    }
+                    movingPoints[movingPoints.Count - 1].GetComponent<Point>().setSpeedLimit(enterSpeed);
                 }
 
                 if (i != points * l) //Add to the previous point the last one
@@ -301,6 +304,12 @@ public class Route : MonoBehaviour
 
                 //Tell the lane of the point
                 movingPoints[i].GetComponent<Point>().setLane(locations[i].lane);
+            }
+
+            if(enterSpeed > exitSpeed && points > 6) //In case enough point decelerate in lst point
+            {
+                movingPoints[movingPoints.Count - 2].GetComponent<Point>().setSpeedLimit(Mathf.Lerp(exitSpeed, enterSpeed, 0.33f));
+                movingPoints[movingPoints.Count - 3].GetComponent<Point>().setSpeedLimit(Mathf.Lerp(exitSpeed, enterSpeed, 0.66f));
             }
         }
 

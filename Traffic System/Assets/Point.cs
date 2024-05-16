@@ -74,7 +74,8 @@ public class Point : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target) < 0.1)
             {
-                SendCarSpeedLimit(car);
+                if(type != PointType.Start)
+                    SendCarSpeedLimit(car);
                 car.setTarget(nextPoints, endTrail, nextLane, type);
             }
             
