@@ -15,7 +15,7 @@ C:/Users/pablo/Desktop/Traffic-Sytem/Traffic System
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-53509
+50434
 Successfully changed project path to: C:/Users/pablo/Desktop/Traffic-Sytem/Traffic System
 C:/Users/pablo/Desktop/Traffic-Sytem/Traffic System
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/pablo/Desktop/Traffic-Sytem/Traffic System
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [17868] Host "[IP] 10.247.1.186 [Port] 0 [Flags] 2 [Guid] 548720997 [EditorId] 548720997 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [17500] Host "[IP] 10.247.1.186 [Port] 0 [Flags] 2 [Guid] 450224978 [EditorId] 450224978 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [17868] Host "[IP] 10.247.1.186 [Port] 0 [Flags] 2 [Guid] 548720997 [EditorId] 548720997 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [17500] Host "[IP] 10.247.1.186 [Port] 0 [Flags] 2 [Guid] 450224978 [EditorId] 450224978 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 10.63 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 8.17 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.10f1 (ff3792e53c62)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -70,19 +70,19 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56224
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56036
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.010618 seconds.
-- Loaded All Assemblies, in  0.412 seconds
+Registered in 0.012577 seconds.
+- Loaded All Assemblies, in  0.457 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.317 seconds
-Domain Reload Profiling: 727ms
-	BeginReloadAssembly (117ms)
+- Finished resetting the current domain, in  0.340 seconds
+Domain Reload Profiling: 795ms
+	BeginReloadAssembly (147ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
@@ -90,26 +90,26 @@ Domain Reload Profiling: 727ms
 		CreateAndSetChildDomain (1ms)
 	RebuildCommonClasses (39ms)
 	RebuildNativeTypeToScriptingClass (13ms)
-	initialDomainReloadingComplete (65ms)
-	LoadAllAssembliesAndSetupDomain (176ms)
-		LoadAssemblies (114ms)
+	initialDomainReloadingComplete (76ms)
+	LoadAllAssembliesAndSetupDomain (179ms)
+		LoadAssemblies (143ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (173ms)
-			TypeCache.Refresh (171ms)
-				TypeCache.ScanAssembly (154ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
+		AnalyzeDomain (177ms)
+			TypeCache.Refresh (175ms)
+				TypeCache.ScanAssembly (160ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (318ms)
+	FinalizeReload (341ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (240ms)
+		SetupLoadedEditorAssemblies (263ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (14ms)
-			SetLoadedEditorAssemblies (7ms)
+			InitializePlatformSupportModulesInManaged (19ms)
+			SetLoadedEditorAssemblies (11ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (154ms)
-			ProcessInitializeOnLoadMethodAttributes (63ms)
+			BeforeProcessingInitializeOnLoad (4ms)
+			ProcessInitializeOnLoadAttributes (172ms)
+			ProcessInitializeOnLoadMethodAttributes (58ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -117,8 +117,8 @@ Domain Reload Profiling: 727ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.779 seconds
-Refreshing native plugins compatible for Editor in 3.52 ms, found 3 plugins.
+- Loaded All Assemblies, in  0.849 seconds
+Refreshing native plugins compatible for Editor in 3.88 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Package Manager log level set to [2]
@@ -126,48 +126,77 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.818 seconds
-Domain Reload Profiling: 1593ms
-	BeginReloadAssembly (167ms)
+- Finished resetting the current domain, in  0.890 seconds
+Domain Reload Profiling: 1736ms
+	BeginReloadAssembly (171ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (25ms)
-	RebuildCommonClasses (39ms)
+		CreateAndSetChildDomain (24ms)
+	RebuildCommonClasses (56ms)
 	RebuildNativeTypeToScriptingClass (13ms)
-	initialDomainReloadingComplete (46ms)
-	LoadAllAssembliesAndSetupDomain (511ms)
-		LoadAssemblies (386ms)
+	initialDomainReloadingComplete (55ms)
+	LoadAllAssembliesAndSetupDomain (549ms)
+		LoadAssemblies (388ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (219ms)
-			TypeCache.Refresh (192ms)
-				TypeCache.ScanAssembly (175ms)
-			ScanForSourceGeneratedMonoScriptInfo (20ms)
+		AnalyzeDomain (260ms)
+			TypeCache.Refresh (230ms)
+				TypeCache.ScanAssembly (209ms)
+			ScanForSourceGeneratedMonoScriptInfo (23ms)
 			ResolveRequiredComponents (5ms)
-	FinalizeReload (818ms)
+	FinalizeReload (891ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (625ms)
+		SetupLoadedEditorAssemblies (682ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (9ms)
-			SetLoadedEditorAssemblies (4ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (108ms)
-			ProcessInitializeOnLoadAttributes (475ms)
+			BeforeProcessingInitializeOnLoad (124ms)
+			ProcessInitializeOnLoadAttributes (513ms)
 			ProcessInitializeOnLoadMethodAttributes (21ms)
-			AfterProcessingInitializeOnLoad (9ms)
+			AfterProcessingInitializeOnLoad (8ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (10ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 5.06 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (9ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 6.44 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3497 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 38 unused Assets / (57.0 KB). Loaded Objects now: 3975.
-Memory consumption went from 134.8 MB to 134.8 MB.
-Total: 4.191000 ms (FindLiveObjects: 0.273700 ms CreateObjectMapping: 0.389200 ms MarkObjects: 3.211800 ms  DeleteObjects: 0.314000 ms)
+Memory consumption went from 134.7 MB to 134.6 MB.
+Total: 3.852300 ms (FindLiveObjects: 0.450200 ms CreateObjectMapping: 0.257400 ms MarkObjects: 3.039200 ms  DeleteObjects: 0.104200 ms)
 
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 650.392260 seconds.
+  path: Assets/Prefabs/Car Player.prefab
+  artifactKey: Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Car Player.prefab using Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bba3fbd02f903d30460425b1a2a469d') in 0.158097 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 50
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 81.55 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (0.8 KB). Loaded Objects now: 3984.
+Memory consumption went from 83.6 MB to 83.6 MB.
+Total: 6.323500 ms (FindLiveObjects: 0.352100 ms CreateObjectMapping: 0.303800 ms MarkObjects: 5.645600 ms  DeleteObjects: 0.021100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -183,557 +212,709 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 648515.998480 seconds.
-  path: Assets/Prefabs/Map.prefab
-  artifactKey: Guid(9ca78af6b7008644d884b5a99ff8753d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Map.prefab using Guid(9ca78af6b7008644d884b5a99ff8753d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Error cargar conexiones de RouteMid S4 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineR S3 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineR S4 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteRound4A en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteMidL S11 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineL S6 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineR S10 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteRound2B en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineR S6 en la linea 0con la conexion 1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineR S7 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineR S1 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineL S2 en la linea 0con la conexion 1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteRound3A en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineL S3 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineL S4 en la linea 0con la conexion 1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteRound1B en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineR S9 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteMidR S11 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteRound3B en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineL S9 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineL S10 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineR S2 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineR S8 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteRound2A en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineR S5 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteRound1A en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteRound1B en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineL S5 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineL S7 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
-Error cargar conexiones de RouteLineL S1 en la linea 0con la conexion 0
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-Route:CreateConectionPoints (int) (at Assets/Route.cs:150)
-Route:OnValidate () (at Assets/Route.cs:128)
-
-(Filename: Assets/Route.cs Line: 150)
-
-ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <787acc3c9a4c471ba7d971300105af24>:0 
-  at Route.CreateConectionPoints (System.Int32 l) [0x0011b] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:153 
-  at Route.OnValidate () [0x00052] in C:\Users\pablo\Desktop\Traffic-Sytem\Traffic System\Assets\Route.cs:128 
-
-(Filename: Assets/Route.cs Line: 153)
-
- -> (artifact id: 'e34df1f9d37dbfbb74be92778b8858d6') in 0.179268 seconds
+  Time since last request: 332.133565 seconds.
+  path: Assets/Prefabs/Car Player.prefab
+  artifactKey: Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Car Player.prefab using Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3947f54379478d19be5b7af6b8a65575') in 0.039300 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1091
+Number of asset objects unloaded after import = 50
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  2.444 seconds
+Refreshing native plugins compatible for Editor in 3.69 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 10.110 seconds
+Domain Reload Profiling: 12551ms
+	BeginReloadAssembly (195ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (40ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (2157ms)
+		LoadAssemblies (2239ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (30ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (14ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (10111ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (730ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (161ms)
+			ProcessInitializeOnLoadAttributes (516ms)
+			ProcessInitializeOnLoadMethodAttributes (23ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Refreshing native plugins compatible for Editor in 5.13 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3489 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.1 KB). Loaded Objects now: 3986.
+Memory consumption went from 137.5 MB to 137.5 MB.
+Total: 3.539800 ms (FindLiveObjects: 0.275200 ms CreateObjectMapping: 0.289500 ms MarkObjects: 2.927800 ms  DeleteObjects: 0.046200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.633 seconds
+Refreshing native plugins compatible for Editor in 4.45 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.303 seconds
+Domain Reload Profiling: 1933ms
+	BeginReloadAssembly (208ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (39ms)
+	LoadAllAssembliesAndSetupDomain (317ms)
+		LoadAssemblies (413ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (18ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1304ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (694ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (11ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (136ms)
+			ProcessInitializeOnLoadAttributes (508ms)
+			ProcessInitializeOnLoadMethodAttributes (23ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 4.51 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3490 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.1 KB). Loaded Objects now: 3989.
+Memory consumption went from 137.8 MB to 137.7 MB.
+Total: 3.471000 ms (FindLiveObjects: 0.280100 ms CreateObjectMapping: 0.229000 ms MarkObjects: 2.909400 ms  DeleteObjects: 0.051400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.883024 seconds.
-  path: Assets/Prefabs/StopLightSystem.prefab
-  artifactKey: Guid(ff481c4ee38fe73478018c043320f476) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/StopLightSystem.prefab using Guid(ff481c4ee38fe73478018c043320f476) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d7d602079abcdb88cf0173a34b2d20e') in 0.012933 seconds
+  Time since last request: 82.215612 seconds.
+  path: Assets/Prefabs/Car Player.prefab
+  artifactKey: Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Car Player.prefab using Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd498bb3472a0d2cf98362d26df270198') in 0.086527 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 45
+Number of asset objects unloaded after import = 50
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.523 seconds
+Refreshing native plugins compatible for Editor in 3.82 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.186 seconds
+Domain Reload Profiling: 1706ms
+	BeginReloadAssembly (173ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (44ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (29ms)
+	LoadAllAssembliesAndSetupDomain (271ms)
+		LoadAssemblies (331ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (28ms)
+			TypeCache.Refresh (9ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (13ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (1186ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (601ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (116ms)
+			ProcessInitializeOnLoadAttributes (437ms)
+			ProcessInitializeOnLoadMethodAttributes (25ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 4.41 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3489 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.2 KB). Loaded Objects now: 3992.
+Memory consumption went from 137.5 MB to 137.5 MB.
+Total: 3.211800 ms (FindLiveObjects: 0.307100 ms CreateObjectMapping: 0.311200 ms MarkObjects: 2.546600 ms  DeleteObjects: 0.045700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 81.831182 seconds.
+  path: Assets/Prefabs/Car Player.prefab
+  artifactKey: Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Car Player.prefab using Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e3e2f05e13d2237da1e05cddda6e72c') in 0.086260 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 50
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.559 seconds
+Refreshing native plugins compatible for Editor in 4.98 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.101 seconds
+Domain Reload Profiling: 1658ms
+	BeginReloadAssembly (182ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (43ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (297ms)
+		LoadAssemblies (361ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (28ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (13ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (1102ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (576ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (115ms)
+			ProcessInitializeOnLoadAttributes (418ms)
+			ProcessInitializeOnLoadMethodAttributes (21ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 4.13 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3489 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.1 KB). Loaded Objects now: 3995.
+Memory consumption went from 137.5 MB to 137.5 MB.
+Total: 3.634700 ms (FindLiveObjects: 0.363000 ms CreateObjectMapping: 0.334500 ms MarkObjects: 2.892100 ms  DeleteObjects: 0.044200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 30.673109 seconds.
+  path: Assets/Prefabs/Car Player.prefab
+  artifactKey: Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Car Player.prefab using Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43bee03a8bcd36c6540995ed8fc1f930') in 0.081751 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 50
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.526 seconds
+Refreshing native plugins compatible for Editor in 3.50 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.125 seconds
+Domain Reload Profiling: 1647ms
+	BeginReloadAssembly (155ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (29ms)
+	LoadAllAssembliesAndSetupDomain (292ms)
+		LoadAssemblies (346ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (28ms)
+			TypeCache.Refresh (9ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (12ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (1125ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (582ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (12ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (121ms)
+			ProcessInitializeOnLoadAttributes (415ms)
+			ProcessInitializeOnLoadMethodAttributes (19ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 4.28 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3489 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.1 KB). Loaded Objects now: 3998.
+Memory consumption went from 137.5 MB to 137.5 MB.
+Total: 3.822200 ms (FindLiveObjects: 0.490800 ms CreateObjectMapping: 0.237400 ms MarkObjects: 3.035700 ms  DeleteObjects: 0.056700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 580.641088 seconds.
+  path: Assets/Prefabs/Car Player.prefab
+  artifactKey: Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Car Player.prefab using Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b5d98930a94b5ad62478e2837bccbaa') in 0.103599 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 50
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.629 seconds
+Refreshing native plugins compatible for Editor in 3.71 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.167 seconds
+Domain Reload Profiling: 1790ms
+	BeginReloadAssembly (191ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (42ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (40ms)
+	LoadAllAssembliesAndSetupDomain (333ms)
+		LoadAssemblies (407ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (31ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (14ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (1167ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (599ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (121ms)
+			ProcessInitializeOnLoadAttributes (426ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 5.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3489 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.1 KB). Loaded Objects now: 4001.
+Memory consumption went from 137.5 MB to 137.5 MB.
+Total: 3.603700 ms (FindLiveObjects: 0.377000 ms CreateObjectMapping: 0.301000 ms MarkObjects: 2.878900 ms  DeleteObjects: 0.045900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 22.689992 seconds.
+  path: Assets/Prefabs/Car Player.prefab
+  artifactKey: Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Car Player.prefab using Guid(0f692ba42edcea24aabee2e39a070f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f77254790eb39e3b05f995ffa747c311') in 0.097057 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 50
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.538 seconds
+Refreshing native plugins compatible for Editor in 3.79 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.187 seconds
+Domain Reload Profiling: 1722ms
+	BeginReloadAssembly (165ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (286ms)
+		LoadAssemblies (340ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (31ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (14ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1188ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (611ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (129ms)
+			ProcessInitializeOnLoadAttributes (438ms)
+			ProcessInitializeOnLoadMethodAttributes (20ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 3.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3489 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.0 KB). Loaded Objects now: 4004.
+Memory consumption went from 137.5 MB to 137.5 MB.
+Total: 3.101400 ms (FindLiveObjects: 0.255500 ms CreateObjectMapping: 0.204100 ms MarkObjects: 2.597100 ms  DeleteObjects: 0.043900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.508 seconds
+Refreshing native plugins compatible for Editor in 3.61 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.276 seconds
+Domain Reload Profiling: 1781ms
+	BeginReloadAssembly (169ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (35ms)
+	LoadAllAssembliesAndSetupDomain (249ms)
+		LoadAssemblies (330ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (13ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1276ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (709ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (12ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (145ms)
+			ProcessInitializeOnLoadAttributes (512ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 5.00 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3490 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.0 KB). Loaded Objects now: 4007.
+Memory consumption went from 137.8 MB to 137.8 MB.
+Total: 4.350900 ms (FindLiveObjects: 0.315400 ms CreateObjectMapping: 0.351000 ms MarkObjects: 3.627900 ms  DeleteObjects: 0.055500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.494 seconds
+Refreshing native plugins compatible for Editor in 3.33 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.231 seconds
+Domain Reload Profiling: 1722ms
+	BeginReloadAssembly (166ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (33ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (245ms)
+		LoadAssemblies (316ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (13ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1231ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (691ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (13ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (134ms)
+			ProcessInitializeOnLoadAttributes (502ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 4.09 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3490 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.0 KB). Loaded Objects now: 4010.
+Memory consumption went from 137.8 MB to 137.8 MB.
+Total: 3.933400 ms (FindLiveObjects: 0.303100 ms CreateObjectMapping: 0.439700 ms MarkObjects: 3.140900 ms  DeleteObjects: 0.048700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.506 seconds
+Refreshing native plugins compatible for Editor in 3.75 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.247 seconds
+Domain Reload Profiling: 1750ms
+	BeginReloadAssembly (170ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (252ms)
+		LoadAssemblies (329ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (14ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1247ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (712ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (12ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (141ms)
+			ProcessInitializeOnLoadAttributes (519ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 4.92 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3490 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.1 KB). Loaded Objects now: 4013.
+Memory consumption went from 137.8 MB to 137.8 MB.
+Total: 3.705000 ms (FindLiveObjects: 0.469900 ms CreateObjectMapping: 0.372700 ms MarkObjects: 2.807700 ms  DeleteObjects: 0.051500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

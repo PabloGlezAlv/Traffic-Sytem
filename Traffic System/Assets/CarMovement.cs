@@ -88,6 +88,8 @@ public class CarMovement : MonoBehaviour
     DrivingLane carLane = DrivingLane.OneLane;
 
     bool safeRouteChange = false;
+
+    private float frontRangeValue = 1;
     void Start()
     {
         carRb = GetComponent<Rigidbody>();
@@ -108,6 +110,8 @@ public class CarMovement : MonoBehaviour
 
 
         speedValue = speedLimit / maxAcceleration;
+
+        frontRangeValue = speedLimit / 60;
     }
 
     void Update()
@@ -233,8 +237,8 @@ public class CarMovement : MonoBehaviour
             RaycastHit hitL;
             if (safeRouteChange) // If is just a  curve no problem of other cars
             {
-                if(Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar / 5) ||
-                    Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar / 5))
+                if(Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue) ||
+                    Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue))
                 {
                     moveInput = 0;
                 }
@@ -250,8 +254,8 @@ public class CarMovement : MonoBehaviour
                 switch (direction)
                 {
                     case DriveDirection.Left:
-                        if (Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar / 5) ||
-                            Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar / 5) ||
+                        if (Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue) ||
+                            Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue) ||
                              Physics.Raycast(transform.position - transform.right * distanceFrontSensor, -transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSB, checkSidesCar) ||
                              Physics.Raycast(transform.position - transform.right * distanceFrontSensor + transform.forward * 1.3f, -transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSF, checkSidesCar))
                         {
@@ -264,8 +268,8 @@ public class CarMovement : MonoBehaviour
                         break;
 
                     case DriveDirection.Right: //Leave front sensor just in case another close car
-                        if (Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar / 5) ||
-                            Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar / 5) ||
+                        if (Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue) ||
+                            Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue) ||
                              Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSB, checkSidesCar) ||
                              Physics.Raycast(transform.position + transform.right * distanceFrontSensor + transform.forward * 1.3f, transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSF, checkSidesCar))
                         {
@@ -277,8 +281,8 @@ public class CarMovement : MonoBehaviour
                         }
                         break;
                     case DriveDirection.Front:
-                        if (Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar) ||
-                            Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar))
+                        if (Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue) ||
+                            Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue))
                         {
                             moveInput = 0;
                         }
@@ -348,8 +352,8 @@ public class CarMovement : MonoBehaviour
     {
         Gizmos.color = UnityEngine.Color.blue; 
         //Front Sensor
-        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.forward * checkFrontCar);
-        Gizmos.DrawLine(transform.position + -transform.right * distanceFrontSensor, transform.position + -transform.right * distanceFrontSensor + transform.forward * checkFrontCar);
+        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.forward * checkFrontCar * frontRangeValue);
+        Gizmos.DrawLine(transform.position + -transform.right * distanceFrontSensor, transform.position + -transform.right * distanceFrontSensor + transform.forward * checkFrontCar * frontRangeValue);
 
         //Right Sensor
         Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + transform.forward * checkSidesCar / 2);
