@@ -7,6 +7,8 @@ using System.Net.Http.Headers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.HID;
+using UnityEngine.UIElements;
 using static Point;
 using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
@@ -71,6 +73,8 @@ public class CarMovement : MonoBehaviour
     public List<Wheel> wheels;
 
 
+    private float driverSpeed = 0;
+
     float moveInput;
     float steerInput;
 
@@ -92,7 +96,10 @@ public class CarMovement : MonoBehaviour
     private float frontRangeValue = 1;
 
     private bool changeLane = false;
-    private bool overtaking = false;
+    private int overtaking = -1;
+
+
+    Vector3 forward = new Vector3();
 
     RaycastHit hitR; //Front Right
     bool hitFR = false;
@@ -114,9 +121,15 @@ public class CarMovement : MonoBehaviour
 
         speedValue = speedLimit / maxAcceleration;
 
+        driverSpeed = Random.Range(0.7f, 1);
+
         checkRayCast();
     }
 
+    private void OnValidate()
+    {
+        forward = new Vector3(transform.forward.x, transform.forward.y, transform.forward.z);
+    }
     public void setLane(DrivingLane lane)
     {
         carLane = lane;
@@ -135,6 +148,8 @@ public class CarMovement : MonoBehaviour
 
     void Update()
     {
+        forward = new Vector3(transform.forward.x, 1, transform.forward.z);
+
         GetInputs();
         AnimateWheels();
 
@@ -151,26 +166,25 @@ public class CarMovement : MonoBehaviour
     private void DirectionsRaycast()
     {
         //FrontSensors
-        hitFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue);
-        hitFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue);
+        hitFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor, forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue);
+        hitFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor, forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue);
 
-        if(carLane != DrivingLane.OneLane && !overtaking && (hitFR || hitFR ))
+        if(carLane != DrivingLane.OneLane && overtaking == -1 && (hitFR || hitFR ))
         {
-            overtaking = true;
             changeLane = true;
-
+            overtaking = 0;
         }
 
         switch (direction)
         {
             case DriveDirection.Left:
                 hitSideBL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor, -transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSBL, checkSidesCar);
-                hitSideFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor + transform.forward * 1.3f, -transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSFL, checkSidesCar);
+                hitSideFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor + forward * 1.3f, -transform.right * checkSidesCar + forward * checkSidesCar / 2, out hitSFL, checkSidesCar);
                 break;
 
             case DriveDirection.Right: //Leave front sensor just in case another close car
                 hitSideBR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSBR, checkSidesCar);
-                hitSideFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor + transform.forward * 1.3f, transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSFR, checkSidesCar);
+                hitSideFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor + forward * 1.3f, transform.right * checkSidesCar + forward * checkSidesCar / 2, out hitSFR, checkSidesCar);
                 break;
             case DriveDirection.Front:
                 
@@ -185,6 +199,9 @@ public class CarMovement : MonoBehaviour
         Move();
         Steer();
         Brake();
+
+        RaycastHit hit;
+        Debug.Log(Physics.Raycast(transform.position - transform.right * 2.2f + transform.forward * 6, -transform.forward, out hit, 11));
     }
 
     public Vector3 getTarget()
@@ -197,18 +214,33 @@ public class CarMovement : MonoBehaviour
         int rng; 
         rng = Random.Range(0, pos.Count);
 
-        if(type == PointType.Mid)
+        RaycastHit hit;
+        if (type == PointType.Mid)
         {
-            if(changeLane)
+            if(changeLane &&
+                (carLane == DrivingLane.Right && !Physics.Raycast(transform.position - transform.right * 2.2f + forward * 6, -forward, out hit, 11)) ||
+                (carLane == DrivingLane.Left && !Physics.Raycast(transform.position + transform.right * 2.2f + forward * 6, -forward, out hit, 11))) //If want to overtake check if car behind
             {
                 rng = pos.Count - 1;
                 changeLane = false;
+            }
+            else if (overtaking >= 0) //Overtaking add values
+            {
+                overtaking++;
+                rng = 0;
+
+                if (overtaking >= 2) //Overtake done return
+                {
+                    rng = pos.Count - 1;
+                    overtaking = -1;
+                }
             }
             else
             {
                 rng = 0;
             }
         }
+
 
 
         //Set car parameters
@@ -292,7 +324,7 @@ public class CarMovement : MonoBehaviour
             {
                 Vector3 targetDirection = (targetPosition - transform.position).normalized;
 
-                float angle = Vector3.SignedAngle(transform.forward, targetDirection, Vector3.up);
+                float angle = Vector3.SignedAngle(forward, targetDirection, Vector3.up);
                 angle = Mathf.Clamp(angle, -maxSteerAngle, maxSteerAngle);
 
                 float steerObjective = angle / maxSteerAngle;
@@ -408,17 +440,25 @@ public class CarMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = UnityEngine.Color.blue; 
+        Gizmos.color = UnityEngine.Color.blue;
+        
+
         //Front Sensor
-        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.forward * checkFrontCar * frontRangeValue);
-        Gizmos.DrawLine(transform.position + -transform.right * distanceFrontSensor, transform.position + -transform.right * distanceFrontSensor + transform.forward * checkFrontCar * frontRangeValue);
+        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + forward * checkFrontCar * frontRangeValue);
+        Gizmos.DrawLine(transform.position + -transform.right * distanceFrontSensor, transform.position + -transform.right * distanceFrontSensor + forward * checkFrontCar * frontRangeValue);
 
         //Right Sensor
-        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + transform.forward * checkSidesCar / 2);
-        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor + transform.forward * 1.3f, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + transform.forward * checkSidesCar / 2 + transform.forward * 1.3f);
+        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + forward * checkSidesCar / 2);
+        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor + forward * 1.3f, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + forward * checkSidesCar / 2 + forward * 1.3f);
 
         //Left Sensor
-        Gizmos.DrawLine(transform.position - transform.right * distanceFrontSensor, transform.position - transform.right * distanceFrontSensor - transform.right * checkSidesCar + transform.forward * checkSidesCar / 2);
-        Gizmos.DrawLine(transform.position - transform.right * distanceFrontSensor + transform.forward * 1.3f, transform.position - transform.right * distanceFrontSensor - transform.right * checkSidesCar + transform.forward * checkSidesCar / 2 + transform.forward * 1.3f);
+        Gizmos.DrawLine(transform.position - transform.right * distanceFrontSensor, transform.position - transform.right * distanceFrontSensor - transform.right * checkSidesCar + forward * checkSidesCar / 2);
+        Gizmos.DrawLine(transform.position - transform.right * distanceFrontSensor + forward * 1.3f, transform.position - transform.right * distanceFrontSensor - transform.right * checkSidesCar + forward * checkSidesCar / 2 + forward * 1.3f);
+
+        Gizmos.color = UnityEngine.Color.magenta;
+        //Right Sensor Overtake
+        Gizmos.DrawLine(transform.position + transform.right * 2.2f + forward * 6, transform.position + transform.right * 2.2f - forward * 11);
+        //Left Sensor Overtake
+        Gizmos.DrawLine(transform.position - transform.right * 2.2f + forward * 6, transform.position - transform.right * 2.2f - forward * 11);
     }
 }
