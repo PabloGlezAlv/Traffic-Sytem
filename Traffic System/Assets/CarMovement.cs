@@ -91,18 +91,21 @@ public class CarMovement : MonoBehaviour
 
     private float frontRangeValue = 1;
 
+    private bool changeLane = false;
+    private bool overtaking = false;
+
     RaycastHit hitR; //Front Right
     bool hitFR = false;
     RaycastHit hitL; //Front Left
     bool hitFL = false;
     RaycastHit hitSBR; //Side sensor in the back right
-    bool hitSideBR;
+    bool hitSideBR = false;
     RaycastHit hitSFR; //Side sensor in the front right
-    bool hitSideFR;
+    bool hitSideFR = false;
     RaycastHit hitSBL; //Side sensor in the back left
-    bool hitSideBL;
+    bool hitSideBL = false;
     RaycastHit hitSFL; //Side sensor in the front left
-    bool hitSideFL;
+    bool hitSideFL = false;
 
     void Start()
     {
@@ -150,6 +153,14 @@ public class CarMovement : MonoBehaviour
         //FrontSensors
         hitFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue);
         hitFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor, transform.forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue);
+
+        if(carLane != DrivingLane.OneLane && !overtaking && (hitFR || hitFR ))
+        {
+            overtaking = true;
+            changeLane = true;
+
+        }
+
         switch (direction)
         {
             case DriveDirection.Left:
@@ -187,7 +198,17 @@ public class CarMovement : MonoBehaviour
         rng = Random.Range(0, pos.Count);
 
         if(type == PointType.Mid)
-            rng = Random.Range(0, pos.Count -1);
+        {
+            if(changeLane)
+            {
+                rng = pos.Count - 1;
+                changeLane = false;
+            }
+            else
+            {
+                rng = 0;
+            }
+        }
 
 
         //Set car parameters
@@ -197,7 +218,6 @@ public class CarMovement : MonoBehaviour
         {
             carLane = lanes[rng];
         }
-
 
         if (type == PointType.End) //Check direction to turn
         {
