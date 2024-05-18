@@ -1382,6 +1382,10 @@ PrefabInstance:
       propertyPath: enterSpeed
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 7408152465985776580, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: spawnerRoute
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7475217880738435025, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 

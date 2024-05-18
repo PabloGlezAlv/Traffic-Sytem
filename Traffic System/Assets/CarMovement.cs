@@ -150,7 +150,6 @@ public class CarMovement : MonoBehaviour
     {
         forward = new Vector3(transform.forward.x, 0, transform.forward.z);
 
-        Debug.Log(transform.forward);
         GetInputs();
         AnimateWheels();
 
@@ -170,10 +169,10 @@ public class CarMovement : MonoBehaviour
         hitFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor, forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue);
         hitFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor, forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue);
 
-        if(carLane != DrivingLane.OneLane && overtaking == -1 && (hitFR || hitFR ))
+        if(!changeLane && carLane != DrivingLane.OneLane && overtaking == -1 && (hitFR || hitFR ))
         {
+            Debug.Log("CarFront");
             changeLane = true;
-            overtaking = 0;
         }
 
         switch (direction)
@@ -217,22 +216,27 @@ public class CarMovement : MonoBehaviour
         RaycastHit hit;
         if (type == PointType.Mid)
         {
-            if(changeLane &&
-                (carLane == DrivingLane.Right && !Physics.Raycast(transform.position - transform.right * 2.2f + forward * 6, -forward, out hit, 11)) ||
-                (carLane == DrivingLane.Left && !Physics.Raycast(transform.position + transform.right * 2.2f + forward * 6, -forward, out hit, 11))) //If want to overtake check if car behind
+            bool checkRight = Physics.Raycast(transform.position - transform.right * 2.2f + forward * 6, -forward, out hit, 11);
+            bool checkLeft = Physics.Raycast(transform.position - transform.right * 2.2f + forward * 6, -forward, out hit, 11);
+            if (changeLane && ((carLane == DrivingLane.Right && !checkRight) || (carLane == DrivingLane.Left && !checkLeft))) //If want to overtake check if car behind
             {
                 rng = pos.Count - 1;
                 changeLane = false;
+                overtaking = 0;
+                Debug.Log("Change lane Start");
             }
             else if (overtaking >= 0) //Overtaking add values
             {
                 overtaking++;
                 rng = 0;
 
-                if (overtaking >= 2) //Overtake done return
+                Debug.Log("Check point overtake: " + overtaking);
+                if (overtaking >= 3) //Overtake done return
                 {
-                    rng = pos.Count - 1;
+                    Debug.Log("Change lane End");
+                    rng = 1;
                     overtaking = -1;
+                    changeLane = false;
                 }
             }
             else
@@ -241,7 +245,7 @@ public class CarMovement : MonoBehaviour
             }
         }
 
-
+        Debug.Log("Moving to: " + rng + " " + pos[rng]);
 
         //Set car parameters
         targetPosition = pos[rng];
