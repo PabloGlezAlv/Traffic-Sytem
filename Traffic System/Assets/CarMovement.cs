@@ -148,8 +148,9 @@ public class CarMovement : MonoBehaviour
 
     void Update()
     {
-        forward = new Vector3(transform.forward.x, 1, transform.forward.z);
+        forward = new Vector3(transform.forward.x, 0, transform.forward.z);
 
+        Debug.Log(transform.forward);
         GetInputs();
         AnimateWheels();
 
@@ -201,7 +202,6 @@ public class CarMovement : MonoBehaviour
         Brake();
 
         RaycastHit hit;
-        Debug.Log(Physics.Raycast(transform.position - transform.right * 2.2f + transform.forward * 6, -transform.forward, out hit, 11));
     }
 
     public Vector3 getTarget()

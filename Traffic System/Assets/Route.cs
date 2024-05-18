@@ -141,18 +141,28 @@ public class Route : MonoBehaviour
             Vector3 end;
             List<Vector3> endList = new List<Vector3>();
 
-            
-            endList = routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition();
 
-
-            end = endList[l];
-
-            int numPoints = routeDirections[i].density;
-            for (int j = 1; j < numPoints + 1; j++)
+            try
             {
-                float t = j / (float)(numPoints + 1);
-                Vector3 point = HermiteInterpolation(start, end, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
-                conectionLocations.Add(point);
+                endList = routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition();
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Error carga datos: " + gameObject.name);
+            }
+
+
+            if(endList.Count > 0 )
+            {
+                end = endList[l];
+
+                int numPoints = routeDirections[i].density;
+                for (int j = 1; j < numPoints + 1; j++)
+                {
+                    float t = j / (float)(numPoints + 1);
+                    Vector3 point = HermiteInterpolation(start, end, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
+                    conectionLocations.Add(point);
+                }
             }
         }
     }
@@ -218,6 +228,7 @@ public class Route : MonoBehaviour
     {
         int pointIndex = 1; //First one is the start
         int startIndex = 0; //Postion of last point in route
+
         for (int l = 0; l < numberLanes; l++)
         {
             //Debug.Log("Linea: " + l);
@@ -317,7 +328,7 @@ public class Route : MonoBehaviour
         {
             for (int l = 0; l < numberLanes; l++)
             {
-                for (int i = points * l + 1; i < points * (l + 1) - 1; i++)
+                for (int i = points * l + 1; i < points * (l + 1) - numberLanes; i++)
                 {
                     
                     if (l == 0)
