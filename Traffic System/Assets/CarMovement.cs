@@ -98,6 +98,8 @@ public class CarMovement : MonoBehaviour
     private bool changeLane = false;
     private int overtaking = -1;
 
+    private PointType lastCheckLine = PointType.Start; // Used to know if Car in rect or changing intersection
+
 
     Vector3 forward = new Vector3();
 
@@ -169,9 +171,8 @@ public class CarMovement : MonoBehaviour
         hitFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor, forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue);
         hitFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor, forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue);
 
-        if(!changeLane && carLane != DrivingLane.OneLane && overtaking == -1 && (hitFR || hitFR ))
+        if(lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1 && ((hitFR && hitR.transform.tag == "Car") || (hitFL && hitL.transform.tag == "Car")) )
         {
-            Debug.Log("CarFront");
             changeLane = true;
         }
 
@@ -213,11 +214,16 @@ public class CarMovement : MonoBehaviour
         int rng; 
         rng = Random.Range(0, pos.Count);
 
+
+
+
         RaycastHit hit;
         if (type == PointType.Mid)
         {
-            bool checkRight = Physics.Raycast(transform.position - transform.right * 2.2f + forward * 6, -forward, out hit, 11);
-            bool checkLeft = Physics.Raycast(transform.position - transform.right * 2.2f + forward * 6, -forward, out hit, 11);
+            bool checkRight = Physics.Raycast(transform.position - transform.right * 2.5f + forward * 6, -forward, out hit, 17);
+            bool checkLeft = Physics.Raycast(transform.position + transform.right * 2.5f + forward * 6, -forward, out hit, 17);
+            Debug.Log(checkLeft);
+            Debug.Log(checkRight);
             if (changeLane && ((carLane == DrivingLane.Right && !checkRight) || (carLane == DrivingLane.Left && !checkLeft))) //If want to overtake check if car behind
             {
                 rng = pos.Count - 1;
@@ -230,10 +236,10 @@ public class CarMovement : MonoBehaviour
                 overtaking++;
                 rng = 0;
 
-                Debug.Log("Check point overtake: " + overtaking);
-                if (overtaking >= 3) //Overtake done return
+                //Debug.Log("Check point overtake: " + overtaking);
+                if (overtaking > 1 && (carLane == DrivingLane.Left && !checkLeft) || (carLane == DrivingLane.Right && !checkRight)) //Overtake done return
                 {
-                    Debug.Log("Change lane End");
+                    //Debug.Log("Change lane End: " + carLane);
                     rng = 1;
                     overtaking = -1;
                     changeLane = false;
@@ -243,6 +249,10 @@ public class CarMovement : MonoBehaviour
             {
                 rng = 0;
             }
+        }
+        else
+        {
+            lastCheckLine = type;
         }
 
         Debug.Log("Moving to: " + rng + " " + pos[rng]);
@@ -461,8 +471,9 @@ public class CarMovement : MonoBehaviour
 
         Gizmos.color = UnityEngine.Color.magenta;
         //Right Sensor Overtake
-        Gizmos.DrawLine(transform.position + transform.right * 2.2f + forward * 6, transform.position + transform.right * 2.2f - forward * 11);
+        Gizmos.DrawLine(transform.position + transform.right * 2.5f + forward * 6, transform.position + transform.right * 2.4f - forward * 11);
         //Left Sensor Overtake
-        Gizmos.DrawLine(transform.position - transform.right * 2.2f + forward * 6, transform.position - transform.right * 2.2f - forward * 11);
+        Gizmos.DrawLine(transform.position - transform.right * 2.5f + forward * 6, transform.position - transform.right * 2.4f - forward * 11);
+
     }
 }
