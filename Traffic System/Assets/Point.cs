@@ -71,13 +71,14 @@ public class Point : MonoBehaviour
             CarMovement car = other.transform.parent.GetComponent<CarMovement>();
             
             Vector3 target = car.getTarget();
-
+            
             if (Vector3.Distance(transform.position, target) < 0.1)
             {
                 if(type != PointType.Start)
                     SendCarSpeedLimit(car);
                 car.setTarget(nextPoints, endTrail, nextLane, type);
             }
+
             
         }
     }

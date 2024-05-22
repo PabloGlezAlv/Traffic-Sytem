@@ -239,13 +239,13 @@ MonoBehaviour:
   greenTime: 10
   waitNextTime: 4
   lights:
-  - {fileID: 7511689402425648507}
   - {fileID: 3277365381770290709}
+  - {fileID: 7511689402425648507}
   - {fileID: 7880055383560571908}
   - {fileID: 5942859122372686932}
   barrier:
-  - {fileID: 5956340791840232117}
   - {fileID: 6782608198823361237}
+  - {fileID: 5956340791840232117}
   - {fileID: 2845206628107493951}
   - {fileID: 6151560362006043007}
 --- !u!1 &2845206628107493951
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 35558204680934817}
   m_Layer: 0
   m_Name: StopBarrier
-  m_TagString: Untagged
+  m_TagString: TrafficBarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -277,7 +277,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.26, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 4.1909}
+  m_LocalScale: {x: 1, y: 5.2403, z: 3.6365554}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8606513456298082269}
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 6670582284423853700}
   m_Layer: 0
   m_Name: StopBarrier
-  m_TagString: Untagged
+  m_TagString: TrafficBarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -448,7 +448,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.26, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 4.1909}
+  m_LocalScale: {x: 1, y: 6.2211, z: 2.8769875}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5693890184786577480}
@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 263298647819679592}
   m_Layer: 0
   m_Name: StopBarrier
-  m_TagString: Untagged
+  m_TagString: TrafficBarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -553,7 +553,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.26, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 4.1909}
+  m_LocalScale: {x: 1, y: 5.7362, z: 3.2327554}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1194063466140713803}
@@ -770,7 +770,7 @@ GameObject:
   - component: {fileID: 8857307852001072493}
   m_Layer: 0
   m_Name: StopBarrier
-  m_TagString: Untagged
+  m_TagString: TrafficBarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -785,7 +785,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.26, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 4.1909}
+  m_LocalScale: {x: 1, y: 6.0948, z: 3.3882933}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2174430831388547269}

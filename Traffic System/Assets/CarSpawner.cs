@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class CarSpawner : MonoBehaviour
@@ -14,6 +15,7 @@ public class CarSpawner : MonoBehaviour
 
     List<GameObject> carSpawned = new List<GameObject>();
 
+    float timer = 0;
 
     public void addSpawnPoint(GameObject point)
     {
@@ -29,7 +31,27 @@ public class CarSpawner : MonoBehaviour
 
             carSpawned[i].GetComponent<CarMovement>().setTarget(spawn[i].transform.position);
 
-            
+
+            carSpawned[i].name = "Car " + carSpawned.Count;
+        }
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+
+        if (timer > 5 && carSpawned.Count < maxNumberCars)
+        {
+            int i = 0;
+            while(i < spawn.Count && carSpawned.Count < maxNumberCars )
+            {
+                carSpawned.Add(Instantiate(carPrefab, spawn[i].transform.position, spawn[i].transform.rotation));
+                carSpawned[carSpawned.Count - 1].GetComponent<CarMovement>().setTarget(spawn[i].transform.position);
+                carSpawned[carSpawned.Count - 1].name = "Car " + carSpawned.Count;
+
+                i++;
+            }
+            timer = 0;
         }
     }
 }
