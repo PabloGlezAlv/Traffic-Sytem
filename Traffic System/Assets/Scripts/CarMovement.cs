@@ -90,8 +90,12 @@ public class CarMovement : MonoBehaviour
     DriveDirection direction = DriveDirection.Front;
     [SerializeField]
     DrivingLane carLane = DrivingLane.OneLane;
+    [SerializeField]
+    float currentSpeed = 0;
 
     bool safeRouteChange = false;
+
+    private Vector3 previousPosition;
 
     private float frontRangeValue = 1;
 
@@ -132,6 +136,9 @@ public class CarMovement : MonoBehaviour
         driverSpeed = Random.Range(0.7f, 1);
 
         checkRayCast();
+
+
+        Invoke("CalculateCurrentSpeed", 0.1f);
     }
 
     private void OnValidate()
@@ -162,11 +169,11 @@ public class CarMovement : MonoBehaviour
     {
         forward = new Vector3(transform.forward.x, 0, transform.forward.z);
 
-        if(timerToGo >= 0)
+        if (timerToGo >= 0)
         {
             timerToGo += Time.deltaTime;
 
-            if(timerToGo > 15)
+            if (timerToGo > 15)
             {
                 timerToGo = -1;
                 waitingToGo = false;
@@ -177,6 +184,22 @@ public class CarMovement : MonoBehaviour
         AnimateWheels();
 
         Movement();
+    }
+
+    private void CalculateCurrentSpeed()
+    {
+        Vector3 currentPosition = transform.position;
+
+        // Calcular la distancia recorrida desde la última actualización
+        float distance = Vector3.Distance(previousPosition, currentPosition);
+
+        // Calcular la velocidad (distancia recorrida por unidad de tiempo)
+        currentSpeed = distance / 0.1f;
+
+        // Actualizar la posición anterior
+        previousPosition = currentPosition;
+
+        Invoke("CalculateCurrentSpeed", 0.1f);
     }
 
     private void checkRayCast()
@@ -300,7 +323,7 @@ public class CarMovement : MonoBehaviour
                 if (overtaking > 1 && (carLane == DrivingLane.Left && !checkLeft) || (carLane == DrivingLane.Right && !checkRight)) //Overtake done return
                 {
                     //Debug.Log("Change lane End: " + carLane);
-                    rng = 1;
+                    rng = pos.Count - 1;
                     overtaking = -1;
                     changeLane = false;
                 }
@@ -417,7 +440,7 @@ public class CarMovement : MonoBehaviour
                 }
                 else
                 {
-                    moveInput = speedValue;
+                    moveInput = speedValue * driverSpeed;
                 }
             }
             else
@@ -431,7 +454,7 @@ public class CarMovement : MonoBehaviour
                         }
                         else
                         {
-                            moveInput = speedValue;
+                            moveInput = speedValue * driverSpeed;
                         }
                         break;
 
@@ -442,7 +465,7 @@ public class CarMovement : MonoBehaviour
                         }
                         else
                         {
-                            moveInput = speedValue;
+                            moveInput = speedValue * driverSpeed;
                         }
                         break;
                     case DriveDirection.Front:
@@ -452,7 +475,7 @@ public class CarMovement : MonoBehaviour
                         }
                         else
                         {
-                            moveInput = speedValue;
+                            moveInput = speedValue * driverSpeed;
                         }
                         break;
                     default:

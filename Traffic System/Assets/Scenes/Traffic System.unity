@@ -400,8 +400,12 @@ PrefabInstance:
       value: StopLightSystem
       objectReference: {fileID: 0}
     - target: {fileID: 4628779059875202947, guid: ff481c4ee38fe73478018c043320f476, type: 3}
+      propertyPath: greenTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628779059875202947, guid: ff481c4ee38fe73478018c043320f476, type: 3}
       propertyPath: waitNextTime
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8212377199603892630, guid: ff481c4ee38fe73478018c043320f476, type: 3}
       propertyPath: m_LocalPosition.x
@@ -637,6 +641,10 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
+    - target: {fileID: 1795669320580311852, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: enterSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1950425578803084969, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -103.39
@@ -897,6 +905,10 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
+    - target: {fileID: 5482757990002949152, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: enterSpeed
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 6149571262741185082, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -58.21
@@ -944,6 +956,22 @@ PrefabInstance:
     - target: {fileID: 6526526069242759898, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawnerRoute
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526526069242759898, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[0].density
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526526069242759898, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[2].density
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526526069242759898, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[1].onlyLeft
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526526069242759898, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[2].startTangent.z
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6606525905000760767, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
@@ -1153,6 +1181,14 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
+    - target: {fileID: 8697640155054755665, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: exitSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697640155054755665, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: enterSpeed
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8717121416619631447, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -22.82
