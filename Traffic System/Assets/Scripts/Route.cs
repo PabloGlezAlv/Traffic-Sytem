@@ -28,6 +28,8 @@ public class Route : MonoBehaviour
     float enterSpeed = 60;
     [SerializeField]
     float exitSpeed = 20;
+    [SerializeField]
+    bool isRight = false;
 
     [SerializeField]
     GameObject startPoint;
@@ -259,6 +261,8 @@ public class Route : MonoBehaviour
                 conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddConexion(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
                 conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
 
+                conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().setRight(isRight);
+
                 pointIndex += routeDirections[i].density - 1;
 
             }
@@ -315,6 +319,7 @@ public class Route : MonoBehaviour
 
                 //Tell the lane of the point
                 movingPoints[i].GetComponent<Point>().setLane(locations[i].lane);
+                movingPoints[i].GetComponent<Point>().setRight(isRight);
             }
 
             if(enterSpeed > exitSpeed && points > 6) //In case enough point decelerate in lst point

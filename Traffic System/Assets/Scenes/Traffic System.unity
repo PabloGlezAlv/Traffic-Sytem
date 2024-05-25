@@ -598,6 +598,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1105140429}
     - target: {fileID: 1501530005967899899, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: isRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501530005967899899, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
@@ -608,6 +612,10 @@ PrefabInstance:
     - target: {fileID: 1501530005967899899, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: enterSpeed
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591093867661543484, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: isRight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1591093867661543484, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
@@ -678,6 +686,10 @@ PrefabInstance:
       value: -94.74
       objectReference: {fileID: 0}
     - target: {fileID: 2969317410930209043, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: isRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969317410930209043, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
@@ -712,6 +724,10 @@ PrefabInstance:
     - target: {fileID: 3241812653283729449, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: m_LocalPosition.z
       value: -205.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360410606634829396, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: isRight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3360410606634829396, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
@@ -834,6 +850,10 @@ PrefabInstance:
       value: -77.9
       objectReference: {fileID: 0}
     - target: {fileID: 5041830063361347905, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: isRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041830063361347905, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
@@ -866,6 +886,10 @@ PrefabInstance:
       value: -13.35
       objectReference: {fileID: 0}
     - target: {fileID: 5274435446543858120, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: isRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274435446543858120, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
@@ -890,6 +914,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5432248660531412916, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: isRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432248660531412916, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
@@ -900,6 +928,10 @@ PrefabInstance:
     - target: {fileID: 5432248660531412916, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: enterSpeed
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482757990002949152, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: isRight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5482757990002949152, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
@@ -1086,6 +1118,10 @@ PrefabInstance:
       value: -75.3
       objectReference: {fileID: 0}
     - target: {fileID: 7408152465985776580, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: isRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7408152465985776580, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
@@ -1099,6 +1135,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7408152465985776580, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawnerRoute
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475217880738435025, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: isRight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7475217880738435025, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}

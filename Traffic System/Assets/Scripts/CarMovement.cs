@@ -113,6 +113,9 @@ public class CarMovement : MonoBehaviour
 
     Vector3 forward = new Vector3();
 
+    bool rightSide = false;
+    bool otherRight = false;
+
     RaycastHit hitR; //Front Right
     bool hitFR = false;
     RaycastHit hitL; //Front Left
@@ -139,6 +142,11 @@ public class CarMovement : MonoBehaviour
 
 
         Invoke("CalculateCurrentSpeed", 0.1f);
+    }
+
+    public bool GetRight()
+    {
+        return rightSide;
     }
 
     private void OnValidate()
@@ -222,40 +230,41 @@ public class CarMovement : MonoBehaviour
             {
                 waitingToGo = true;
                 timerToGo = 0;
-                if (gameObject.name == "Car 2")
-                    Debug.Log("Traffic light");
             }
-            else if((!waitingToGo && hitFR && hitR.transform.tag == "Car"))
+            else if((hitFR && hitR.transform.tag == "Car" && hitR.transform.gameObject.GetComponent<CarMovement>() == rightSide) || (hitFL && hitL.transform.tag == "Car" && hitL.transform.gameObject.GetComponent<CarMovement>() == rightSide)) //Collision other car
             {
-                if(hitR.transform.GetComponent<CarMovement>().isCarStopped()) //Front car but stop bcs traffic system
+                if ((!waitingToGo && hitFR && hitR.transform.tag == "Car"))
                 {
-                    waitingToGo = true;
-                    timerToGo = 0;
+                    if (hitR.transform.GetComponent<CarMovement>().isCarStopped()) //Front car but stop bcs traffic system
+                    {
+                        waitingToGo = true;
+                        timerToGo = 0;
 
-                    if (gameObject.name == "Car 2")
-                        Debug.Log("Car in Traffic light");
+                        if (gameObject.name == "Car 2")
+                            Debug.Log("Car in Traffic light");
+                    }
+                    else if (lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
+                    {
+                        changeLane = true;
+                        if (gameObject.name == "Car 2")
+                            Debug.Log("Car");
+                    }
                 }
-                else if(lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
+                else if ((!waitingToGo && hitFL && hitL.transform.tag == "Car"))
                 {
-                    changeLane = true;
-                    if(gameObject.name == "Car 2")
-                        Debug.Log("Car");
-                }
-            }
-            else if((!waitingToGo && hitFL && hitL.transform.tag == "Car"))
-            {
-                if (hitL.transform.GetComponent<CarMovement>().isCarStopped()) //Front car but stop bcs traffic system
-                {
-                    waitingToGo = true;
-                    timerToGo = 0;
-                    if (gameObject.name == "Car 2")
-                        Debug.Log("Car in Traffic light");
-                }
-                else if (lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
-                {
-                    changeLane = true;
-                    if (gameObject.name == "Car 2")
-                        Debug.Log("Car");
+                    if (hitL.transform.GetComponent<CarMovement>().isCarStopped()) //Front car but stop bcs traffic system
+                    {
+                        waitingToGo = true;
+                        timerToGo = 0;
+                        if (gameObject.name == "Car 2")
+                            Debug.Log("Car in Traffic light");
+                    }
+                    else if (lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
+                    {
+                        changeLane = true;
+                        if (gameObject.name == "Car 2")
+                            Debug.Log("Car");
+                    }
                 }
             }
         }
@@ -292,13 +301,13 @@ public class CarMovement : MonoBehaviour
     {
         return targetPosition;
     }
-    public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes,PointType type)//Chek if endPoint to check if movement left rotation
+    public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes,PointType type, bool right)//Chek if endPoint to check if movement left rotation
     {
         previousTarget = targetPosition;
         int rng; 
         rng = Random.Range(0, pos.Count);
 
-
+        rightSide = right;
 
 
         RaycastHit hit;
@@ -312,7 +321,6 @@ public class CarMovement : MonoBehaviour
                 rng = pos.Count - 1;
                 changeLane = false;
                 overtaking = 0;
-                //Debug.Log("Change lane Start");
             }
             else if (overtaking >= 0) //Overtaking add values
             {

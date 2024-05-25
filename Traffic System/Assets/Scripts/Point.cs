@@ -28,6 +28,9 @@ public class Point : MonoBehaviour
     [SerializeField]
     List<Vector3> endTrail = new List<Vector3>();
 
+    [SerializeField]
+    bool right = true;
+
     void SendCarSpeedLimit(CarMovement car)
     {
         if (speedLimit == -1) return;
@@ -43,6 +46,11 @@ public class Point : MonoBehaviour
     public void setLane(DrivingLane lane)
     {
         this.lane = lane;
+    }
+
+    public void setRight(bool r)
+    {
+        right = r;
     }
 
     public void AddTrailEnd(Vector3 p)
@@ -76,10 +84,8 @@ public class Point : MonoBehaviour
             {
                 if(type != PointType.Start)
                     SendCarSpeedLimit(car);
-                car.setTarget(nextPoints, endTrail, nextLane, type);
+                car.setTarget(nextPoints, endTrail, nextLane, type, right);
             }
-
-            
         }
     }
 }
