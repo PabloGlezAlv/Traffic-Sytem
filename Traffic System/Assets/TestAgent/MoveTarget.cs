@@ -10,9 +10,13 @@ public class MoveTarget : Agent
     [SerializeField]
     Transform target;
 
+    float distance;
+
     public override void OnEpisodeBegin()
     {
         transform.position = Vector3.zero;
+
+        distance = Vector3.Distance(transform.position, target.position);
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -43,12 +47,12 @@ public class MoveTarget : Agent
     {
         if(other.tag == "Car") //Achive target Car tag just to test
         {
-            SetReward(+1);
+            SetReward(+2);
             EndEpisode();
         }
         else // Wall collision
         {
-            SetReward(-1);
+            SetReward(-2);
             EndEpisode();
         }
     }
