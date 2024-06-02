@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 1191425086193125712}
   - component: {fileID: 3417867558682029472}
   - component: {fileID: 5339723645684457223}
+  - component: {fileID: 8149443319477705518}
   m_Layer: 0
   m_Name: Car Player
   m_TagString: Car
@@ -270,11 +271,7 @@ MonoBehaviour:
   brakeAcceleration: 50
   turnSensitivity: 1
   maxSteerAngle: 30
-  checkFrontCar: 8
-  distanceFrontSensor: 0.4
-  checkSidesCar: 1.5
   _centerOfMass: {x: 0, y: 0, z: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
   wheels:
   - wheelModel: {fileID: 1932381532077046823}
     wheelCollider: {fileID: 1023752295391393234}
@@ -288,6 +285,27 @@ MonoBehaviour:
   - wheelModel: {fileID: 6020151397012051502}
     wheelCollider: {fileID: 6224237703981240020}
     axel: 1
+--- !u!114 &8149443319477705518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973545710386584369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe892636dc6a1b84299d33a727488d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkFrontCar: 8
+  distanceFrontSensor: 0.35
+  checkSidesCar: 3
+  targetPosition: {x: 0, y: 0, z: 0}
+  direction: 0
+  carLane: 0
+  currentSpeed: 0
+  changeLane: 0
+  waitingToGo: 0
 --- !u!1 &4344498826549854809
 GameObject:
   m_ObjectHideFlags: 0
