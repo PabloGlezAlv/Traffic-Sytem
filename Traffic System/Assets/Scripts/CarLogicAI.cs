@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents;
+using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Sensors;
 using UnityEngine;
 using static CarMovement;
 using static Point;
+using static UnityEngine.GraphicsBuffer;
 
 public class CarLogicAI : Agent, IMovable
 {
@@ -100,6 +103,24 @@ public class CarLogicAI : Agent, IMovable
 
         Invoke("CalculateCurrentSpeed", 0.1f);
     }
+
+    // ---------------------------------AI PARAMETERS-----------------------------
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        sensor.AddObservation(transform.position);
+        sensor.AddObservation(targetPosition);
+    }
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+        moveInput = actions.ContinuousActions[0];
+        steerInput = actions.ContinuousActions[1];
+    }
+    private void AddCheckPointReward() //Everytime we set a new target
+    {
+        AddReward(0.1f);
+    }
+
+    // ---------------------------------------------------------------------------------
 
     public float GetMove()
     {
@@ -218,8 +239,6 @@ public class CarLogicAI : Agent, IMovable
         carLane = lane;
     }
 
-
-
     public void setSpeedLimit(float speedLimit)
     {
         this.speedLimit = speedLimit;
@@ -229,8 +248,6 @@ public class CarLogicAI : Agent, IMovable
 
         frontRangeValue = speedLimit / 40;
     }
-
-
     private void checkRayCast()
     {
         DirectionsRaycast();
@@ -257,6 +274,8 @@ public class CarLogicAI : Agent, IMovable
     }
     public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right)//Chek if endPoint to check if movement left rotation
     {
+        AddCheckPointReward();
+
         previousTarget = targetPosition;
         int rng;
         rng = Random.Range(0, pos.Count);
