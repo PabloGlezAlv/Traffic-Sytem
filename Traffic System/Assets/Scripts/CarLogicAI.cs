@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
+using Unity.VisualScripting;
 using UnityEngine;
 using static CarMovement;
 using static Point;
@@ -10,6 +11,12 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CarLogicAI : Agent, IMovable
 {
+    [Header("Output")]
+    [SerializeField]
+    float moveInput = 0;
+    [SerializeField]
+    float steerInput = 0;
+
     [Header("CollisionSensors")]
     [SerializeField]
     float checkFrontCar = 3.0f;
@@ -26,8 +33,6 @@ public class CarLogicAI : Agent, IMovable
 
     private float driverSpeed = 0;
 
-    float moveInput = 0;
-    float steerInput = 0;
 
     bool otherRight = false;
 
@@ -84,6 +89,10 @@ public class CarLogicAI : Agent, IMovable
     float maxAcceleration = 0;
     float maxSteerAngle = 0;
 
+    Vector3 startPosition;
+    Quaternion startRotation;
+    Vector3 startGoal;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -91,10 +100,15 @@ public class CarLogicAI : Agent, IMovable
 
         maxAcceleration = carMov.GetMaxAcceleration();
         maxSteerAngle = carMov.GetMaxSteer();
+
+        startPosition = transform.position;
+        startRotation = transform.rotation;
     }
 
     void Start()
     {
+        carMov.StopCar();
+
         checkRayCast();
 
         speedValue = speedLimit / maxAcceleration;
@@ -104,23 +118,69 @@ public class CarLogicAI : Agent, IMovable
         Invoke("CalculateCurrentSpeed", 0.1f);
     }
 
+    private void RestartCar()
+    {
+        rightSide = false;
+        //Raycast
+        hitFR = false;
+        hitFL = false;
+        hitSideBR = false;
+        hitSideFR = false;
+        hitSideBL = false;
+        hitSideFL = false;
+        //Overtake
+        bool changeLane = false;
+        int overtaking = -1;
+
+        targetPosition = startGoal;
+        transform.position = startPosition;
+        transform.rotation = startRotation;
+
+        checkRayCast();
+    }
+
     // ---------------------------------AI PARAMETERS-----------------------------
+    public override void OnEpisodeBegin()
+    {
+        RestartCar();
+    }
+
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(transform.position);
-        sensor.AddObservation(targetPosition);
+        Vector3 direction = (targetPosition - transform.position).normalized;
+
+        sensor.AddObservation(direction);
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
         moveInput = actions.ContinuousActions[0];
         steerInput = actions.ContinuousActions[1];
+
+        if(moveInput <= speedValue * driverSpeed)
+        {
+            AddReward(0.01f);
+        }
+        else
+        {
+            AddReward(-0.01f);
+        }
     }
     private void AddCheckPointReward() //Everytime we set a new target
     {
-        AddReward(0.1f);
+        AddReward(1f);
     }
 
     // ---------------------------------------------------------------------------------
+    public void AddWrongCheckPointReward()
+    {
+        AddReward(-1f);
+    }
+
+    public void killCar()
+    {
+        EndEpisode();
+    }
+
 
     public float GetMove()
     {
@@ -271,6 +331,13 @@ public class CarLogicAI : Agent, IMovable
                 carMov.SetCarStopped(false);
             }
         }
+
+
+        if(Vector3.Distance(transform.position, targetPosition) > 30)
+        {
+            AddReward(-1);
+            killCar();
+        }
     }
     public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right)//Chek if endPoint to check if movement left rotation
     {
@@ -364,6 +431,7 @@ public class CarLogicAI : Agent, IMovable
     }
     public void setTarget(Vector3 pos)
     {
+        startGoal = pos;
         previousTarget = targetPosition;
         targetPosition = pos;
     }

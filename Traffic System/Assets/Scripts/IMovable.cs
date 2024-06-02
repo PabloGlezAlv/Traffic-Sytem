@@ -18,4 +18,8 @@ public interface IMovable
     void setSpeedLimit(float limit);
 
     Vector3 getTarget();
+
+    void killCar();
+
+    void AddWrongCheckPointReward();
 }

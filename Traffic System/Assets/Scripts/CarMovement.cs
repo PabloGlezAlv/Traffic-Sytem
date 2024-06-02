@@ -46,12 +46,12 @@ public class CarMovement : MonoBehaviour
     float maxAcceleration = 30.0f;
     [SerializeField]
     float accelerationSpeed = 5.0f;
-    [SerializeField] 
+    [SerializeField]
     float brakeAcceleration = 50.0f;
 
     [SerializeField]
     float turnSensitivity = 1.0f;
-    [SerializeField] 
+    [SerializeField]
     float maxSteerAngle = 30.0f;
 
     [SerializeField]
@@ -106,7 +106,7 @@ public class CarMovement : MonoBehaviour
         Movement();
     }
 
-    
+
     void Movement()
     {
         Move();
@@ -114,6 +114,22 @@ public class CarMovement : MonoBehaviour
         Brake();
     }
 
+    public void StopCar()
+    {
+        foreach (var wheel in wheels)
+        {
+            wheel.wheelCollider.motorTorque = 0; 
+        }
+
+        foreach (var wheel in wheels)
+        {
+            if (wheel.axel == Axel.Front)
+            {
+                wheel.wheelCollider.steerAngle = 0;
+            }
+        }
+        AnimateWheels();
+    }
     public void MoveInput(float input)
     {
         moveInput = input;
@@ -139,6 +155,7 @@ public class CarMovement : MonoBehaviour
             steerInput = carlogic.GetSteer();
 
         }
+
     }
 
     void Move()

@@ -106,7 +106,10 @@ public class CarLogic : MonoBehaviour, IMovable
     {
         return moveInput;
     }
+    public void AddWrongCheckPointReward()
+    {
 
+    }
     public float GetSteer()
     {
         return steerInput;
@@ -118,6 +121,11 @@ public class CarLogic : MonoBehaviour, IMovable
     public Vector3 getTarget()
     {
         return targetPosition;
+    }
+
+    public void killCar()
+    {
+
     }
 
     public void CalculateCarInput()

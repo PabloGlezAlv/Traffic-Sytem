@@ -79,12 +79,16 @@ public class Point : MonoBehaviour
             IMovable car = other.transform.parent.GetComponent<IMovable>();
             
             Vector3 target = car.getTarget();
-            
+
             if (Vector3.Distance(transform.position, target) < 0.1)
             {
-                if(type != PointType.Start)
+                if (type != PointType.Start)
                     SendCarSpeedLimit(car);
                 car.setTarget(nextPoints, endTrail, nextLane, type, right);
+            }
+            else if (Vector3.Distance(transform.position, target) > 5)
+            {
+                car.AddWrongCheckPointReward();
             }
         }
     }
