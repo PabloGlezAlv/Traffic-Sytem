@@ -466,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4681100783634444026, guid: 72327d91d01756c4bb393484ca09c93e, type: 3}
       propertyPath: maxNumberCars
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4780594222878008295, guid: 72327d91d01756c4bb393484ca09c93e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -643,7 +643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1744946129702722407, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawnerRoute
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1795669320580311852, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
@@ -911,7 +911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5334851303686638191, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawnerRoute
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5432248660531412916, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: isRight
@@ -987,7 +987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6526526069242759898, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawnerRoute
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6526526069242759898, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: routeDirections.Array.data[0].density
