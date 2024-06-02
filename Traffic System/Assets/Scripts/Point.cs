@@ -31,7 +31,7 @@ public class Point : MonoBehaviour
     [SerializeField]
     bool right = true;
 
-    void SendCarSpeedLimit(CarLogic car)
+    void SendCarSpeedLimit(IMovable car)
     {
         if (speedLimit == -1) return;
 
@@ -76,7 +76,7 @@ public class Point : MonoBehaviour
     {
         if (other.tag == "Car") 
         {
-            CarLogic car = other.transform.parent.GetComponent<CarLogic>();
+            IMovable car = other.transform.parent.GetComponent<IMovable>();
             
             Vector3 target = car.getTarget();
             

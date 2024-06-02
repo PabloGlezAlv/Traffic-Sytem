@@ -68,11 +68,11 @@ public class CarMovement : MonoBehaviour
 
     private Rigidbody carRb;
 
-    CarLogic carlogic;
+    IMovable carlogic;
 
     void Start()
     {
-        carlogic = GetComponent<CarLogic>();
+        carlogic = GetComponent<IMovable>();
 
         carRb = GetComponent<Rigidbody>();
         carRb.centerOfMass = _centerOfMass;

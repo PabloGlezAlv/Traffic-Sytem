@@ -15,7 +15,7 @@ C:/Users/pablo/Desktop/Traffic-Sytem/Traffic System
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-59584
+61503
 Successfully changed project path to: C:/Users/pablo/Desktop/Traffic-Sytem/Traffic System
 C:/Users/pablo/Desktop/Traffic-Sytem/Traffic System
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/pablo/Desktop/Traffic-Sytem/Traffic System
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [19104] Host "[IP] 10.247.6.169 [Port] 0 [Flags] 2 [Guid] 235108999 [EditorId] 235108999 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [26644] Host "[IP] 10.247.6.169 [Port] 0 [Flags] 2 [Guid] 3969281915 [EditorId] 3969281915 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [19104] Host "[IP] 10.247.6.169 [Port] 0 [Flags] 2 [Guid] 235108999 [EditorId] 235108999 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [26644] Host "[IP] 10.247.6.169 [Port] 0 [Flags] 2 [Guid] 3969281915 [EditorId] 3969281915 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 16.07 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 16.63 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.10f1 (ff3792e53c62)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -70,53 +70,53 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56188
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56568
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.013627 seconds.
-- Loaded All Assemblies, in  0.431 seconds
+Registered in 0.030257 seconds.
+- Loaded All Assemblies, in  0.544 seconds
 Native extension for WindowsStandalone target not found
 [usbmuxd] Start listen thread
 [usbmuxd] Listen thread started
 Native extension for iOS target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 282 ms
+Android Extension - Scanning For ADB Devices 393 ms
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.691 seconds
-Domain Reload Profiling: 1120ms
-	BeginReloadAssembly (122ms)
+- Finished resetting the current domain, in  0.802 seconds
+Domain Reload Profiling: 1344ms
+	BeginReloadAssembly (158ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (45ms)
+	RebuildCommonClasses (39ms)
 	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (72ms)
-	LoadAllAssembliesAndSetupDomain (177ms)
-		LoadAssemblies (120ms)
+	initialDomainReloadingComplete (103ms)
+	LoadAllAssembliesAndSetupDomain (229ms)
+		LoadAssemblies (155ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (174ms)
-			TypeCache.Refresh (172ms)
-				TypeCache.ScanAssembly (157ms)
+		AnalyzeDomain (226ms)
+			TypeCache.Refresh (225ms)
+				TypeCache.ScanAssembly (210ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (692ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (803ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (620ms)
+		SetupLoadedEditorAssemblies (729ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (421ms)
+			InitializePlatformSupportModulesInManaged (537ms)
 			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (126ms)
-			ProcessInitializeOnLoadMethodAttributes (65ms)
+			ProcessInitializeOnLoadAttributes (130ms)
+			ProcessInitializeOnLoadMethodAttributes (54ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -124,8 +124,8 @@ Domain Reload Profiling: 1120ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.995 seconds
-Refreshing native plugins compatible for Editor in 7.11 ms, found 4 plugins.
+- Loaded All Assemblies, in  1.288 seconds
+Refreshing native plugins compatible for Editor in 8.75 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
 Native extension for Android target not found
@@ -135,962 +135,67 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.840 seconds
-Domain Reload Profiling: 1829ms
-	BeginReloadAssembly (176ms)
+- Finished resetting the current domain, in  1.438 seconds
+Domain Reload Profiling: 2718ms
+	BeginReloadAssembly (344ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
+		DisableScriptedObjects (11ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (26ms)
-	RebuildCommonClasses (51ms)
-	RebuildNativeTypeToScriptingClass (18ms)
-	initialDomainReloadingComplete (55ms)
-	LoadAllAssembliesAndSetupDomain (689ms)
-		LoadAssemblies (510ms)
+		CreateAndSetChildDomain (90ms)
+	RebuildCommonClasses (76ms)
+	RebuildNativeTypeToScriptingClass (25ms)
+	initialDomainReloadingComplete (83ms)
+	LoadAllAssembliesAndSetupDomain (753ms)
+		LoadAssemblies (561ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (282ms)
-			TypeCache.Refresh (253ms)
-				TypeCache.ScanAssembly (228ms)
-			ScanForSourceGeneratedMonoScriptInfo (22ms)
-			ResolveRequiredComponents (5ms)
-	FinalizeReload (840ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (654ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (42ms)
-			SetLoadedEditorAssemblies (5ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (128ms)
-			ProcessInitializeOnLoadAttributes (451ms)
-			ProcessInitializeOnLoadMethodAttributes (21ms)
-			AfterProcessingInitializeOnLoad (9ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (8ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 8.51 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4219 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 89 unused Assets / (22.8 MB). Loaded Objects now: 4661.
-Memory consumption went from 194.3 MB to 171.5 MB.
-Total: 7.866200 ms (FindLiveObjects: 0.411700 ms CreateObjectMapping: 0.696900 ms MarkObjects: 3.163800 ms  DeleteObjects: 3.592400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:scripting/monoscript/fileName/MoveStraight.cs: 261ac1aeb6d6e88ce553ca60c18a988c -> 388bad8022d07964bd513a27a9073546
-  custom:scripting/monoscript/fileName/CarMovement.cs: 9fb01e61d3c62f56b44767165b928db0 -> bb7d9a30a023759f121c03ce19c9865b
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:scripting/monoscript/fileName/StopLightSystem.cs: 089a1e7a78c201c7979c791079d0eba8 -> df4a5dfbc7b7bf1da99ce31876d30fad
-  custom:scripting/monoscript/fileName/Point.cs: 1615ce440f94bfa844dfb728f8d571f3 -> 62b3860f6f5d67acf96898f9c905c7b8
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:scripting/monoscript/fileName/CarSpawner.cs: af60709d1e850c68a0d5dbad051b0681 -> 52133ba351eaf5cc063f0cb76afc047b
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:scripting/monoscript/fileName/RoadManager.cs: 5a5c8a103d767a4f86cda85b2595253a -> ebabfadfb923a1e9edf928b986d04c2f
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:scripting/monoscript/fileName/Route.cs: 9e70fc9e39ac462d1223f737844170cf -> 398f448a4b6d0893f8246c1d7249f201
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.640 seconds
-Refreshing native plugins compatible for Editor in 7.90 ms, found 4 plugins.
-Native extension for WindowsStandalone target not found
-Native extension for iOS target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.310 seconds
-Domain Reload Profiling: 1945ms
-	BeginReloadAssembly (211ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (42ms)
-	RebuildCommonClasses (36ms)
-	RebuildNativeTypeToScriptingClass (13ms)
-	initialDomainReloadingComplete (35ms)
-	LoadAllAssembliesAndSetupDomain (339ms)
-		LoadAssemblies (450ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (15ms)
-			TypeCache.Refresh (8ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
+		AnalyzeDomain (323ms)
+			TypeCache.Refresh (287ms)
+				TypeCache.ScanAssembly (259ms)
+			ScanForSourceGeneratedMonoScriptInfo (28ms)
 			ResolveRequiredComponents (6ms)
-	FinalizeReload (1311ms)
+	FinalizeReload (1438ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (698ms)
+		SetupLoadedEditorAssemblies (1188ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (49ms)
+			InitializePlatformSupportModulesInManaged (50ms)
 			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (160ms)
-			ProcessInitializeOnLoadAttributes (451ms)
-			ProcessInitializeOnLoadMethodAttributes (22ms)
-			AfterProcessingInitializeOnLoad (9ms)
+			BeforeProcessingInitializeOnLoad (219ms)
+			ProcessInitializeOnLoadAttributes (861ms)
+			ProcessInitializeOnLoadMethodAttributes (38ms)
+			AfterProcessingInitializeOnLoad (14ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (9ms)
-Refreshing native plugins compatible for Editor in 9.23 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (13ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 14.16 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4166 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4665.
-Memory consumption went from 181.5 MB to 158.7 MB.
-Total: 8.671100 ms (FindLiveObjects: 0.745800 ms CreateObjectMapping: 0.599700 ms MarkObjects: 2.967300 ms  DeleteObjects: 4.357100 ms)
+Unloading 4220 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 89 unused Assets / (22.8 MB). Loaded Objects now: 4662.
+Memory consumption went from 194.3 MB to 171.5 MB.
+Total: 17.168700 ms (FindLiveObjects: 0.361000 ms CreateObjectMapping: 0.373700 ms MarkObjects: 8.439800 ms  DeleteObjects: 7.992700 ms)
 
-Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:scripting/monoscript/fileName/MoveStraight.cs: 261ac1aeb6d6e88ce553ca60c18a988c -> 388bad8022d07964bd513a27a9073546
-  custom:scripting/monoscript/fileName/CarMovement.cs: 9fb01e61d3c62f56b44767165b928db0 -> bb7d9a30a023759f121c03ce19c9865b
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:scripting/monoscript/fileName/StopLightSystem.cs: 089a1e7a78c201c7979c791079d0eba8 -> df4a5dfbc7b7bf1da99ce31876d30fad
-  custom:scripting/monoscript/fileName/Point.cs: 1615ce440f94bfa844dfb728f8d571f3 -> 62b3860f6f5d67acf96898f9c905c7b8
   custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:scripting/monoscript/fileName/CarSpawner.cs: af60709d1e850c68a0d5dbad051b0681 -> 52133ba351eaf5cc063f0cb76afc047b
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:scripting/monoscript/fileName/RoadManager.cs: 5a5c8a103d767a4f86cda85b2595253a -> ebabfadfb923a1e9edf928b986d04c2f
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:scripting/monoscript/fileName/Route.cs: 9e70fc9e39ac462d1223f737844170cf -> 398f448a4b6d0893f8246c1d7249f201
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 1461843.108523 seconds.
-  path: Assets/Scenes/Traffic System.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Traffic System.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d0d9e9b83e8bf7606472c166e3156c2') in 0.004056 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 210.768313 seconds.
-  path: Assets/Prefabs/EndPoint.prefab
-  artifactKey: Guid(8adc0159baec1e4469cfdbc7ec2cdbec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EndPoint.prefab using Guid(8adc0159baec1e4469cfdbc7ec2cdbec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04c0c93f60b804c6d1e7c943d0c22e91') in 0.126269 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 9
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/Map.prefab
-  artifactKey: Guid(9ca78af6b7008644d884b5a99ff8753d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Map.prefab using Guid(9ca78af6b7008644d884b5a99ff8753d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Error carga datos: RouteMid S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteMid S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound4A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound4A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteMidL S11
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteMidL S11
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S6
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S6
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S10
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S10
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound2B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound2B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S6
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S6
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S6
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S7
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S7
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound3A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound3A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteMidR S11
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteMidR S11
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound3B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound3B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S10
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S10
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S8
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S8
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S8
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S8
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound2A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound2A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S5
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S5
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S5
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S5
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S5
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S7
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S7
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S7
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
- -> (artifact id: '9f7b28861c2c18dad9fe54df4b43e394') in 0.073247 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1091
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.691 seconds
-Refreshing native plugins compatible for Editor in 8.46 ms, found 4 plugins.
+- Loaded All Assemblies, in  0.644 seconds
+Refreshing native plugins compatible for Editor in 8.76 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
 Native extension for Android target not found
@@ -1099,951 +204,818 @@ Native extension for WebGL target not found
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.324 seconds
-Domain Reload Profiling: 2010ms
-	BeginReloadAssembly (213ms)
+- Finished resetting the current domain, in  1.277 seconds
+Domain Reload Profiling: 1916ms
+	BeginReloadAssembly (176ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (52ms)
-	RebuildCommonClasses (52ms)
-	RebuildNativeTypeToScriptingClass (13ms)
-	initialDomainReloadingComplete (37ms)
-	LoadAllAssembliesAndSetupDomain (371ms)
-		LoadAssemblies (454ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (34ms)
-			TypeCache.Refresh (12ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (14ms)
-			ResolveRequiredComponents (7ms)
-	FinalizeReload (1324ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (662ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (44ms)
-			SetLoadedEditorAssemblies (5ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (165ms)
-			ProcessInitializeOnLoadAttributes (420ms)
-			ProcessInitializeOnLoadMethodAttributes (19ms)
-			AfterProcessingInitializeOnLoad (8ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (8ms)
-Refreshing native plugins compatible for Editor in 8.53 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4166 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4679.
-Memory consumption went from 181.9 MB to 159.1 MB.
-Total: 6.554800 ms (FindLiveObjects: 0.313400 ms CreateObjectMapping: 0.294800 ms MarkObjects: 2.792000 ms  DeleteObjects: 3.154000 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:scripting/monoscript/fileName/MoveStraight.cs: 261ac1aeb6d6e88ce553ca60c18a988c -> 388bad8022d07964bd513a27a9073546
-  custom:scripting/monoscript/fileName/CarMovement.cs: 9fb01e61d3c62f56b44767165b928db0 -> bb7d9a30a023759f121c03ce19c9865b
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:scripting/monoscript/fileName/StopLightSystem.cs: 089a1e7a78c201c7979c791079d0eba8 -> df4a5dfbc7b7bf1da99ce31876d30fad
-  custom:scripting/monoscript/fileName/Point.cs: 1615ce440f94bfa844dfb728f8d571f3 -> 62b3860f6f5d67acf96898f9c905c7b8
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:scripting/monoscript/fileName/CarSpawner.cs: af60709d1e850c68a0d5dbad051b0681 -> 52133ba351eaf5cc063f0cb76afc047b
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:scripting/monoscript/fileName/RoadManager.cs: 5a5c8a103d767a4f86cda85b2595253a -> ebabfadfb923a1e9edf928b986d04c2f
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:scripting/monoscript/fileName/Route.cs: 9e70fc9e39ac462d1223f737844170cf -> 398f448a4b6d0893f8246c1d7249f201
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 2113.884859 seconds.
-  path: Assets/Prefabs/EndPoint.prefab
-  artifactKey: Guid(8adc0159baec1e4469cfdbc7ec2cdbec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EndPoint.prefab using Guid(8adc0159baec1e4469cfdbc7ec2cdbec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '108d55412a32260aadaeba57abf72174') in 0.399252 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 9
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/Map.prefab
-  artifactKey: Guid(9ca78af6b7008644d884b5a99ff8753d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Map.prefab using Guid(9ca78af6b7008644d884b5a99ff8753d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Error carga datos: RouteMid S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteMid S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound4A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound4A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteMidL S11
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteMidL S11
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S6
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S6
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S10
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S10
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound2B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound2B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S6
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S6
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S6
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S7
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S7
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound3A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound3A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S3
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S4
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteMidR S11
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteMidR S11
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound3B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound3B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S9
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S10
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S10
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S2
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S8
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S8
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S8
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S8
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound2A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound2A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S5
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineR S5
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1A
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteRound1B
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S5
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S5
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S5
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S7
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S7
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S7
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
-Error carga datos: RouteLineL S1
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Route:CreateConectionPoints (int) (at Assets/Scripts/Route.cs:153)
-Route:OnValidate () (at Assets/Scripts/Route.cs:130)
-
-(Filename: Assets/Scripts/Route.cs Line: 153)
-
- -> (artifact id: '55fa56229e897fe3230374a2341a25f1') in 0.206383 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1091
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.734 seconds
-Refreshing native plugins compatible for Editor in 8.48 ms, found 4 plugins.
-Native extension for WindowsStandalone target not found
-Native extension for iOS target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.285 seconds
-Domain Reload Profiling: 2012ms
-	BeginReloadAssembly (208ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (49ms)
-	RebuildCommonClasses (44ms)
-	RebuildNativeTypeToScriptingClass (22ms)
+		CreateAndSetChildDomain (43ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (16ms)
 	initialDomainReloadingComplete (44ms)
-	LoadAllAssembliesAndSetupDomain (408ms)
-		LoadAssemblies (469ms)
+	LoadAllAssembliesAndSetupDomain (362ms)
+		LoadAssemblies (405ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (44ms)
-			TypeCache.Refresh (16ms)
+		AnalyzeDomain (40ms)
+			TypeCache.Refresh (15ms)
 				TypeCache.ScanAssembly (1ms)
-			ScanForSourceGeneratedMonoScriptInfo (16ms)
-			ResolveRequiredComponents (10ms)
-	FinalizeReload (1286ms)
+			ScanForSourceGeneratedMonoScriptInfo (17ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1278ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (683ms)
+		SetupLoadedEditorAssemblies (742ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (44ms)
+			InitializePlatformSupportModulesInManaged (48ms)
 			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (154ms)
-			ProcessInitializeOnLoadAttributes (451ms)
+			ProcessInitializeOnLoadAttributes (492ms)
+			ProcessInitializeOnLoadMethodAttributes (26ms)
+			AfterProcessingInitializeOnLoad (17ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (12ms)
+Refreshing native plugins compatible for Editor in 7.61 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4168 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4667.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 7.231200 ms (FindLiveObjects: 0.303700 ms CreateObjectMapping: 0.286800 ms MarkObjects: 2.777900 ms  DeleteObjects: 3.861800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.646 seconds
+Refreshing native plugins compatible for Editor in 9.57 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.241 seconds
+Domain Reload Profiling: 1882ms
+	BeginReloadAssembly (174ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (37ms)
+	LoadAllAssembliesAndSetupDomain (383ms)
+		LoadAssemblies (424ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (45ms)
+			TypeCache.Refresh (16ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (18ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1242ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (625ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (42ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (136ms)
+			ProcessInitializeOnLoadAttributes (412ms)
+			ProcessInitializeOnLoadMethodAttributes (19ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 7.17 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4168 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4671.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 7.029600 ms (FindLiveObjects: 0.336800 ms CreateObjectMapping: 0.333000 ms MarkObjects: 2.893500 ms  DeleteObjects: 3.465300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.624 seconds
+Refreshing native plugins compatible for Editor in 7.87 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.260 seconds
+Domain Reload Profiling: 1879ms
+	BeginReloadAssembly (165ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (367ms)
+		LoadAssemblies (414ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (35ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (14ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1260ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (615ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (44ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (141ms)
+			ProcessInitializeOnLoadAttributes (395ms)
+			ProcessInitializeOnLoadMethodAttributes (19ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 7.91 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4168 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4675.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 6.346100 ms (FindLiveObjects: 0.296900 ms CreateObjectMapping: 0.247300 ms MarkObjects: 2.524900 ms  DeleteObjects: 3.276300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.629 seconds
+Refreshing native plugins compatible for Editor in 9.16 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.154 seconds
+Domain Reload Profiling: 1779ms
+	BeginReloadAssembly (169ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (369ms)
+		LoadAssemblies (421ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (39ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (17ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (1155ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (630ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (46ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (137ms)
+			ProcessInitializeOnLoadAttributes (412ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 7.42 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4168 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4679.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 6.959100 ms (FindLiveObjects: 0.329200 ms CreateObjectMapping: 0.329400 ms MarkObjects: 2.631700 ms  DeleteObjects: 3.667800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.670 seconds
+Refreshing native plugins compatible for Editor in 10.64 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.082 seconds
+Domain Reload Profiling: 1748ms
+	BeginReloadAssembly (160ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (40ms)
+	RebuildCommonClasses (82ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (372ms)
+		LoadAssemblies (419ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (33ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (14ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1083ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (574ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (41ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (125ms)
+			ProcessInitializeOnLoadAttributes (372ms)
+			ProcessInitializeOnLoadMethodAttributes (18ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Refreshing native plugins compatible for Editor in 8.80 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4168 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4683.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 6.790900 ms (FindLiveObjects: 0.312700 ms CreateObjectMapping: 0.276500 ms MarkObjects: 2.620000 ms  DeleteObjects: 3.580900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.633 seconds
+Refreshing native plugins compatible for Editor in 7.58 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.079 seconds
+Domain Reload Profiling: 1707ms
+	BeginReloadAssembly (172ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (33ms)
+	LoadAllAssembliesAndSetupDomain (363ms)
+		LoadAssemblies (424ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (32ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (13ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1079ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (560ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (38ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (122ms)
+			ProcessInitializeOnLoadAttributes (369ms)
 			ProcessInitializeOnLoadMethodAttributes (20ms)
 			AfterProcessingInitializeOnLoad (8ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (8ms)
-Refreshing native plugins compatible for Editor in 8.62 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 9.27 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4166 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4683.
-Memory consumption went from 181.9 MB to 159.1 MB.
-Total: 7.125500 ms (FindLiveObjects: 0.349200 ms CreateObjectMapping: 0.302900 ms MarkObjects: 3.160600 ms  DeleteObjects: 3.311500 ms)
+Unloading 4168 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4687.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 7.641200 ms (FindLiveObjects: 0.329700 ms CreateObjectMapping: 0.304200 ms MarkObjects: 3.088700 ms  DeleteObjects: 3.916900 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:scripting/monoscript/fileName/MoveStraight.cs: 261ac1aeb6d6e88ce553ca60c18a988c -> 388bad8022d07964bd513a27a9073546
-  custom:scripting/monoscript/fileName/CarMovement.cs: 9fb01e61d3c62f56b44767165b928db0 -> bb7d9a30a023759f121c03ce19c9865b
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:scripting/monoscript/fileName/StopLightSystem.cs: 089a1e7a78c201c7979c791079d0eba8 -> df4a5dfbc7b7bf1da99ce31876d30fad
-  custom:scripting/monoscript/fileName/Point.cs: 1615ce440f94bfa844dfb728f8d571f3 -> 62b3860f6f5d67acf96898f9c905c7b8
   custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:scripting/monoscript/fileName/CarSpawner.cs: af60709d1e850c68a0d5dbad051b0681 -> 52133ba351eaf5cc063f0cb76afc047b
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:scripting/monoscript/fileName/RoadManager.cs: 5a5c8a103d767a4f86cda85b2595253a -> ebabfadfb923a1e9edf928b986d04c2f
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:scripting/monoscript/fileName/Route.cs: 9e70fc9e39ac462d1223f737844170cf -> 398f448a4b6d0893f8246c1d7249f201
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: La operación de E/S se anuló por una salida de subproceso o por una solicitud de aplicación.
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.618 seconds
+Refreshing native plugins compatible for Editor in 7.74 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.166 seconds
+Domain Reload Profiling: 1780ms
+	BeginReloadAssembly (165ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (41ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (39ms)
+	LoadAllAssembliesAndSetupDomain (356ms)
+		LoadAssemblies (400ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (40ms)
+			TypeCache.Refresh (16ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (17ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1167ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (559ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (37ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (133ms)
+			ProcessInitializeOnLoadAttributes (360ms)
+			ProcessInitializeOnLoadMethodAttributes (17ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 7.84 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4168 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4691.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 6.266800 ms (FindLiveObjects: 0.305900 ms CreateObjectMapping: 0.258800 ms MarkObjects: 2.639300 ms  DeleteObjects: 3.062100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.630 seconds
+Refreshing native plugins compatible for Editor in 8.70 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.302 seconds
+Domain Reload Profiling: 1928ms
+	BeginReloadAssembly (182ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (39ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (358ms)
+		LoadAssemblies (416ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (39ms)
+			TypeCache.Refresh (16ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (14ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (1303ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (721ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (85ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (145ms)
+			ProcessInitializeOnLoadAttributes (452ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 6.99 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4169 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4696.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 6.739000 ms (FindLiveObjects: 0.349700 ms CreateObjectMapping: 0.360800 ms MarkObjects: 2.729300 ms  DeleteObjects: 3.298300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.638 seconds
+Refreshing native plugins compatible for Editor in 7.72 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.067 seconds
+Domain Reload Profiling: 1701ms
+	BeginReloadAssembly (172ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (48ms)
+	RebuildCommonClasses (33ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (32ms)
+	LoadAllAssembliesAndSetupDomain (384ms)
+		LoadAssemblies (434ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (35ms)
+			TypeCache.Refresh (14ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (12ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (1068ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (577ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (43ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (132ms)
+			ProcessInitializeOnLoadAttributes (373ms)
+			ProcessInitializeOnLoadMethodAttributes (17ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 8.88 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4169 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4700.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 6.088400 ms (FindLiveObjects: 0.307900 ms CreateObjectMapping: 0.280700 ms MarkObjects: 2.534000 ms  DeleteObjects: 2.964900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.600 seconds
+Refreshing native plugins compatible for Editor in 7.32 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.069 seconds
+Domain Reload Profiling: 1664ms
+	BeginReloadAssembly (167ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (39ms)
+	RebuildCommonClasses (33ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (32ms)
+	LoadAllAssembliesAndSetupDomain (351ms)
+		LoadAssemblies (405ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (32ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (13ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1069ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (598ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (38ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (170ms)
+			ProcessInitializeOnLoadAttributes (358ms)
+			ProcessInitializeOnLoadMethodAttributes (17ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 8.14 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4169 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4704.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 6.380700 ms (FindLiveObjects: 0.288600 ms CreateObjectMapping: 0.279000 ms MarkObjects: 2.619100 ms  DeleteObjects: 3.192800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.649 seconds
+Refreshing native plugins compatible for Editor in 7.20 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.061 seconds
+Domain Reload Profiling: 1706ms
+	BeginReloadAssembly (190ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (39ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (366ms)
+		LoadAssemblies (423ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (36ms)
+			TypeCache.Refresh (14ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (13ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (1062ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (554ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (37ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (143ms)
+			ProcessInitializeOnLoadAttributes (346ms)
+			ProcessInitializeOnLoadMethodAttributes (16ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 6.87 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4169 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4708.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 6.456800 ms (FindLiveObjects: 0.307800 ms CreateObjectMapping: 0.279800 ms MarkObjects: 2.701100 ms  DeleteObjects: 3.167300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.583 seconds
+Refreshing native plugins compatible for Editor in 6.97 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.270 seconds
+Domain Reload Profiling: 1849ms
+	BeginReloadAssembly (173ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (39ms)
+	LoadAllAssembliesAndSetupDomain (315ms)
+		LoadAssemblies (389ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (14ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1271ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (692ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (52ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (149ms)
+			ProcessInitializeOnLoadAttributes (455ms)
+			ProcessInitializeOnLoadMethodAttributes (23ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 9.44 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4169 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (22.7 MB). Loaded Objects now: 4712.
+Memory consumption went from 181.5 MB to 158.8 MB.
+Total: 9.173700 ms (FindLiveObjects: 0.392600 ms CreateObjectMapping: 0.365800 ms MarkObjects: 3.613400 ms  DeleteObjects: 4.800700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/CarLogic.cs: 403d3d8ed01c9455101a66d6f292b2fa -> fd191a614672c8f36e57c723c9b080d4
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
