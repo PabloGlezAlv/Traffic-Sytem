@@ -93,6 +93,8 @@ public class CarLogicAI : Agent, IMovable
     Quaternion startRotation;
     Vector3 startGoal;
 
+    bool wallColliding = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -109,13 +111,11 @@ public class CarLogicAI : Agent, IMovable
     {
         carMov.StopCar();
 
-        checkRayCast();
+        //checkRayCast();
 
         speedValue = speedLimit / maxAcceleration;
 
         driverSpeed = Random.Range(0.7f, 1);
-
-        Invoke("CalculateCurrentSpeed", 0.1f);
     }
 
     private void RestartCar()
@@ -142,45 +142,98 @@ public class CarLogicAI : Agent, IMovable
     // ---------------------------------AI PARAMETERS-----------------------------
     public override void OnEpisodeBegin()
     {
+        Invoke("killCar", 30);
         RestartCar();
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        Vector3 direction = (targetPosition - transform.position).normalized;
-
-        sensor.AddObservation(direction);
+        sensor.AddObservation(transform.forward);
+        sensor.AddObservation(transform.position);
+        sensor.AddObservation(targetPosition);
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
-        moveInput = actions.ContinuousActions[0];
-        steerInput = actions.ContinuousActions[1];
+        steerInput = actions.ContinuousActions[0];
 
-        if(moveInput <= speedValue * driverSpeed)
+        //Check Correct Direction
+        float auxSteerInput = 0;
+
+        Vector3 lineDirection = targetPosition - previousTarget;
+        Vector3 pointToLinePoint1 = transform.position - previousTarget;
+        float projection = Vector3.Dot(pointToLinePoint1, lineDirection.normalized);
+        Vector3 projectedPoint = previousTarget + projection * lineDirection.normalized;
+        float distance = Vector3.Distance(transform.position, projectedPoint);
+        //Debug.Log(distance);
+        if (distance < 0.4)
         {
-            AddReward(0.01f);
+            auxSteerInput = 0;
         }
         else
         {
-            AddReward(-0.01f);
+            Vector3 targetDirection = (targetPosition - transform.position).normalized;
+
+            float angle = Vector3.SignedAngle(forward, targetDirection, Vector3.up);
+            angle = Mathf.Clamp(angle, -maxSteerAngle, maxSteerAngle);
+
+            float steerObjective = angle / maxSteerAngle;
+            auxSteerInput = steerObjective;
+        }
+
+        if(((int)auxSteerInput *1000) != ((int)steerInput * 1000))
+        {
+            AddReward(-Mathf.Abs(auxSteerInput - steerInput) / 2);
+
+        }
+
+        //---------------------------------------------
+
+        moveInput = actions.DiscreteActions[0];
+        switch (moveInput)
+        {
+            case 0: moveInput = 0; break;
+            case 1: moveInput = speedValue * driverSpeed; break;
+            case 2: moveInput = -speedValue * driverSpeed; AddReward(-0.1f); break;
+            default: break;
         }
     }
     private void AddCheckPointReward() //Everytime we set a new target
     {
-        AddReward(1f);
+        AddReward(200f);
     }
-
-    // ---------------------------------------------------------------------------------
     public void AddWrongCheckPointReward()
     {
-        AddReward(-1f);
+        AddReward(-25f);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Outside")
+        {
+            wallColliding = true;
+            AddReward(-5f);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(wallColliding)
+            AddReward(-0.1f);
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Outside")
+        {
+            wallColliding = false;
+        }
+    }
     public void killCar()
     {
+        AddReward(-Vector3.Distance(transform.position, targetPosition)*100);
         EndEpisode();
     }
-
+    // ---------------------------------------------------------------------------------
 
     public float GetMove()
     {
@@ -331,13 +384,6 @@ public class CarLogicAI : Agent, IMovable
                 carMov.SetCarStopped(false);
             }
         }
-
-
-        if(Vector3.Distance(transform.position, targetPosition) > 30)
-        {
-            AddReward(-1);
-            killCar();
-        }
     }
     public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right)//Chek if endPoint to check if movement left rotation
     {
@@ -459,5 +505,7 @@ public class CarLogicAI : Agent, IMovable
         //Left Sensor Overtake
         Gizmos.DrawLine(transform.position - transform.right * 2.5f + forward * 6, transform.position - transform.right * 2.4f - forward * 11);
 
+        Gizmos.color = UnityEngine.Color.white;
+        Gizmos.DrawLine(transform.position, targetPosition);
     }
 }

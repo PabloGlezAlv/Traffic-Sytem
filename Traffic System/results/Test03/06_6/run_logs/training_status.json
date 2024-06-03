@@ -1,0 +1,29 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 16473,
+                "file_path": "results\\Test03/06_6\\FollowPoints\\FollowPoints-16473.onnx",
+                "reward": null,
+                "creation_time": 1717421011.5135486,
+                "auxillary_file_paths": [
+                    "results\\Test03/06_6\\FollowPoints\\FollowPoints-16473.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 16473,
+            "file_path": "results\\Test03/06_6\\FollowPoints.onnx",
+            "reward": null,
+            "creation_time": 1717421011.5135486,
+            "auxillary_file_paths": [
+                "results\\Test03/06_6\\FollowPoints\\FollowPoints-16473.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.0+cpu"
+    }
+}
