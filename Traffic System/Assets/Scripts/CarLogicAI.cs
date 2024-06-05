@@ -5,6 +5,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngineInternal;
 using static CarMovement;
 using static Point;
 using static UnityEngine.GraphicsBuffer;
@@ -94,10 +95,11 @@ public class CarLogicAI : Agent, IMovable
     Vector3 startGoal;
 
     bool wallColliding = false;
-
-    // Start is called before the first frame update
     void Awake()
     {
+
+        previousPosition = transform.position;
+        startGoal = targetPosition;
         carMov = gameObject.GetComponent<CarMovement>();
 
         maxAcceleration = carMov.GetMaxAcceleration();
@@ -105,6 +107,8 @@ public class CarLogicAI : Agent, IMovable
 
         startPosition = transform.position;
         startRotation = transform.rotation;
+
+
     }
 
     void Start()
@@ -142,8 +146,16 @@ public class CarLogicAI : Agent, IMovable
     // ---------------------------------AI PARAMETERS-----------------------------
     public override void OnEpisodeBegin()
     {
-        Invoke("killCar", 30);
         RestartCar();
+    }
+
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
+        continuousActions[0] = Input.GetAxis("Horizontal");
+
+        ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
+        discreteActions[0] = (int)Input.GetAxisRaw("Vertical");
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -151,41 +163,19 @@ public class CarLogicAI : Agent, IMovable
         sensor.AddObservation(transform.forward);
         sensor.AddObservation(transform.position);
         sensor.AddObservation(targetPosition);
+
+
+
+        if(Vector3.Distance(transform.position, targetPosition) < Vector3.Distance(previousPosition, targetPosition))
+        {
+            AddReward(0.1f);
+        }
+
+        previousPosition = transform.position;
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
         steerInput = actions.ContinuousActions[0];
-
-        //Check Correct Direction
-        float auxSteerInput = 0;
-
-        Vector3 lineDirection = targetPosition - previousTarget;
-        Vector3 pointToLinePoint1 = transform.position - previousTarget;
-        float projection = Vector3.Dot(pointToLinePoint1, lineDirection.normalized);
-        Vector3 projectedPoint = previousTarget + projection * lineDirection.normalized;
-        float distance = Vector3.Distance(transform.position, projectedPoint);
-        //Debug.Log(distance);
-        if (distance < 0.4)
-        {
-            auxSteerInput = 0;
-        }
-        else
-        {
-            Vector3 targetDirection = (targetPosition - transform.position).normalized;
-
-            float angle = Vector3.SignedAngle(forward, targetDirection, Vector3.up);
-            angle = Mathf.Clamp(angle, -maxSteerAngle, maxSteerAngle);
-
-            float steerObjective = angle / maxSteerAngle;
-            auxSteerInput = steerObjective;
-        }
-
-        if(((int)auxSteerInput *1000) != ((int)steerInput * 1000))
-        {
-            AddReward(-Mathf.Abs(auxSteerInput - steerInput) / 2);
-
-        }
-
         //---------------------------------------------
 
         moveInput = actions.DiscreteActions[0];
@@ -193,7 +183,7 @@ public class CarLogicAI : Agent, IMovable
         {
             case 0: moveInput = 0; break;
             case 1: moveInput = speedValue * driverSpeed; break;
-            case 2: moveInput = -speedValue * driverSpeed; AddReward(-0.1f); break;
+            case 2: moveInput = -speedValue * driverSpeed; break;
             default: break;
         }
     }
@@ -206,33 +196,27 @@ public class CarLogicAI : Agent, IMovable
         AddReward(-25f);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Outside")
-        {
-            wallColliding = true;
-            AddReward(-5f);
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if(wallColliding)
-            AddReward(-0.1f);
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Outside")
-        {
-            wallColliding = false;
-        }
-    }
     public void killCar()
     {
-        AddReward(-Vector3.Distance(transform.position, targetPosition)*100);
         EndEpisode();
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name == "Goal")
+        {
+            AddCheckPointReward();
+            EndEpisode();
+        }
+    }
+
+    public void AddRewardAgent(float amount)
+    {
+        AddReward(amount);
+    }
+
+    
+
     // ---------------------------------------------------------------------------------
 
     public float GetMove()
