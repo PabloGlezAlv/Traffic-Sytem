@@ -12,6 +12,11 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CarLogicAI : Agent, IMovable
 {
+    [SerializeField]
+    GameObject goal;
+    [SerializeField]
+    WheelCollider wheel;
+
     [Header("Output")]
     [SerializeField]
     float moveInput = 0;
@@ -39,7 +44,7 @@ public class CarLogicAI : Agent, IMovable
 
     private Vector3 previousTarget = Vector3.zero;
 
-    private float speedLimit = 30;
+    private float speedLimit = 70;
     private float speedValue = 0;
 
     [Header("Debug Parameters")]
@@ -51,9 +56,6 @@ public class CarLogicAI : Agent, IMovable
     float currentSpeed = 0;
 
     bool safeRouteChange = false;
-
-    private Vector3 previousPosition;
-
 
 
     private float frontRangeValue = 1;
@@ -95,10 +97,12 @@ public class CarLogicAI : Agent, IMovable
     Vector3 startGoal;
 
     bool wallColliding = false;
+
+    Rigidbody rb;
+
     void Awake()
     {
-
-        previousPosition = transform.position;
+        rb = GetComponent<Rigidbody>();
         startGoal = targetPosition;
         carMov = gameObject.GetComponent<CarMovement>();
 
@@ -107,8 +111,6 @@ public class CarLogicAI : Agent, IMovable
 
         startPosition = transform.position;
         startRotation = transform.rotation;
-
-
     }
 
     void Start()
@@ -124,6 +126,8 @@ public class CarLogicAI : Agent, IMovable
 
     private void RestartCar()
     {
+        goal.transform.localPosition = new Vector3(Random.Range(-7, 9), goal.transform.localPosition.y, Random.Range(-9, 10));
+
         rightSide = false;
         //Raycast
         hitFR = false;
@@ -137,7 +141,9 @@ public class CarLogicAI : Agent, IMovable
         int overtaking = -1;
 
         targetPosition = startGoal;
-        transform.position = startPosition;
+        transform.localPosition = new Vector3(Random.Range(-5, 5), transform.localPosition.y, Random.Range(-5, 5));
+
+
         transform.rotation = startRotation;
 
         checkRayCast();
@@ -151,33 +157,37 @@ public class CarLogicAI : Agent, IMovable
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
-        continuousActions[0] = Input.GetAxis("Horizontal");
-
         ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
-        discreteActions[0] = (int)Input.GetAxisRaw("Vertical");
+        discreteActions[0] = (int)Input.GetAxis("Vertical");
+        discreteActions[1] = (int)Input.GetAxis("Horizontal");
+
+        if (discreteActions[0] == -1)
+        {
+            discreteActions[0] = 2;
+        }
+        if (discreteActions[1] == -1)
+        {
+            discreteActions[1] = 2;
+        }
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(transform.forward);
+        //Own car
+        sensor.AddObservation(rb.velocity.magnitude);
         sensor.AddObservation(transform.position);
-        sensor.AddObservation(targetPosition);
+        sensor.AddObservation(GetNormalizedValue(transform.eulerAngles.y,0, 360));
 
+        //target Position
+        sensor.AddObservation(goal.transform.position);
 
-
-        if(Vector3.Distance(transform.position, targetPosition) < Vector3.Distance(previousPosition, targetPosition))
-        {
-            AddReward(0.1f);
-        }
-
-        previousPosition = transform.position;
+        //Debug.Log("Speed: " + rb.velocity.magnitude);
+        //Debug.Log("Pos: " + transform.position);
+        //Debug.Log("Rot: " + GetNormalizedValue(transform.eulerAngles.y, 0, 360));
+        //Debug.Log("GoalPos: " + goal.transform.position);
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
-        steerInput = actions.ContinuousActions[0];
-        //---------------------------------------------
-
         moveInput = actions.DiscreteActions[0];
         switch (moveInput)
         {
@@ -186,14 +196,49 @@ public class CarLogicAI : Agent, IMovable
             case 2: moveInput = -speedValue * driverSpeed; break;
             default: break;
         }
+        //---------------------------------------------
+        steerInput = actions.DiscreteActions[1];
+        switch (steerInput)
+        {
+            case 0: steerInput = 0; break;
+            case 1: steerInput = 1; break;
+            case 2: steerInput = -1; break;
+            default: break;
+        }
+
+        //-------------------Reward getting closer------------------------------
+        //float DistanceRewardInterval = 0.3f;
+        //float distance = Vector3.Distance(transform.position, targetPosition);
+        //if (distance < previousDistance)
+        //{
+        //    if ((int)(distance / DistanceRewardInterval) < (int)(previousDistance / DistanceRewardInterval)) //Every X units that gets closer
+        //    {
+        //        AddReward(0.02f);
+        //    }
+
+        //}
+        //else
+        //{
+        //    // Note: '* 2' is a hard coded value here, which I introduced after tuning the penalty to occur less frequently than
+        //    // the reward, in order to not 'scare' the AI of performing corrective maneuvers where it has to first increase the
+        //    // distance to the target parking spot.
+        //    if ((int)(distance / (DistanceRewardInterval * 2)) > (int)(previousDistance / (DistanceRewardInterval * 2)))
+        //    {
+        //        AddReward(-0.03f);
+        //    }
+        //}
+
+        //previousDistance = distance;
+
+        AddReward(-1 / MaxStep);
     }
     private void AddCheckPointReward() //Everytime we set a new target
     {
-        AddReward(200f);
+        AddReward(1);
     }
     public void AddWrongCheckPointReward()
     {
-        AddReward(-25f);
+        AddReward(-0.25f);
     }
 
     public void killCar()
@@ -203,9 +248,13 @@ public class CarLogicAI : Agent, IMovable
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "Goal")
+        if (other.gameObject.name == "Goal")
         {
-            AddCheckPointReward();
+            //if (Vector3.Distance(other.gameObject.transform.position, transform.position + transform.forward) < Vector3.Distance(other.gameObject.transform.position, transform.position - transform.forward))
+            //    AddReward(1);
+            //else
+            //    AddReward(0.5f);
+            AddReward(5f);
             EndEpisode();
         }
     }
@@ -215,7 +264,10 @@ public class CarLogicAI : Agent, IMovable
         AddReward(amount);
     }
 
-    
+    private float GetNormalizedValue(float currentValue, float minValue, float maxValue)
+    {
+        return (currentValue - minValue) / (maxValue - minValue);
+    }
 
     // ---------------------------------------------------------------------------------
 
@@ -239,23 +291,7 @@ public class CarLogicAI : Agent, IMovable
 
     public void CalculateCarInput()
     {
-       //Empty the AI Calculate the input now
-    }
-
-    private void CalculateCurrentSpeed()
-    {
-        Vector3 currentPosition = transform.position;
-
-        // Calcular la distancia recorrida desde la última actualización
-        float distance = Vector3.Distance(previousPosition, currentPosition);
-
-        // Calcular la velocidad (distancia recorrida por unidad de tiempo)
-        currentSpeed = distance / 0.1f;
-
-        // Actualizar la posición anterior
-        previousPosition = currentPosition;
-
-        Invoke("CalculateCurrentSpeed", 0.1f);
+        //Empty the AI Calculate the input now
     }
     private void DirectionsRaycast()
     {

@@ -7,14 +7,9 @@ public class ColliderPlayer : MonoBehaviour
     [SerializeField]
     CarLogicAI carLogic;
 
-
     private void OnCollisionEnter(Collision collision)
     {
-        carLogic.AddRewardAgent(-10);
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        carLogic.AddRewardAgent(-1);
+        carLogic.AddRewardAgent(-0.01f);
+        carLogic.killCar();
     }
 }

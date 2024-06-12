@@ -9,6 +9,7 @@ TagManager:
   - Outside
   - LaneLeft
   - LaneRight
+  - Goal
   layers:
   - Default
   - TransparentFX

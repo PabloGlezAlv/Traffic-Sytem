@@ -1,0 +1,65 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 3999936,
+                "file_path": "results\\Test10Scenario1\\FollowPoints\\FollowPoints-3999936.onnx",
+                "reward": -54.100002363324165,
+                "creation_time": 1717816061.3871279,
+                "auxillary_file_paths": [
+                    "results\\Test10Scenario1\\FollowPoints\\FollowPoints-3999936.pt"
+                ]
+            },
+            {
+                "steps": 4499966,
+                "file_path": "results\\Test10Scenario1\\FollowPoints\\FollowPoints-4499966.onnx",
+                "reward": null,
+                "creation_time": 1717821757.7353904,
+                "auxillary_file_paths": [
+                    "results\\Test10Scenario1\\FollowPoints\\FollowPoints-4499966.pt"
+                ]
+            },
+            {
+                "steps": 4999953,
+                "file_path": "results\\Test10Scenario1\\FollowPoints\\FollowPoints-4999953.onnx",
+                "reward": null,
+                "creation_time": 1717827824.3361516,
+                "auxillary_file_paths": [
+                    "results\\Test10Scenario1\\FollowPoints\\FollowPoints-4999953.pt"
+                ]
+            },
+            {
+                "steps": 5499947,
+                "file_path": "results\\Test10Scenario1\\FollowPoints\\FollowPoints-5499947.onnx",
+                "reward": null,
+                "creation_time": 1717834490.7132924,
+                "auxillary_file_paths": [
+                    "results\\Test10Scenario1\\FollowPoints\\FollowPoints-5499947.pt"
+                ]
+            },
+            {
+                "steps": 5750785,
+                "file_path": "results\\Test10Scenario1\\FollowPoints\\FollowPoints-5750785.onnx",
+                "reward": null,
+                "creation_time": 1717837955.114933,
+                "auxillary_file_paths": [
+                    "results\\Test10Scenario1\\FollowPoints\\FollowPoints-5750785.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 5750785,
+            "file_path": "results\\Test10Scenario1\\FollowPoints.onnx",
+            "reward": null,
+            "creation_time": 1717837955.114933,
+            "auxillary_file_paths": [
+                "results\\Test10Scenario1\\FollowPoints\\FollowPoints-5750785.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.0+cpu"
+    }
+}
