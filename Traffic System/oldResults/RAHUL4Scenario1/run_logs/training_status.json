@@ -1,0 +1,65 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 999948,
+                "file_path": "results\\RAHUL4Scenario1\\FollowPoints\\FollowPoints-999948.onnx",
+                "reward": 1.3563636365261944,
+                "creation_time": 1718241410.6812398,
+                "auxillary_file_paths": [
+                    "results\\RAHUL4Scenario1\\FollowPoints\\FollowPoints-999948.pt"
+                ]
+            },
+            {
+                "steps": 1499979,
+                "file_path": "results\\RAHUL4Scenario1\\FollowPoints\\FollowPoints-1499979.onnx",
+                "reward": -0.009999999776482582,
+                "creation_time": 1718247721.3542993,
+                "auxillary_file_paths": [
+                    "results\\RAHUL4Scenario1\\FollowPoints\\FollowPoints-1499979.pt"
+                ]
+            },
+            {
+                "steps": 1999957,
+                "file_path": "results\\RAHUL4Scenario1\\FollowPoints\\FollowPoints-1999957.onnx",
+                "reward": 0.992000000178814,
+                "creation_time": 1718254936.983701,
+                "auxillary_file_paths": [
+                    "results\\RAHUL4Scenario1\\FollowPoints\\FollowPoints-1999957.pt"
+                ]
+            },
+            {
+                "steps": 2499944,
+                "file_path": "results\\RAHUL4Scenario1\\FollowPoints\\FollowPoints-2499944.onnx",
+                "reward": 0.992000000178814,
+                "creation_time": 1718263175.9917476,
+                "auxillary_file_paths": [
+                    "results\\RAHUL4Scenario1\\FollowPoints\\FollowPoints-2499944.pt"
+                ]
+            },
+            {
+                "steps": 2974784,
+                "file_path": "results\\RAHUL4Scenario1\\FollowPoints\\FollowPoints-2974784.onnx",
+                "reward": 0.8892307694141681,
+                "creation_time": 1718272533.769253,
+                "auxillary_file_paths": [
+                    "results\\RAHUL4Scenario1\\FollowPoints\\FollowPoints-2974784.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2974784,
+            "file_path": "results\\RAHUL4Scenario1\\FollowPoints.onnx",
+            "reward": 0.8892307694141681,
+            "creation_time": 1718272533.769253,
+            "auxillary_file_paths": [
+                "results\\RAHUL4Scenario1\\FollowPoints\\FollowPoints-2974784.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.1+cpu"
+    }
+}
