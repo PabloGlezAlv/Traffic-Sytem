@@ -13,8 +13,6 @@ using static UnityEngine.GraphicsBuffer;
 public class CarLogicAI : Agent, IMovable
 {
     [SerializeField]
-    GameObject goal;
-    [SerializeField]
     WheelCollider wheel;
 
     [Header("Input")]
@@ -142,8 +140,6 @@ public class CarLogicAI : Agent, IMovable
 
     private void RestartCar()
     {
-        goal.transform.localPosition = new Vector3(Random.Range(23, 30), goal.transform.localPosition.y, Random.Range(-8, 0));
-
         rightSide = false;
         //Raycast
         hitFR = false;
@@ -156,8 +152,8 @@ public class CarLogicAI : Agent, IMovable
         bool changeLane = false;
         int overtaking = -1;
 
-        transform.localPosition = new Vector3(Random.Range(-6, 0), transform.localPosition.y, Random.Range(-8, 0));
-
+        transform.position = startPosition;
+        targetPosition = startGoal;
 
         transform.rotation = startRotation;
 
@@ -412,7 +408,6 @@ public class CarLogicAI : Agent, IMovable
         mySpeed = rb.velocity.magnitude;
         myRotation = transform.eulerAngles.y;
         myPosition = transform.position;
-        targetPosition = goal.transform.position;
 
 
 

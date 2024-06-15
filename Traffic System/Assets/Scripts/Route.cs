@@ -248,10 +248,14 @@ public class Route : MonoBehaviour
                 //Add to first point the end of conection
                 movingPoints[startIndex].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
 
+                conectionPoints[conectionPoints.Count - 1].transform.LookAt(movingPoints[startIndex].transform.position);
+
                 //Add the rest of points;
                 for (int j = pointIndex; j < pointIndex + routeDirections[i].density - 1; j++) // Points each direction
                 {
                     conectionPoints.Add(Instantiate(midPoint, conectionLocations[j], transform.rotation, transform));
+
+                    conectionPoints[conectionPoints.Count - 1].transform.LookAt(conectionPoints[conectionPoints.Count - 2].transform.position);
 
                     conectionPoints[conectionPoints.Count - 2].GetComponent<Point>().AddConexion(conectionPoints[conectionPoints.Count - 1].transform.position);
                     conectionPoints[conectionPoints.Count - 2].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
@@ -315,6 +319,8 @@ public class Route : MonoBehaviour
                     movingPoints[i - 1].GetComponent<Point>().AddConexion(movingPoints[i].transform.position);
                     movingPoints[i - 1].GetComponent<Point>().AddTrailEnd(locations[limit - 1].pos);
                     movingPoints[i - 1].GetComponent<Point>().AddConexionLane(locations[limit - 1].lane);
+
+                    movingPoints[i - 1].transform.LookAt(movingPoints[i].transform.position);
                 }
 
                 //Tell the lane of the point
@@ -322,7 +328,9 @@ public class Route : MonoBehaviour
                 movingPoints[i].GetComponent<Point>().setRight(isRight);
             }
 
-            if(enterSpeed > exitSpeed && points > 6) //In case enough point decelerate in lst point
+            movingPoints[points*l].transform.LookAt(movingPoints[points * l + 1].transform.position);
+
+            if (enterSpeed > exitSpeed && points > 6) //In case enough point decelerate in lst point
             {
                 movingPoints[movingPoints.Count - 2].GetComponent<Point>().setSpeedLimit(Mathf.Lerp(exitSpeed, enterSpeed, 0.33f));
                 movingPoints[movingPoints.Count - 3].GetComponent<Point>().setSpeedLimit(Mathf.Lerp(exitSpeed, enterSpeed, 0.66f));

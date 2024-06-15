@@ -80,16 +80,18 @@ public class Point : MonoBehaviour
             
             Vector3 target = car.getTarget();
 
-            if (Vector3.Distance(transform.position, target) < 0.1)
+            if (Vector3.Distance(transform.position, target) < 0.01)
             {
                 if (type != PointType.Start)
                     SendCarSpeedLimit(car);
                 car.setTarget(nextPoints, endTrail, nextLane, type, right);
             }
-            else if (Vector3.Distance(transform.position, target) > 5)
+            else
             {
                 car.AddWrongCheckPointReward();
             }
+
+            Debug.Log(Vector3.Distance(transform.position, target));
         }
     }
 }

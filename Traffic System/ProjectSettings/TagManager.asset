@@ -10,6 +10,7 @@ TagManager:
   - LaneLeft
   - LaneRight
   - Goal
+  - CheckPointRight
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Outside
   - LaneRigth
   - LaneLeft
-  - 
+  - Checkpoint
   - 
   - 
   - 

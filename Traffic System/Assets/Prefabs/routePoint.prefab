@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2227655778827012369}
   - component: {fileID: 5598085420020129032}
   - component: {fileID: 5808708239772487832}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: routePoint
-  m_TagString: Untagged
+  m_TagString: CheckPointRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 4.124446, y: 1.4892001, z: 0.17977439}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,4 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6643def1433869249b25a5c47e7dad8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: 0
+  type: 2
+  lane: 0
+  speedLimit: -1
+  nextPoints: []
+  nextLane: 
+  endTrail: []
+  right: 1
