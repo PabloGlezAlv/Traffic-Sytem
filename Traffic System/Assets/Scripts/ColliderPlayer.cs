@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ColliderPlayer : MonoBehaviour
 {
-    [SerializeField]
-    CarLogicAI carLogic;
-
     private void OnCollisionEnter(Collision collision)
     {
-        carLogic.AddRewardAgent(-0.01f);
-        carLogic.killCar();
+        CarLogicAI carLogic = collision.gameObject.GetComponentInParent<CarLogicAI>();
+        if (carLogic != null )
+        {
+             carLogic.AddRewardAgent(-0.01f, true);
+        }
     }
 }

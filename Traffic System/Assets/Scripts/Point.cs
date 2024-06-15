@@ -85,13 +85,9 @@ public class Point : MonoBehaviour
                 if (type != PointType.Start)
                     SendCarSpeedLimit(car);
                 car.setTarget(nextPoints, endTrail, nextLane, type, right);
-            }
-            else
-            {
-                car.AddWrongCheckPointReward();
-            }
 
-            Debug.Log(Vector3.Distance(transform.position, target));
+                car.AddRewardAgent(0.25f);
+            }
         }
     }
 }

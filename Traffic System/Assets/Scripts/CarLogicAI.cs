@@ -14,7 +14,8 @@ public class CarLogicAI : Agent, IMovable
 {
     [SerializeField]
     WheelCollider wheel;
-
+    [SerializeField]
+    float trainingReward = 0;
     [Header("Input")]
     [SerializeField]    //VARIABLES TO DEBUG THE INPUT
     Vector3 myPosition;
@@ -245,37 +246,13 @@ public class CarLogicAI : Agent, IMovable
 
         AddReward(-1 / MaxStep);
     }
-    private void AddCheckPointReward() //Everytime we set a new target
-    {
-        AddReward(1);
-    }
-    public void AddWrongCheckPointReward()
-    {
-        AddReward(-0.25f);
-    }
 
-    public void killCar()
-    {
-        EndEpisode();
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "Goal")
-        {
-            //if (Vector3.Distance(other.gameObject.transform.position, transform.position + transform.forward) < Vector3.Distance(other.gameObject.transform.position, transform.position - transform.forward))
-            //    AddReward(1);
-            //else
-            //    AddReward(0.5f);
-            AddReward(5f);
-            Debug.Log(GetCumulativeReward());
-            EndEpisode();
-        }
-    }
-
-    public void AddRewardAgent(float amount)
+    public void AddRewardAgent(float amount, bool kill = false)
     {
         AddReward(amount);
+
+        if (kill)
+            EndEpisode();
     }
 
     private float GetNormalizedValue(float currentValue, float minValue, float maxValue)
@@ -405,6 +382,7 @@ public class CarLogicAI : Agent, IMovable
     // Update is called once per frame
     void Update()
     {
+        trainingReward = GetCumulativeReward();
         mySpeed = rb.velocity.magnitude;
         myRotation = transform.eulerAngles.y;
         myPosition = transform.position;
@@ -427,8 +405,6 @@ public class CarLogicAI : Agent, IMovable
     }
     public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right)//Chek if endPoint to check if movement left rotation
     {
-        AddCheckPointReward();
-
         previousTarget = targetPosition;
         int rng;
         rng = Random.Range(0, pos.Count);

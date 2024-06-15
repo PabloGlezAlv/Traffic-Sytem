@@ -457,4 +457,9 @@ public class CarLogic : MonoBehaviour, IMovable
         Gizmos.DrawLine(transform.position - transform.right * 2.5f + forward * 6, transform.position - transform.right * 2.4f - forward * 11);
 
     }
+
+    public void AddRewardAgent(float amount, bool kill = false)
+    {
+        throw new System.NotImplementedException();
+    }
 }
