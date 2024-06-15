@@ -17,6 +17,16 @@ public class CarLogicAI : Agent, IMovable
     [SerializeField]
     WheelCollider wheel;
 
+    [Header("Input")]
+    [SerializeField]    //VARIABLES TO DEBUG THE INPUT
+    Vector3 myPosition;
+    [SerializeField]
+    Vector3 targetPosition;
+    [SerializeField]
+    float myRotation;
+    [SerializeField]
+    float mySpeed;
+
     [Header("Output")]
     [SerializeField]
     float moveInput = 0;
@@ -30,9 +40,6 @@ public class CarLogicAI : Agent, IMovable
     float distanceFrontSensor = 0.35f;
     [SerializeField]
     float checkSidesCar = 3.0f;
-    [Header("Target")]
-    [SerializeField]
-    Vector3 targetPosition;
 
     CarMovement carMov;
 
@@ -54,6 +61,8 @@ public class CarLogicAI : Agent, IMovable
     DrivingLane carLane = DrivingLane.OneLane;
     [SerializeField]
     float currentSpeed = 0;
+    [SerializeField]
+    int checkpointID = 0;
 
     bool safeRouteChange = false;
 
@@ -100,6 +109,13 @@ public class CarLogicAI : Agent, IMovable
 
     Rigidbody rb;
 
+
+
+    public int CheckpointID
+    {
+        get { return checkpointID; }
+        set { checkpointID = value; }
+    }
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -126,7 +142,7 @@ public class CarLogicAI : Agent, IMovable
 
     private void RestartCar()
     {
-        goal.transform.localPosition = new Vector3(Random.Range(-7, 9), goal.transform.localPosition.y, Random.Range(-9, 10));
+        goal.transform.localPosition = new Vector3(Random.Range(23, 30), goal.transform.localPosition.y, Random.Range(-8, 0));
 
         rightSide = false;
         //Raycast
@@ -140,11 +156,12 @@ public class CarLogicAI : Agent, IMovable
         bool changeLane = false;
         int overtaking = -1;
 
-        targetPosition = startGoal;
-        transform.localPosition = new Vector3(Random.Range(-5, 5), transform.localPosition.y, Random.Range(-5, 5));
+        transform.localPosition = new Vector3(Random.Range(-6, 0), transform.localPosition.y, Random.Range(-8, 0));
 
 
         transform.rotation = startRotation;
+
+        checkpointID = 0;
 
         checkRayCast();
     }
@@ -174,12 +191,12 @@ public class CarLogicAI : Agent, IMovable
     public override void CollectObservations(VectorSensor sensor)
     {
         //Own car
-        sensor.AddObservation(rb.velocity.magnitude);
-        sensor.AddObservation(transform.position);
-        sensor.AddObservation(GetNormalizedValue(transform.eulerAngles.y,0, 360));
+        sensor.AddObservation(mySpeed);
+        sensor.AddObservation(myPosition);
+        sensor.AddObservation(myRotation);
 
         //target Position
-        sensor.AddObservation(goal.transform.position);
+        sensor.AddObservation(targetPosition);
 
         //Debug.Log("Speed: " + rb.velocity.magnitude);
         //Debug.Log("Pos: " + transform.position);
@@ -255,6 +272,7 @@ public class CarLogicAI : Agent, IMovable
             //else
             //    AddReward(0.5f);
             AddReward(5f);
+            Debug.Log(GetCumulativeReward());
             EndEpisode();
         }
     }
@@ -391,6 +409,13 @@ public class CarLogicAI : Agent, IMovable
     // Update is called once per frame
     void Update()
     {
+        mySpeed = rb.velocity.magnitude;
+        myRotation = transform.eulerAngles.y;
+        myPosition = transform.position;
+        targetPosition = goal.transform.position;
+
+
+
         forward = new Vector3(transform.forward.x, 0, transform.forward.z);
 
         if (timerToGo >= 0)
