@@ -9,7 +9,7 @@ public interface IMovable
     float GetMove();
     float GetSteer();
 
-    void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right);
+    void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right, List<GameObject> parentDirs, bool lastPoint);
 
     void setTarget(Vector3 pos);
 

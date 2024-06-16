@@ -30,6 +30,10 @@ public class Point : MonoBehaviour
 
     [SerializeField]
     bool right = true;
+    [SerializeField]
+    bool lastPoint = false;
+
+    List<GameObject> conectionParent = new List<GameObject>();
 
     void SendCarSpeedLimit(IMovable car)
     {
@@ -53,6 +57,11 @@ public class Point : MonoBehaviour
         right = r;
     }
 
+    public void AddConexionParent(GameObject obj)
+    {
+        conectionParent.Add(obj);
+    }
+
     public void AddTrailEnd(Vector3 p)
     {
         endTrail.Add(p);
@@ -65,6 +74,11 @@ public class Point : MonoBehaviour
     public void AddConexionLane(DrivingLane p)
     {
         nextLane.Add(p);
+    }
+
+    public void SetLastPoint()
+    {
+        lastPoint = true;
     }
 
     public List<Vector3> getNextPoint()
@@ -84,7 +98,8 @@ public class Point : MonoBehaviour
             {
                 if (type != PointType.Start)
                     SendCarSpeedLimit(car);
-                car.setTarget(nextPoints, endTrail, nextLane, type, right);
+
+                car.setTarget(nextPoints, endTrail, nextLane, type, right, conectionParent, lastPoint);
 
                 car.AddRewardAgent(0.25f);
             }

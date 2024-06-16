@@ -62,6 +62,9 @@ public class CarLogicAI : Agent, IMovable
     float currentSpeed = 0;
     [SerializeField]
     int checkpointID = 0;
+    [SerializeField]
+    bool inConection = false;
+    GameObject conectionParent;
 
     bool safeRouteChange = false;
 
@@ -159,6 +162,17 @@ public class CarLogicAI : Agent, IMovable
         transform.rotation = startRotation;
 
         checkpointID = 0;
+
+        if(inConection)
+        {
+            ConectionData data= conectionParent.GetComponent<ConectionData>();
+            data.AddCar(-1);
+            if (data.GetDependantCars() <= 0)
+                conectionParent.SetActive(false);
+        }
+
+        speedLimit = 50;
+        speedValue = speedLimit / maxAcceleration;
 
         checkRayCast();
     }
@@ -401,7 +415,7 @@ public class CarLogicAI : Agent, IMovable
             }
         }
     }
-    public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right)//Chek if endPoint to check if movement left rotation
+    public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right, List<GameObject> parentDirs, bool lastPoint)//Chek if endPoint to check if movement left rotation
     {
         previousTarget = targetPosition;
         int rng;
@@ -450,6 +464,31 @@ public class CarLogicAI : Agent, IMovable
 
         //Set car parameters
         targetPosition = pos[rng];
+
+        //Activate or deactivate conection objects
+        if (parentDirs.Count != 0)
+        {
+            if (!lastPoint)
+            {
+                parentDirs[rng].GetComponent<ConectionData>().AddCar(1);
+                parentDirs[rng].SetActive(true);
+
+                inConection = true;
+
+                conectionParent = parentDirs[rng];
+            }
+            else
+            {
+                ConectionData data = parentDirs[rng].GetComponent<ConectionData>();
+
+                data.AddCar(-1);
+                if (data.GetDependantCars() <= 0)
+                    parentDirs[rng].SetActive(false);
+
+                inConection = false;
+            }
+        }
+
 
         if (lanes.Count > 0) //This means next point is a conection
         {

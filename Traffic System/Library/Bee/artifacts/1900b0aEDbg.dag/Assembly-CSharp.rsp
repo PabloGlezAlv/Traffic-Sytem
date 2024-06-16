@@ -389,6 +389,7 @@
 "Assets/Scripts/checkPointCar.cs"
 "Assets/Scripts/CheckSideRoad.cs"
 "Assets/Scripts/ColliderPlayer.cs"
+"Assets/Scripts/ConectionData.cs"
 "Assets/Scripts/IMovable.cs"
 "Assets/Scripts/MoveStraight.cs"
 "Assets/Scripts/Point.cs"

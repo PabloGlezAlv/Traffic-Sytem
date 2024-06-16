@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.Burst;
+using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using static CarMovement;
 using static Point;
@@ -15,24 +17,19 @@ public class CarLogic : MonoBehaviour, IMovable
     float distanceFrontSensor = 0.35f;
     [SerializeField]
     float checkSidesCar = 3.0f;
+    [SerializeField]
+    private LayerMask ignoreLayerMask;
     [Header("Target")]
     [SerializeField]
     Vector3 targetPosition;
 
     CarMovement carMov;
 
-
     private float driverSpeed = 0;
-
-    float moveInput = 0;
-    float steerInput = 0;
 
     bool otherRight = false;
 
     private Vector3 previousTarget = Vector3.zero;
-
-    private float speedLimit = 30;
-    private float speedValue = 0;
 
     [Header("Debug Parameters")]
     [SerializeField]
@@ -41,6 +38,18 @@ public class CarLogic : MonoBehaviour, IMovable
     DrivingLane carLane = DrivingLane.OneLane;
     [SerializeField]
     float currentSpeed = 0;
+    [SerializeField]
+    private float speedValue = 0;
+    [SerializeField]
+    private float speedLimit = 30;
+    [SerializeField]
+    float moveInput = 0;
+    [SerializeField]
+    float steerInput = 0;
+    [SerializeField]
+    bool inConection = false;
+    GameObject conectionParent;
+
 
     bool safeRouteChange = false;
 
@@ -81,6 +90,7 @@ public class CarLogic : MonoBehaviour, IMovable
 
     float maxAcceleration = 0;
     float maxSteerAngle = 0;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -226,8 +236,8 @@ public class CarLogic : MonoBehaviour, IMovable
     private void DirectionsRaycast()
     {
         //FrontSensors
-        hitFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor, forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue);
-        hitFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor, forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue);
+        hitFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor, forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue, ~ignoreLayerMask);
+        hitFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor, forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue, ~ignoreLayerMask);
 
 
         if (hitFR || hitFL) //Check collision
@@ -281,13 +291,13 @@ public class CarLogic : MonoBehaviour, IMovable
         switch (direction)
         {
             case DriveDirection.Left:
-                hitSideBL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor, -transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSBL, checkSidesCar);
-                hitSideFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor + forward * 1.3f, -transform.right * checkSidesCar + forward * checkSidesCar / 2, out hitSFL, checkSidesCar);
+                hitSideBL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor, -transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSBL, checkSidesCar, ~ignoreLayerMask);
+                hitSideFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor + forward * 1.3f, -transform.right * checkSidesCar + forward * checkSidesCar / 2, out hitSFL, checkSidesCar, ~ignoreLayerMask);
                 break;
 
             case DriveDirection.Right: //Leave front sensor just in case another close car
-                hitSideBR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSBR, checkSidesCar);
-                hitSideFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor + forward * 1.3f, transform.right * checkSidesCar + forward * checkSidesCar / 2, out hitSFR, checkSidesCar);
+                hitSideBR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor, transform.right * checkSidesCar + transform.forward * checkSidesCar / 2, out hitSBR, checkSidesCar, ~ignoreLayerMask);
+                hitSideFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor + forward * 1.3f, transform.right * checkSidesCar + forward * checkSidesCar / 2, out hitSFR, checkSidesCar, ~ignoreLayerMask);
                 break;
             case DriveDirection.Front:
 
@@ -339,7 +349,7 @@ public class CarLogic : MonoBehaviour, IMovable
             }
         }
     }
-    public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right)//Chek if endPoint to check if movement left rotation
+    public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right, List<GameObject> parentDirs, bool lastPoint)//Chek if endPoint to check if movement left rotation
     {
         previousTarget = targetPosition;
         int rng;
@@ -351,8 +361,8 @@ public class CarLogic : MonoBehaviour, IMovable
         RaycastHit hit;
         if (type == PointType.Mid)
         {
-            bool checkRight = Physics.Raycast(transform.position - transform.right * 2.5f + forward * 6, -forward, out hit, 17);
-            bool checkLeft = Physics.Raycast(transform.position + transform.right * 2.5f + forward * 6, -forward, out hit, 17);
+            bool checkRight = Physics.Raycast(transform.position - transform.right * 2.5f + forward * 6, -forward, out hit, 17, ~ignoreLayerMask);
+            bool checkLeft = Physics.Raycast(transform.position + transform.right * 2.5f + forward * 6, -forward, out hit, 17, ~ignoreLayerMask);
 
             if (changeLane && ((carLane == DrivingLane.Right && !checkRight) || (carLane == DrivingLane.Left && !checkLeft))) //If want to overtake check if car behind
             {
@@ -388,6 +398,31 @@ public class CarLogic : MonoBehaviour, IMovable
 
         //Set car parameters
         targetPosition = pos[rng];
+
+        //Activate or deactivate conection objects
+        if(parentDirs.Count != 0)
+        {
+            if (!lastPoint)
+            {
+                parentDirs[rng].GetComponent<ConectionData>().AddCar(1);
+                parentDirs[rng].SetActive(true);
+
+                inConection = true;
+
+                conectionParent = parentDirs[rng];
+            }
+            else
+            {
+                ConectionData data = parentDirs[rng].GetComponent<ConectionData>();
+
+                data.AddCar(-1);
+                if(data.GetDependantCars() <= 0)
+                    parentDirs[rng].SetActive(false);
+
+                inConection = false;
+            }
+        }
+
 
         if (lanes.Count > 0) //This means next point is a conection
         {
@@ -460,6 +495,6 @@ public class CarLogic : MonoBehaviour, IMovable
 
     public void AddRewardAgent(float amount, bool kill = false)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

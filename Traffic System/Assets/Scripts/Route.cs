@@ -83,6 +83,8 @@ public class Route : MonoBehaviour
 
     List<GameObject> conectionPoints = new List<GameObject>(); //Points Created to conect the route with others
 
+    List<GameObject> conectionParent = new List<GameObject>(); //Parent of each conection
+
     List<int> routeIndex = new List<int>()
     {
         1, -1, 2, -2, 3, -3, 4, -4, 5, -5
@@ -240,10 +242,20 @@ public class Route : MonoBehaviour
                 if (routeDirections[i].onlyLeft && l != 0) continue;
                 if (routeDirections[i].onlyRight && l != numberLanes - 1) continue;
 
-                conectionPoints.Add(Instantiate(midPoint, conectionLocations[pointIndex], transform.rotation, transform));
+                //Createa parent for each conection
+                GameObject emptyObject = new GameObject("ConectionParent " + i + "Lane" + l);
+                emptyObject.AddComponent<ConectionData>();
+                emptyObject.transform.position = conectionLocations[pointIndex];
+                emptyObject.transform.SetParent(this.transform);
+                conectionParent.Add(emptyObject);
+
+                //Create first point
+                conectionPoints.Add(Instantiate(midPoint, conectionLocations[pointIndex], transform.rotation, emptyObject.transform));
 
                 //Add next point to first of line
                 movingPoints[startIndex].GetComponent<Point>().AddConexion(conectionLocations[pointIndex]);
+                //Add parent of conexion
+                movingPoints[startIndex].GetComponent<Point>().AddConexionParent(conectionParent[conectionParent.Count -1]);
                 pointIndex++;
                 //Add to first point the end of conection
                 movingPoints[startIndex].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
@@ -253,7 +265,7 @@ public class Route : MonoBehaviour
                 //Add the rest of points;
                 for (int j = pointIndex; j < pointIndex + routeDirections[i].density - 1; j++) // Points each direction
                 {
-                    conectionPoints.Add(Instantiate(midPoint, conectionLocations[j], transform.rotation, transform));
+                    conectionPoints.Add(Instantiate(midPoint, conectionLocations[j], transform.rotation, emptyObject.transform));
 
                     conectionPoints[conectionPoints.Count - 1].transform.LookAt(conectionPoints[conectionPoints.Count - 2].transform.position);
 
@@ -261,14 +273,20 @@ public class Route : MonoBehaviour
                     conectionPoints[conectionPoints.Count - 2].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
                 }
 
+                Point lastPoint = conectionPoints[conectionPoints.Count - 1].GetComponent<Point>();
                 //Last point conected with start of next line
-                conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddConexion(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
-                conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
+                lastPoint.AddConexion(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
+                lastPoint.AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
 
-                conectionPoints[conectionPoints.Count - 1].GetComponent<Point>().setRight(isRight);
+                lastPoint.GetComponent<Point>().setRight(isRight);
+
+                //Send last point the parent and set end of route
+                lastPoint.AddConexionParent(conectionParent[conectionParent.Count - 1]);
+                lastPoint.SetLastPoint();
 
                 pointIndex += routeDirections[i].density - 1;
 
+                emptyObject.SetActive(false);
             }
             pointIndex++; //Add the start of the next line
             startIndex++; //Add the start of the next line
