@@ -300,6 +300,8 @@ public class Route : MonoBehaviour
 
                     endPointIndex++;
                     if (spawnerRoute && l ==1) spawner.addSpawnPoint(movingPoints[movingPoints.Count - 1]);
+
+                    movingPoints[movingPoints.Count - 1].transform.LookAt(locations[limit - 1].pos);
                 }
                 else
                 {
@@ -320,7 +322,7 @@ public class Route : MonoBehaviour
                     movingPoints[i - 1].GetComponent<Point>().AddTrailEnd(locations[limit - 1].pos);
                     movingPoints[i - 1].GetComponent<Point>().AddConexionLane(locations[limit - 1].lane);
 
-                    movingPoints[i - 1].transform.LookAt(movingPoints[i].transform.position);
+                    movingPoints[i].transform.LookAt(movingPoints[i - 1].transform.position);
                 }
 
                 //Tell the lane of the point
@@ -328,7 +330,6 @@ public class Route : MonoBehaviour
                 movingPoints[i].GetComponent<Point>().setRight(isRight);
             }
 
-            movingPoints[points*l].transform.LookAt(movingPoints[points * l + 1].transform.position);
 
             if (enterSpeed > exitSpeed && points > 6) //In case enough point decelerate in lst point
             {

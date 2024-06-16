@@ -369,8 +369,6 @@ public class CarLogicAI : Agent, IMovable
 
 
         speedValue = speedLimit / maxAcceleration;
-
-        frontRangeValue = speedLimit / 40;
     }
     private void checkRayCast()
     {
