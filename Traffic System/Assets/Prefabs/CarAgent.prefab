@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 2548293572066683905}
   - component: {fileID: 1400275050434256251}
   - component: {fileID: -335726830339577185}
-  - component: {fileID: 7482531826814575679}
+  - component: {fileID: 1767586913856940761}
   m_Layer: 0
   m_Name: CarAgent
   m_TagString: Car
@@ -337,6 +337,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 5000
   wheel: {fileID: 6224237703981240020}
+  normalSensor: {fileID: -335726830339577185}
+  topSensor: {fileID: 0}
   trainingReward: 0
   myPosition: {x: 0, y: 0, z: 0}
   targetPosition: {x: -40.55, y: 1.75, z: -19.44}
@@ -351,6 +353,7 @@ MonoBehaviour:
   carLane: 0
   currentSpeed: 0
   checkpointID: 0
+  inConection: 0
   changeLane: 0
   waitingToGo: 0
 --- !u!114 &1400275050434256251
@@ -385,19 +388,20 @@ MonoBehaviour:
   - Goal
   - LaneLeft
   - CheckPointRight
+  - LaneRight
   m_RaysPerDirection: 7
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.5
   m_RayLength: 37
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967240
+    m_Bits: 4294967112
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0.5
   m_EndVerticalOffset: 0
---- !u!114 &7482531826814575679
+--- !u!114 &1767586913856940761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -415,13 +419,14 @@ MonoBehaviour:
   - Goal
   - LaneLeft
   - CheckPointRight
+  - LaneRight
   m_RaysPerDirection: 4
   m_MaxRayDegrees: 118
   m_SphereCastRadius: 0.37
   m_RayLength: 48
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967291
+    m_Bits: 4294967163
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}

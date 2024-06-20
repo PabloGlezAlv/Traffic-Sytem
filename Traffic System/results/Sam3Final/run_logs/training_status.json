@@ -1,0 +1,56 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 499964,
+                "file_path": "results\\Sam3Final\\FollowPoints\\FollowPoints-499964.onnx",
+                "reward": 3.660200009308755,
+                "creation_time": 1718819342.6454666,
+                "auxillary_file_paths": [
+                    "results\\Sam3Final\\FollowPoints\\FollowPoints-499964.pt"
+                ]
+            },
+            {
+                "steps": 999963,
+                "file_path": "results\\Sam3Final\\FollowPoints\\FollowPoints-999963.onnx",
+                "reward": 5.372000015651186,
+                "creation_time": 1718828882.779444,
+                "auxillary_file_paths": [
+                    "results\\Sam3Final\\FollowPoints\\FollowPoints-999963.pt"
+                ]
+            },
+            {
+                "steps": 1499974,
+                "file_path": "results\\Sam3Final\\FollowPoints\\FollowPoints-1499974.onnx",
+                "reward": 3.6563999986276032,
+                "creation_time": 1718840561.117537,
+                "auxillary_file_paths": [
+                    "results\\Sam3Final\\FollowPoints\\FollowPoints-1499974.pt"
+                ]
+            },
+            {
+                "steps": 1936834,
+                "file_path": "results\\Sam3Final\\FollowPoints\\FollowPoints-1936834.onnx",
+                "reward": null,
+                "creation_time": 1718856320.9974756,
+                "auxillary_file_paths": [
+                    "results\\Sam3Final\\FollowPoints\\FollowPoints-1936834.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1936834,
+            "file_path": "results\\Sam3Final\\FollowPoints.onnx",
+            "reward": null,
+            "creation_time": 1718856320.9974756,
+            "auxillary_file_paths": [
+                "results\\Sam3Final\\FollowPoints\\FollowPoints-1936834.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.1+cpu"
+    }
+}

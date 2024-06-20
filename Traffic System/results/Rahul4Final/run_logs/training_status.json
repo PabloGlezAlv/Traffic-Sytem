@@ -1,0 +1,65 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 999946,
+                "file_path": "results\\Rahul4Final\\FollowPoints\\FollowPoints-999946.onnx",
+                "reward": 2.7490000315010548,
+                "creation_time": 1718809718.869333,
+                "auxillary_file_paths": [
+                    "results\\Rahul4Final\\FollowPoints\\FollowPoints-999946.pt"
+                ]
+            },
+            {
+                "steps": 1499984,
+                "file_path": "results\\Rahul4Final\\FollowPoints\\FollowPoints-1499984.onnx",
+                "reward": 5.23999999742955,
+                "creation_time": 1718825382.712478,
+                "auxillary_file_paths": [
+                    "results\\Rahul4Final\\FollowPoints\\FollowPoints-1499984.pt"
+                ]
+            },
+            {
+                "steps": 1999994,
+                "file_path": "results\\Rahul4Final\\FollowPoints\\FollowPoints-1999994.onnx",
+                "reward": 4.427500003483146,
+                "creation_time": 1718841919.778284,
+                "auxillary_file_paths": [
+                    "results\\Rahul4Final\\FollowPoints\\FollowPoints-1999994.pt"
+                ]
+            },
+            {
+                "steps": 2499990,
+                "file_path": "results\\Rahul4Final\\FollowPoints\\FollowPoints-2499990.onnx",
+                "reward": null,
+                "creation_time": 1718857434.7558146,
+                "auxillary_file_paths": [
+                    "results\\Rahul4Final\\FollowPoints\\FollowPoints-2499990.pt"
+                ]
+            },
+            {
+                "steps": 2930309,
+                "file_path": "results\\Rahul4Final\\FollowPoints\\FollowPoints-2930309.onnx",
+                "reward": 3.3352500130422413,
+                "creation_time": 1718872043.0192246,
+                "auxillary_file_paths": [
+                    "results\\Rahul4Final\\FollowPoints\\FollowPoints-2930309.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2930309,
+            "file_path": "results\\Rahul4Final\\FollowPoints.onnx",
+            "reward": 3.3352500130422413,
+            "creation_time": 1718872043.0192246,
+            "auxillary_file_paths": [
+                "results\\Rahul4Final\\FollowPoints\\FollowPoints-2930309.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.1+cpu"
+    }
+}

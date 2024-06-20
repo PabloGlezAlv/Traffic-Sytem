@@ -91,7 +91,6 @@ public class CarLogic : MonoBehaviour, IMovable
     float maxAcceleration = 0;
     float maxSteerAngle = 0;
 
-
     // Start is called before the first frame update
     void Awake()
     {

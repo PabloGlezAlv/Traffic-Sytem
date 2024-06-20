@@ -15,6 +15,10 @@ public class CarLogicAI : Agent, IMovable
     [SerializeField]
     WheelCollider wheel;
     [SerializeField]
+    RayPerceptionSensorComponent3D normalSensor;
+    [SerializeField]
+    RayPerceptionSensorComponent3D topSensor;
+    [SerializeField]
     float trainingReward = 0;
     [Header("Input")]
     [SerializeField]    //VARIABLES TO DEBUG THE INPUT
@@ -111,7 +115,8 @@ public class CarLogicAI : Agent, IMovable
 
     Rigidbody rb;
 
-
+    int deleteConectionWalls = 0;
+    GameObject parentConection;
 
     public int CheckpointID
     {
@@ -144,7 +149,7 @@ public class CarLogicAI : Agent, IMovable
 
     private void RestartCar()
     {
-        rightSide = false;
+        rightSide = true;
         //Raycast
         hitFR = false;
         hitFL = false;
@@ -161,6 +166,7 @@ public class CarLogicAI : Agent, IMovable
 
         transform.rotation = startRotation;
 
+        deleteConectionWalls = 0;
         checkpointID = 0;
 
         if(inConection)
@@ -421,8 +427,31 @@ public class CarLogicAI : Agent, IMovable
         int rng;
         rng = Random.Range(0, pos.Count);
 
-        rightSide = right;
+        //Change triggers for sensor
+        if(rightSide != right)
+        {
+            int laneRightLayer = LayerMask.NameToLayer("LaneRigth");
+            int laneLeftLayer = LayerMask.NameToLayer("LaneLeft");
 
+            if (right)
+            {
+                //Add Left
+                normalSensor.RayLayerMask |= (1 << laneLeftLayer);
+
+                //Remove Right
+                normalSensor.RayLayerMask &= ~(1 << laneRightLayer);
+            }
+            else
+            {
+                //Add Rigth
+                normalSensor.RayLayerMask |= (1 << laneRightLayer);
+
+                //Remove Left
+                normalSensor.RayLayerMask &= ~(1 << laneLeftLayer);
+            }
+        }
+
+        rightSide = right;
 
         RaycastHit hit;
         if (type == PointType.Mid)
@@ -466,7 +495,22 @@ public class CarLogicAI : Agent, IMovable
         targetPosition = pos[rng];
 
         //Activate or deactivate conection objects
-        if (parentDirs.Count != 0)
+        if(deleteConectionWalls > 0)
+        {
+            deleteConectionWalls++;
+            if(deleteConectionWalls > 2)
+            {
+                ConectionData data = parentConection.GetComponent<ConectionData>();
+
+                data.AddCar(-1);
+                if (data.GetDependantCars() <= 0)
+                    parentConection.SetActive(false);
+
+                inConection = false;
+                deleteConectionWalls = 0;
+            }
+        }
+        else if (parentDirs.Count != 0)
         {
             if (!lastPoint)
             {
@@ -477,15 +521,11 @@ public class CarLogicAI : Agent, IMovable
 
                 conectionParent = parentDirs[rng];
             }
-            else
+            else //We do not delete in last point but in first of next conection
             {
-                ConectionData data = parentDirs[rng].GetComponent<ConectionData>();
+                deleteConectionWalls = 1;
 
-                data.AddCar(-1);
-                if (data.GetDependantCars() <= 0)
-                    parentDirs[rng].SetActive(false);
-
-                inConection = false;
+                parentConection = parentDirs[rng];
             }
         }
 
@@ -537,28 +577,28 @@ public class CarLogicAI : Agent, IMovable
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = UnityEngine.Color.blue;
+        //Gizmos.color = UnityEngine.Color.blue;
 
 
-        //Front Sensor
-        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + forward * checkFrontCar * frontRangeValue);
-        Gizmos.DrawLine(transform.position + -transform.right * distanceFrontSensor, transform.position + -transform.right * distanceFrontSensor + forward * checkFrontCar * frontRangeValue);
+        ////Front Sensor
+        //Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + forward * checkFrontCar * frontRangeValue);
+        //Gizmos.DrawLine(transform.position + -transform.right * distanceFrontSensor, transform.position + -transform.right * distanceFrontSensor + forward * checkFrontCar * frontRangeValue);
 
-        //Right Sensor
-        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + forward * checkSidesCar / 2);
-        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor + forward * 1.3f, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + forward * checkSidesCar / 2 + forward * 1.3f);
+        ////Right Sensor
+        //Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + forward * checkSidesCar / 2);
+        //Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor + forward * 1.3f, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + forward * checkSidesCar / 2 + forward * 1.3f);
 
-        //Left Sensor
-        Gizmos.DrawLine(transform.position - transform.right * distanceFrontSensor, transform.position - transform.right * distanceFrontSensor - transform.right * checkSidesCar + forward * checkSidesCar / 2);
-        Gizmos.DrawLine(transform.position - transform.right * distanceFrontSensor + forward * 1.3f, transform.position - transform.right * distanceFrontSensor - transform.right * checkSidesCar + forward * checkSidesCar / 2 + forward * 1.3f);
+        ////Left Sensor
+        //Gizmos.DrawLine(transform.position - transform.right * distanceFrontSensor, transform.position - transform.right * distanceFrontSensor - transform.right * checkSidesCar + forward * checkSidesCar / 2);
+        //Gizmos.DrawLine(transform.position - transform.right * distanceFrontSensor + forward * 1.3f, transform.position - transform.right * distanceFrontSensor - transform.right * checkSidesCar + forward * checkSidesCar / 2 + forward * 1.3f);
 
-        Gizmos.color = UnityEngine.Color.magenta;
-        //Right Sensor Overtake
-        Gizmos.DrawLine(transform.position + transform.right * 2.5f + forward * 6, transform.position + transform.right * 2.4f - forward * 11);
-        //Left Sensor Overtake
-        Gizmos.DrawLine(transform.position - transform.right * 2.5f + forward * 6, transform.position - transform.right * 2.4f - forward * 11);
+        //Gizmos.color = UnityEngine.Color.magenta;
+        ////Right Sensor Overtake
+        //Gizmos.DrawLine(transform.position + transform.right * 2.5f + forward * 6, transform.position + transform.right * 2.4f - forward * 11);
+        ////Left Sensor Overtake
+        //Gizmos.DrawLine(transform.position - transform.right * 2.5f + forward * 6, transform.position - transform.right * 2.4f - forward * 11);
 
-        Gizmos.color = UnityEngine.Color.white;
+        //Gizmos.color = UnityEngine.Color.white;
         Gizmos.DrawLine(transform.position, targetPosition);
     }
 }

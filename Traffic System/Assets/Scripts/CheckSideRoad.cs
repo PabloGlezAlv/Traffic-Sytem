@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CheckSideRoad : MonoBehaviour
 {
+    [SerializeField]
+    bool sideRight = true;
     private void OnTriggerEnter(Collider other)
     {
         CarLogicAI carLogic = other.gameObject.GetComponentInParent<CarLogicAI>();
-        if (carLogic != null)
+        if (carLogic != null && carLogic.GetRight() != sideRight)
         {
             carLogic.AddRewardAgent(-0.5f);
         }
@@ -16,7 +18,7 @@ public class CheckSideRoad : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         CarLogicAI carLogic = other.gameObject.GetComponentInParent<CarLogicAI>();
-        if (carLogic != null)
+        if (carLogic != null && carLogic.GetRight() != sideRight)
         {
             carLogic.AddRewardAgent(-0.001f);
         }

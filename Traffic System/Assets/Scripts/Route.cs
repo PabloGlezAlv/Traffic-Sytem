@@ -37,6 +37,8 @@ public class Route : MonoBehaviour
     GameObject midPoint;
     [SerializeField]
     GameObject endPoint;
+    [SerializeField]
+    GameObject blockZone;
 
     [SerializeField]
     List<RouteDirection> routeDirections;
@@ -262,6 +264,9 @@ public class Route : MonoBehaviour
 
                 conectionPoints[conectionPoints.Count - 1].transform.LookAt(movingPoints[startIndex].transform.position);
 
+                //Last point before conection
+                Vector3 lastBeforeCon = movingPoints[startIndex].transform.position;
+
                 //Add the rest of points;
                 for (int j = pointIndex; j < pointIndex + routeDirections[i].density - 1; j++) // Points each direction
                 {
@@ -275,8 +280,10 @@ public class Route : MonoBehaviour
 
                 Point lastPoint = conectionPoints[conectionPoints.Count - 1].GetComponent<Point>();
                 //Last point conected with start of next line
-                lastPoint.AddConexion(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
-                lastPoint.AddTrailEnd(routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l]);
+                Vector3 firstAfterCon = routeDirections[i].directionObject.GetComponentInParent<Route>().GetStartPosition()[l];
+
+                lastPoint.AddConexion(firstAfterCon);
+                lastPoint.AddTrailEnd(firstAfterCon);
 
                 lastPoint.GetComponent<Point>().setRight(isRight);
 
@@ -285,11 +292,74 @@ public class Route : MonoBehaviour
                 lastPoint.SetLastPoint();
 
                 pointIndex += routeDirections[i].density - 1;
-
                 emptyObject.SetActive(false);
+
+                
+
+                if(blockZone != null) //Add walls in conecctions
+                {
+                    SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, 1);
+                    SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, -1);
+                }
             }
+
+
             pointIndex++; //Add the start of the next line
             startIndex++; //Add the start of the next line
+        }
+    }
+
+    private void SpawConectionBorder(int startIndex, int l, int i, GameObject emptyObject, Vector3 lastBeforeCon, Vector3 firstAfterCon, int sign)
+    {
+        GameObject start = Instantiate(blockZone, lastBeforeCon, movingPoints[startIndex].transform.rotation * Quaternion.Euler(0, 180, 0), emptyObject.transform);
+        start.name = "BlockZone " + l + i;
+        start.transform.Translate(start.transform.right * sign * 2.3f, Space.World);
+
+        GameObject end = Instantiate(blockZone, firstAfterCon, routeDirections[i].directionObject.transform.rotation, emptyObject.transform);
+        start.name = "BlockZone " + l + i;
+        end.transform.Translate(end.transform.right * sign * 2.3f, Space.World);
+
+        float angle = Vector3.Angle(start.transform.forward, end.transform.forward);
+        int numPoints = routeDirections[i].density;
+
+        numPoints = (int)Vector3.Distance(start.transform.position, end.transform.position) * 4;
+
+        Vector3 forward = start.transform.forward;
+        Vector3 toTarget = firstAfterCon - start.transform.position;
+        forward.y = 0; // Mantener solo las componentes X y Z
+        toTarget.y = 0;
+
+        Vector3 crossProduct = Vector3.Cross(forward, toTarget);
+
+        if (crossProduct.y > 1f)//Right
+        {
+            for (int j = 1; j < numPoints + 1; j++)
+            {
+                float t = j / (float)(numPoints + 1);
+                Vector3 point = HermiteInterpolation(start.transform.position, end.transform.position, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
+
+                Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y + angle / numPoints * j, 0), emptyObject.transform);
+            }
+        }
+        else if (crossProduct.y < -1f) // Left
+        {
+            for (int j = 1; j < numPoints + 1; j++)
+            {
+                float t = j / (float)(numPoints + 1);
+                Vector3 point = HermiteInterpolation(start.transform.position, end.transform.position, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
+
+                Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y - angle / numPoints * j, 0), emptyObject.transform);
+            }
+        }
+        else // Front
+        {
+            for (int j = 1; j < numPoints + 1; j++)
+            {
+                float t = j / (float)(numPoints + 1);
+                Vector3 point = HermiteInterpolation(start.transform.position, end.transform.position, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
+
+                Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y, 0), emptyObject.transform);
+            }
         }
     }
 
