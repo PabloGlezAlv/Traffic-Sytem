@@ -338,7 +338,7 @@ MonoBehaviour:
   MaxStep: 5000
   wheel: {fileID: 6224237703981240020}
   normalSensor: {fileID: -335726830339577185}
-  topSensor: {fileID: 0}
+  topSensor: {fileID: 1767586913856940761}
   trainingReward: 0
   myPosition: {x: 0, y: 0, z: 0}
   targetPosition: {x: -40.55, y: 1.75, z: -19.44}

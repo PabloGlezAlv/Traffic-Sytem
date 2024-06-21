@@ -15208,7 +15208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2139333283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15221,7 +15221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436275a13d4459746955fc6db5953473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _active: 1
+  _active: 0
   _enableRotation: 1
   _mouseSense: 1.8
   _enableTranslation: 1
@@ -15302,13 +15302,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139333282}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 8.63, y: 6.11, z: -4.5377254}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &2142666631
 GameObject:
   m_ObjectHideFlags: 0
@@ -15896,7 +15896,7 @@ PrefabInstance:
     - target: {fileID: 4681100783634444026, guid: 72327d91d01756c4bb393484ca09c93e, type: 3}
       propertyPath: carPrefab
       value: 
-      objectReference: {fileID: 1973545710386584369, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
+      objectReference: {fileID: 1973545710386584369, guid: 0f692ba42edcea24aabee2e39a070f5a, type: 3}
     - target: {fileID: 4681100783634444026, guid: 72327d91d01756c4bb393484ca09c93e, type: 3}
       propertyPath: maxNumberCars
       value: 1
@@ -16230,6 +16230,10 @@ PrefabInstance:
       propertyPath: blockZone
       value: 
       objectReference: {fileID: 1154575296766266492, guid: 35ae8618704248c4e93e69eaf286eaa0, type: 3}
+    - target: {fileID: 2261836586354040552, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: exitSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2699204389955110434, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.7071068
@@ -16447,8 +16451,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1154575296766266492, guid: 35ae8618704248c4e93e69eaf286eaa0, type: 3}
     - target: {fileID: 4280238445807790798, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: exitSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280238445807790798, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: enterSpeed
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4384634561954603926, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16646,6 +16654,10 @@ PrefabInstance:
       propertyPath: blockZone
       value: 
       objectReference: {fileID: 1154575296766266492, guid: 35ae8618704248c4e93e69eaf286eaa0, type: 3}
+    - target: {fileID: 5482757990002949152, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: exitSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5482757990002949152, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: enterSpeed
       value: 40

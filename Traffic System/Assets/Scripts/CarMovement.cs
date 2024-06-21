@@ -102,10 +102,12 @@ public class CarMovement : MonoBehaviour
     {
         GetInputs();
         AnimateWheels();
-
-        Movement();
     }
 
+    private void FixedUpdate()
+    {
+        Movement();
+    }
 
     void Movement()
     {
@@ -146,6 +148,10 @@ public class CarMovement : MonoBehaviour
         {
             moveInput = Input.GetAxis("Vertical");
             steerInput = Input.GetAxis("Horizontal");
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                moveInput = 0;
+            }
         }
         else
         {
@@ -162,7 +168,7 @@ public class CarMovement : MonoBehaviour
     {
         foreach (var wheel in wheels)
         {
-            wheel.wheelCollider.motorTorque = moveInput * 600 * maxAcceleration * Time.deltaTime; //DELTA TIME BREAK IT
+            wheel.wheelCollider.motorTorque = moveInput * 5 * maxAcceleration; 
         }
     }
 
@@ -184,7 +190,7 @@ public class CarMovement : MonoBehaviour
         {
             foreach (var wheel in wheels)
             {
-                wheel.wheelCollider.brakeTorque = 300 * brakeAcceleration * Time.deltaTime;
+                wheel.wheelCollider.brakeTorque = 30 * brakeAcceleration;
             }
         }
         else
