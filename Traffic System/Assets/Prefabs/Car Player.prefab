@@ -302,7 +302,7 @@ MonoBehaviour:
   checkSidesCar: 3
   ignoreLayerMask:
     serializedVersion: 2
-    m_Bits: 960
+    m_Bits: 8128
   targetPosition: {x: 0, y: 0, z: 0}
   direction: 0
   carLane: 0

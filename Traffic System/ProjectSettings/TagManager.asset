@@ -22,9 +22,9 @@ TagManager:
   - LaneRigth
   - LaneLeft
   - Checkpoint
-  - 
-  - 
-  - 
+  - ConectionRight
+  - ConectionLeft
+  - ConectionFront
   - 
   - 
   - 

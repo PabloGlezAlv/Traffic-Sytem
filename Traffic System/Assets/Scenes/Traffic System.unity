@@ -15896,7 +15896,7 @@ PrefabInstance:
     - target: {fileID: 4681100783634444026, guid: 72327d91d01756c4bb393484ca09c93e, type: 3}
       propertyPath: carPrefab
       value: 
-      objectReference: {fileID: 1973545710386584369, guid: 0f692ba42edcea24aabee2e39a070f5a, type: 3}
+      objectReference: {fileID: 1973545710386584369, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
     - target: {fileID: 4681100783634444026, guid: 72327d91d01756c4bb393484ca09c93e, type: 3}
       propertyPath: maxNumberCars
       value: 1

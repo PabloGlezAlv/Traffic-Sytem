@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.MemoryProfiler;
 using UnityEditor.Networking.PlayerConnection;
@@ -320,36 +321,45 @@ public class Route : MonoBehaviour
         end.transform.Translate(end.transform.right * sign * 2.3f, Space.World);
 
         float angle = Vector3.Angle(start.transform.forward, end.transform.forward);
-        int numPoints = routeDirections[i].density;
 
-        numPoints = (int)Vector3.Distance(start.transform.position, end.transform.position) * 4;
 
-        Vector3 forward = start.transform.forward;
-        Vector3 toTarget = firstAfterCon - start.transform.position;
-        forward.y = 0; // Mantener solo las componentes X y Z
-        toTarget.y = 0;
+        int numPoints = (int)Vector3.Distance(start.transform.position, end.transform.position) * 4;
 
-        Vector3 crossProduct = Vector3.Cross(forward, toTarget);
+        Vector3 forward = movingPoints[startIndex].transform.forward;
 
-        if (crossProduct.y > 1f)//Right
+        Vector2 posicionObjeto = new Vector2(start.transform.position.x, start.transform.position.z);
+        Vector2 posicionObjeto2 = new Vector2(end.transform.position.x, end.transform.position.z);
+        Vector2 vectorPunto = posicionObjeto2 - posicionObjeto;
+
+        // Producto cruzado en 2D
+        float crossProduct = forward.x * vectorPunto.y - forward.z * vectorPunto.x;
+
+        if (crossProduct > 0.03f)//Right
         {
             for (int j = 1; j < numPoints + 1; j++)
             {
                 float t = j / (float)(numPoints + 1);
                 Vector3 point = HermiteInterpolation(start.transform.position, end.transform.position, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
 
-                Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y + angle / numPoints * j, 0), emptyObject.transform);
+                GameObject p = Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y + angle / numPoints * j, 0), emptyObject.transform);
+
+                p.layer = LayerMask.NameToLayer("ConectionRight");
             }
+            start.layer = LayerMask.NameToLayer("ConectionRight");
+            end.layer = LayerMask.NameToLayer("ConectionRight");
         }
-        else if (crossProduct.y < -1f) // Left
+        else if (crossProduct < -0.03f) // Left
         {
             for (int j = 1; j < numPoints + 1; j++)
             {
                 float t = j / (float)(numPoints + 1);
                 Vector3 point = HermiteInterpolation(start.transform.position, end.transform.position, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
 
-                Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y - angle / numPoints * j, 0), emptyObject.transform);
+                GameObject p = Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y - angle / numPoints * j, 0), emptyObject.transform);
+                p.layer = LayerMask.NameToLayer("ConectionLeft");
             }
+            start.layer = LayerMask.NameToLayer("ConectionLeft");
+            end.layer = LayerMask.NameToLayer("ConectionLeft");
         }
         else // Front
         {
@@ -358,8 +368,11 @@ public class Route : MonoBehaviour
                 float t = j / (float)(numPoints + 1);
                 Vector3 point = HermiteInterpolation(start.transform.position, end.transform.position, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
 
-                Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y, 0), emptyObject.transform);
+                GameObject p = Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y, 0), emptyObject.transform);
+                p.layer = LayerMask.NameToLayer("ConectionFront");
             }
+            start.layer = LayerMask.NameToLayer("ConectionFront");
+            end.layer = LayerMask.NameToLayer("ConectionFront");
         }
     }
 

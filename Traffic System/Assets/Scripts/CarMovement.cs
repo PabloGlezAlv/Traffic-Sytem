@@ -104,7 +104,7 @@ public class CarMovement : MonoBehaviour
         AnimateWheels();
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         Movement();
     }
@@ -168,7 +168,7 @@ public class CarMovement : MonoBehaviour
     {
         foreach (var wheel in wheels)
         {
-            wheel.wheelCollider.motorTorque = moveInput * 5 * maxAcceleration; 
+            wheel.wheelCollider.motorTorque = moveInput * 600 * maxAcceleration * Time.deltaTime; 
         }
     }
 
@@ -190,7 +190,7 @@ public class CarMovement : MonoBehaviour
         {
             foreach (var wheel in wheels)
             {
-                wheel.wheelCollider.brakeTorque = 30 * brakeAcceleration;
+                wheel.wheelCollider.brakeTorque = 300 * brakeAcceleration * Time.deltaTime;
             }
         }
         else
