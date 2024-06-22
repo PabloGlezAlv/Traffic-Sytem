@@ -13,6 +13,8 @@ using static UnityEngine.GraphicsBuffer;
 public class CarLogicAI : Agent, IMovable
 {
     [SerializeField]
+    GameObject childCollision;
+    [SerializeField]
     WheelCollider wheel;
     [SerializeField]
     RayPerceptionSensorComponent3D normalSensor;
@@ -149,6 +151,8 @@ public class CarLogicAI : Agent, IMovable
 
     private void RestartCar()
     {
+        childCollision.layer = LayerMask.NameToLayer("Default");
+
         rightSide = true;
         //Raycast
         hitFR = false;
@@ -428,7 +432,7 @@ public class CarLogicAI : Agent, IMovable
         rng = Random.Range(0, pos.Count);
 
         //Change triggers for sensor
-        if(rightSide != right)
+        if (rightSide != right)
         {
             int laneRightLayer = LayerMask.NameToLayer("LaneRigth");
             int laneLeftLayer = LayerMask.NameToLayer("LaneLeft");
@@ -494,80 +498,123 @@ public class CarLogicAI : Agent, IMovable
         //Set car parameters
         targetPosition = pos[rng];
 
-        //Activate or deactivate conection objects
-        if(deleteConectionWalls > 0)
+        if (type == PointType.End)
         {
-            deleteConectionWalls++;
-            if(deleteConectionWalls > 2)
+            Vector3 forward = (previousTarget - targetPosition).normalized;
+            Vector2 startPos = new Vector2(targetPosition.x, targetPosition.z);
+            Vector2 endPos = new Vector2(endLane[rng].x, endLane[rng].z);
+            Vector2 dir = endPos - startPos;
+
+            float crossProduct = forward.x * dir.y - forward.z * dir.x;
+
+            if (crossProduct > 0.03f)
             {
-                ConectionData data = parentConection.GetComponent<ConectionData>();
-
-                data.AddCar(-1);
-                if (data.GetDependantCars() <= 0)
-                    parentConection.SetActive(false);
-
-                inConection = false;
-                deleteConectionWalls = 0;
+                int laneRightLayer = LayerMask.NameToLayer("ConectionRight");
+                normalSensor.RayLayerMask &= ~(1 << laneRightLayer);
+                childCollision.layer = LayerMask.NameToLayer("ConectionRight");
             }
-        }
-        else if (parentDirs.Count != 0)
-        {
-            if (!lastPoint)
+            else if (crossProduct < -0.03f)
             {
-                parentDirs[rng].GetComponent<ConectionData>().AddCar(1);
-                parentDirs[rng].SetActive(true);
-
-                inConection = true;
-
-                conectionParent = parentDirs[rng];
-            }
-            else //We do not delete in last point but in first of next conection
-            {
-                deleteConectionWalls = 1;
-
-                parentConection = parentDirs[rng];
-            }
-        }
-
-
-        if (lanes.Count > 0) //This means next point is a conection
-        {
-            carLane = lanes[rng];
-        }
-
-        if (type == PointType.End) //Check direction to turn
-        {
-            safeRouteChange = pos.Count == 1; //Only one route, its safe
-
-            Vector3 targetDirection = (endLane[rng] - transform.position).normalized;
-            float angle = Vector3.SignedAngle(transform.forward, targetDirection, Vector3.up);
-
-            if (angle > 10)
-            {
-                direction = DriveDirection.Right;
-            }
-            else if (angle < 10)
-            {
-                direction = DriveDirection.Left;
+                int laneLeftLayer = LayerMask.NameToLayer("ConectionLeft");
+                normalSensor.RayLayerMask &= ~(1 << laneLeftLayer);
+                childCollision.layer = LayerMask.NameToLayer("ConectionLeft");
             }
             else
             {
-                direction = DriveDirection.Front;
-            }
-
-            if (Vector3.Distance(transform.position, endLane[rng]) < 7)
-            {
-                speedValue /= 2;
+                int laneMidLayer = LayerMask.NameToLayer("ConectionFront");
+                normalSensor.RayLayerMask &= ~(1 << laneMidLayer);
+                childCollision.layer = LayerMask.NameToLayer("ConectionFront");
             }
         }
         else if (type == PointType.Start)
         {
-            safeRouteChange = false;
+            int laneRightLayer = LayerMask.NameToLayer("ConectionRight");
+            int laneMidLayer = LayerMask.NameToLayer("ConectionFront");
+            int laneLeftLayer = LayerMask.NameToLayer("ConectionLeft");
 
-            direction = DriveDirection.Front;
+            normalSensor.RayLayerMask &= ~(1 << laneRightLayer);
+            normalSensor.RayLayerMask &= ~(1 << laneMidLayer);
+            normalSensor.RayLayerMask &= ~(1 << laneLeftLayer);
+
+            childCollision.layer = LayerMask.NameToLayer("Default");
         }
+            //Activate or deactivate conection objects
+            if (deleteConectionWalls > 0)
+            {
+                deleteConectionWalls++;
+                if (deleteConectionWalls > 2)
+                {
+                    ConectionData data = parentConection.GetComponent<ConectionData>();
 
+                    data.AddCar(-1);
+                    if (data.GetDependantCars() <= 0)
+                        parentConection.SetActive(false);
+
+                    inConection = false;
+                    deleteConectionWalls = 0;
+                }
+            }
+            else if (parentDirs.Count != 0)
+            {
+                if (!lastPoint)
+                {
+                    parentDirs[rng].GetComponent<ConectionData>().AddCar(1);
+                    parentDirs[rng].SetActive(true);
+
+                    inConection = true;
+
+                    conectionParent = parentDirs[rng];
+                }
+                else //We do not delete in last point but in first of next conection
+                {
+                    deleteConectionWalls = 1;
+
+                    parentConection = parentDirs[rng];
+                }
+            }
+
+
+            if (lanes.Count > 0) //This means next point is a conection
+            {
+                carLane = lanes[rng];
+            }
+
+            if (type == PointType.End) //Check direction to turn
+            {
+                safeRouteChange = pos.Count == 1; //Only one route, its safe
+
+                Vector3 targetDirection = (endLane[rng] - transform.position).normalized;
+                float angle = Vector3.SignedAngle(transform.forward, targetDirection, Vector3.up);
+
+                if (angle > 10)
+                {
+                    direction = DriveDirection.Right;
+                }
+                else if (angle < 10)
+                {
+                    direction = DriveDirection.Left;
+                }
+                else
+                {
+                    direction = DriveDirection.Front;
+                }
+
+                if (Vector3.Distance(transform.position, endLane[rng]) < 7)
+                {
+                    speedValue /= 2;
+                }
+            }
+            else if (type == PointType.Start)
+            {
+                safeRouteChange = false;
+
+                direction = DriveDirection.Front;
+            }
+
+        
     }
+
+
     public void setTarget(Vector3 pos)
     {
         startGoal = pos;

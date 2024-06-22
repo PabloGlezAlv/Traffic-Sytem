@@ -327,12 +327,11 @@ public class Route : MonoBehaviour
 
         Vector3 forward = movingPoints[startIndex].transform.forward;
 
-        Vector2 posicionObjeto = new Vector2(start.transform.position.x, start.transform.position.z);
-        Vector2 posicionObjeto2 = new Vector2(end.transform.position.x, end.transform.position.z);
-        Vector2 vectorPunto = posicionObjeto2 - posicionObjeto;
+        Vector2 startPos = new Vector2(start.transform.position.x, start.transform.position.z);
+        Vector2 endPos = new Vector2(end.transform.position.x, end.transform.position.z);
+        Vector2 dir = endPos - startPos;
 
-        // Producto cruzado en 2D
-        float crossProduct = forward.x * vectorPunto.y - forward.z * vectorPunto.x;
+        float crossProduct = forward.x * dir.y - forward.z * dir.x;
 
         if (crossProduct > 0.03f)//Right
         {
