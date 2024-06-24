@@ -90,7 +90,7 @@ public class Point : MonoBehaviour
     {
         if (other.tag == "Car") 
         {
-            IMovable car = other.transform.parent.GetComponent<IMovable>();
+            IMovable car = other.transform.GetComponent<IMovable>();
             
             Vector3 target = car.getTarget();
 

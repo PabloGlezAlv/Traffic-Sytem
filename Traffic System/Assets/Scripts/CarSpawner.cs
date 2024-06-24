@@ -54,4 +54,7 @@ public class CarSpawner : MonoBehaviour
             timer = 0;
         }
     }
+
+
+
 }

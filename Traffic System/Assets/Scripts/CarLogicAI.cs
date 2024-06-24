@@ -279,9 +279,24 @@ public class CarLogicAI : Agent, IMovable
             EndEpisode();
     }
 
-    private float GetNormalizedValue(float currentValue, float minValue, float maxValue)
+    private void OnCollisionEnter(Collision collision)
     {
-        return (currentValue - minValue) / (maxValue - minValue);
+        CarLogicAI car = collision.gameObject.GetComponentInParent<CarLogicAI>();
+
+        if (car) //Check if collide with a car
+        {
+            Debug.Log("Collision car");
+            // Check whose front is closer to the impact fisrt case my fault
+            if (Vector3.Distance(transform.position + forward, collision.contacts[0].point) <
+                Vector3.Distance(collision.transform.position + collision.transform.forward, collision.contacts[0].point))
+            {
+                car.AddRewardAgent(-1f, true);
+            }
+            else
+            {
+                car.AddRewardAgent(-0.25f, true);
+            }
+        }
     }
 
     // ---------------------------------------------------------------------------------
