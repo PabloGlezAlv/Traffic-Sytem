@@ -26,9 +26,9 @@ TagManager:
   - ConectionLeft
   - ConectionFront
   - Car
-  - 
-  - 
-  - 
+  - CarConectionRight
+  - CarConectionLeft
+  - CarConectionFront
   - 
   - 
   - 

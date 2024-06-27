@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 1400275050434256251}
   - component: {fileID: -335726830339577185}
   - component: {fileID: 1767586913856940761}
+  - component: {fileID: 3117450996471777198}
   m_Layer: 13
   m_Name: CarAgent
   m_TagString: Car
@@ -334,13 +335,12 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 5000
-  childCollision: {fileID: 95021839455455163}
   wheel: {fileID: 6224237703981240020}
   normalSensor: {fileID: -335726830339577185}
   topSensor: {fileID: 1767586913856940761}
   trainingReward: 0
   myPosition: {x: 0, y: 0, z: 0}
-  targetPosition: {x: -40.55, y: 1.75, z: -19.44}
+  targetPosition: {x: 44.04002, y: 0, z: -2.6}
   myRotation: 0
   mySpeed: 0
   moveInput: 0
@@ -395,7 +395,7 @@ MonoBehaviour:
   m_RayLength: 37
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967112
+    m_Bits: 4294959944
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
@@ -427,12 +427,39 @@ MonoBehaviour:
   m_RayLength: 48
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967161
+    m_Bits: 4294966905
   m_ObservationStacks: 1
-  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayHitColor: {r: 0, g: 0.32374644, b: 1, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 3.9
   m_EndVerticalOffset: -3.4
+--- !u!114 &3117450996471777198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973545710386584369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayDetectCars
+  m_DetectableTags:
+  - Car
+  m_RaysPerDirection: 3
+  m_MaxRayDegrees: 90
+  m_SphereCastRadius: 0.5
+  m_RayLength: 20
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294959112
+  m_ObservationStacks: 1
+  rayHitColor: {r: 0.04879856, g: 1, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 0.5
+  m_EndVerticalOffset: 0
 --- !u!1 &4344498826549854809
 GameObject:
   m_ObjectHideFlags: 0

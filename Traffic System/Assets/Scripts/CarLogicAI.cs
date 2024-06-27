@@ -13,8 +13,6 @@ using static UnityEngine.GraphicsBuffer;
 public class CarLogicAI : Agent, IMovable
 {
     [SerializeField]
-    GameObject childCollision;
-    [SerializeField]
     WheelCollider wheel;
     [SerializeField]
     RayPerceptionSensorComponent3D normalSensor;
@@ -120,6 +118,13 @@ public class CarLogicAI : Agent, IMovable
     int deleteConectionWalls = 0;
     GameObject parentConection;
 
+    Vector3 finalLinePoint;
+
+    public Vector3 getFinalPoint()
+    {
+        return finalLinePoint;
+    }
+
     public int CheckpointID
     {
         get { return checkpointID; }
@@ -151,7 +156,7 @@ public class CarLogicAI : Agent, IMovable
 
     private void RestartCar()
     {
-        childCollision.layer = LayerMask.NameToLayer("Default");
+        gameObject.layer = LayerMask.NameToLayer("Car");
 
         rightSide = true;
         //Raycast
@@ -285,7 +290,6 @@ public class CarLogicAI : Agent, IMovable
 
         if (car) //Check if collide with a car
         {
-            Debug.Log("Collision car");
             // Check whose front is closer to the impact fisrt case my fault
             if (Vector3.Distance(transform.position + forward, collision.contacts[0].point) <
                 Vector3.Distance(collision.transform.position + collision.transform.forward, collision.contacts[0].point))
@@ -515,6 +519,8 @@ public class CarLogicAI : Agent, IMovable
 
         if (type == PointType.End)
         {
+            finalLinePoint = endLane[rng];
+
             Vector3 forward = (previousTarget - targetPosition).normalized;
             Vector2 startPos = new Vector2(targetPosition.x, targetPosition.z);
             Vector2 endPos = new Vector2(endLane[rng].x, endLane[rng].z);
@@ -525,20 +531,23 @@ public class CarLogicAI : Agent, IMovable
             if (crossProduct > 0.03f)
             {
                 int laneRightLayer = LayerMask.NameToLayer("ConectionRight");
-                normalSensor.RayLayerMask &= ~(1 << laneRightLayer);
-                childCollision.layer = LayerMask.NameToLayer("ConectionRight");
+                normalSensor.RayLayerMask |= (1 << laneRightLayer);
+
+                gameObject.layer = LayerMask.NameToLayer("CarConectionRight");
             }
             else if (crossProduct < -0.03f)
             {
                 int laneLeftLayer = LayerMask.NameToLayer("ConectionLeft");
-                normalSensor.RayLayerMask &= ~(1 << laneLeftLayer);
-                childCollision.layer = LayerMask.NameToLayer("ConectionLeft");
+                normalSensor.RayLayerMask |= (1 << laneLeftLayer);
+
+                gameObject.layer = LayerMask.NameToLayer("CarConectionLeft");
             }
             else
             {
                 int laneMidLayer = LayerMask.NameToLayer("ConectionFront");
-                normalSensor.RayLayerMask &= ~(1 << laneMidLayer);
-                childCollision.layer = LayerMask.NameToLayer("ConectionFront");
+                normalSensor.RayLayerMask |= (1 << laneMidLayer);
+
+                gameObject.layer = LayerMask.NameToLayer("CarConectionFront");
             }
         }
         else if (type == PointType.Start)
@@ -551,7 +560,7 @@ public class CarLogicAI : Agent, IMovable
             normalSensor.RayLayerMask &= ~(1 << laneMidLayer);
             normalSensor.RayLayerMask &= ~(1 << laneLeftLayer);
 
-            childCollision.layer = LayerMask.NameToLayer("Default");
+            gameObject.layer = LayerMask.NameToLayer("Car");
         }
             //Activate or deactivate conection objects
             if (deleteConectionWalls > 0)

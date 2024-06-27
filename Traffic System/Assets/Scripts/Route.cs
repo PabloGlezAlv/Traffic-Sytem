@@ -315,10 +315,12 @@ public class Route : MonoBehaviour
         GameObject start = Instantiate(blockZone, lastBeforeCon, movingPoints[startIndex].transform.rotation * Quaternion.Euler(0, 180, 0), emptyObject.transform);
         start.name = "BlockZone " + l + i;
         start.transform.Translate(start.transform.right * sign * 2.3f, Space.World);
+        start.GetComponent<ColliderPlayer>().FinalTarget = firstAfterCon;
 
         GameObject end = Instantiate(blockZone, firstAfterCon, routeDirections[i].directionObject.transform.rotation, emptyObject.transform);
         start.name = "BlockZone " + l + i;
         end.transform.Translate(end.transform.right * sign * 2.3f, Space.World);
+        end.GetComponent<ColliderPlayer>().FinalTarget = firstAfterCon;
 
         float angle = Vector3.Angle(start.transform.forward, end.transform.forward);
 
@@ -333,7 +335,7 @@ public class Route : MonoBehaviour
 
         float crossProduct = forward.x * dir.y - forward.z * dir.x;
 
-        if (crossProduct > 0.03f)//Right
+        if (crossProduct > 0.07f)//Right
         {
             for (int j = 1; j < numPoints + 1; j++)
             {
@@ -341,13 +343,14 @@ public class Route : MonoBehaviour
                 Vector3 point = HermiteInterpolation(start.transform.position, end.transform.position, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
 
                 GameObject p = Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y + angle / numPoints * j, 0), emptyObject.transform);
+                p.GetComponent<ColliderPlayer>().FinalTarget = firstAfterCon;
 
                 p.layer = LayerMask.NameToLayer("ConectionRight");
             }
             start.layer = LayerMask.NameToLayer("ConectionRight");
             end.layer = LayerMask.NameToLayer("ConectionRight");
         }
-        else if (crossProduct < -0.03f) // Left
+        else if (crossProduct < -0.07f) // Left
         {
             for (int j = 1; j < numPoints + 1; j++)
             {
@@ -355,6 +358,8 @@ public class Route : MonoBehaviour
                 Vector3 point = HermiteInterpolation(start.transform.position, end.transform.position, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
 
                 GameObject p = Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y - angle / numPoints * j, 0), emptyObject.transform);
+                p.GetComponent<ColliderPlayer>().FinalTarget = firstAfterCon;
+
                 p.layer = LayerMask.NameToLayer("ConectionLeft");
             }
             start.layer = LayerMask.NameToLayer("ConectionLeft");
@@ -368,6 +373,8 @@ public class Route : MonoBehaviour
                 Vector3 point = HermiteInterpolation(start.transform.position, end.transform.position, routeDirections[i].startTangent, routeDirections[i].endTangent, t);
 
                 GameObject p = Instantiate(blockZone, point, Quaternion.Euler(0, start.transform.rotation.eulerAngles.y, 0), emptyObject.transform);
+                p.GetComponent<ColliderPlayer>().FinalTarget = firstAfterCon;
+
                 p.layer = LayerMask.NameToLayer("ConectionFront");
             }
             start.layer = LayerMask.NameToLayer("ConectionFront");
