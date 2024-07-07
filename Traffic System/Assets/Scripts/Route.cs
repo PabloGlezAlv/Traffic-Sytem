@@ -299,8 +299,45 @@ public class Route : MonoBehaviour
 
                 if(blockZone != null) //Add walls in conecctions
                 {
-                    SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, 1);
-                    SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, -1);
+                    Vector3 forward = movingPoints[startIndex].transform.forward;
+
+                    Vector2 startPos = new Vector2(lastBeforeCon.x, lastBeforeCon.z);
+                    Vector2 endPos = new Vector2(firstAfterCon.x, firstAfterCon.z);
+                    Vector2 dir = endPos - startPos;
+
+
+                    float crossProduct = forward.x * dir.y - forward.z * dir.x;
+
+                    if (crossProduct > 0.07f)//Right
+                    {
+                        if(Vector2.Distance(startPos, endPos) > 8.0f)
+                        {
+                            SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, 1, 2.3f);
+                            SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, -1, 2.3f);
+                        }
+                        else
+                        {
+                            SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, -1, 3.0f);
+                        }
+                    } 
+                    else if (crossProduct < -0.07f) // Left
+                    {
+                        if (Vector2.Distance(startPos, endPos) > 8.0f)
+                        {
+                            SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, 1, 2.3f);
+                            SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, -1, 2.3f);
+                        }
+                        else
+                        {
+                            SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, 1, 3.0f);
+                        }
+                    }
+                    else //front
+                    {
+                        SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, 1, 2.3f);
+                        SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, -1, 2.3f);
+                    }
+                    
                 }
             }
 
@@ -310,16 +347,16 @@ public class Route : MonoBehaviour
         }
     }
 
-    private void SpawConectionBorder(int startIndex, int l, int i, GameObject emptyObject, Vector3 lastBeforeCon, Vector3 firstAfterCon, int sign)
+    private void SpawConectionBorder(int startIndex, int l, int i, GameObject emptyObject, Vector3 lastBeforeCon, Vector3 firstAfterCon, int sign, float size)
     {
         GameObject start = Instantiate(blockZone, lastBeforeCon, movingPoints[startIndex].transform.rotation * Quaternion.Euler(0, 180, 0), emptyObject.transform);
         start.name = "BlockZone " + l + i;
-        start.transform.Translate(start.transform.right * sign * 2.3f, Space.World);
+        start.transform.Translate(start.transform.right * sign * size, Space.World);
         start.GetComponent<ColliderPlayer>().FinalTarget = firstAfterCon;
 
         GameObject end = Instantiate(blockZone, firstAfterCon, routeDirections[i].directionObject.transform.rotation, emptyObject.transform);
         start.name = "BlockZone " + l + i;
-        end.transform.Translate(end.transform.right * sign * 2.3f, Space.World);
+        end.transform.Translate(end.transform.right * sign * size, Space.World);
         end.GetComponent<ColliderPlayer>().FinalTarget = firstAfterCon;
 
         float angle = Vector3.Angle(start.transform.forward, end.transform.forward);

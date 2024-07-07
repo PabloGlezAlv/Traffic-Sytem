@@ -90,6 +90,7 @@ public class CarLogicAI : Agent, IMovable
     Vector3 forward = new Vector3();
 
     bool rightSide = false;
+    bool startSide;
 
     RaycastHit hitR; //Front Right
     bool hitFR = false;
@@ -120,6 +121,7 @@ public class CarLogicAI : Agent, IMovable
 
     Vector3 finalLinePoint;
 
+    float lastCheckPoint = 0;
     public Vector3 getFinalPoint()
     {
         return finalLinePoint;
@@ -152,13 +154,14 @@ public class CarLogicAI : Agent, IMovable
         speedValue = speedLimit / maxAcceleration;
 
         driverSpeed = Random.Range(0.7f, 1);
+
+        startSide = rightSide;
     }
 
     private void RestartCar()
     {
-        gameObject.layer = LayerMask.NameToLayer("Car");
-
-        rightSide = true;
+        rightSide = startSide;
+        lastCheckPoint = 0;
         //Raycast
         hitFR = false;
         hitFL = false;
@@ -170,10 +173,13 @@ public class CarLogicAI : Agent, IMovable
         bool changeLane = false;
         int overtaking = -1;
 
-        transform.position = startPosition;
+        rb.position = startPosition;
         targetPosition = startGoal;
 
-        transform.rotation = startRotation;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        rb.rotation = startRotation;
 
         deleteConectionWalls = 0;
         checkpointID = 0;
@@ -190,6 +196,8 @@ public class CarLogicAI : Agent, IMovable
         speedValue = speedLimit / maxAcceleration;
 
         checkRayCast();
+
+        gameObject.layer = LayerMask.NameToLayer("Car");
     }
 
     // ---------------------------------AI PARAMETERS-----------------------------
@@ -237,6 +245,10 @@ public class CarLogicAI : Agent, IMovable
             case 0: moveInput = 0; break;
             case 1: moveInput = speedValue * driverSpeed; break;
             case 2: moveInput = -speedValue * driverSpeed; break;
+            case 3: moveInput = speedValue * driverSpeed * 0.66f; break;
+            case 4: moveInput = -speedValue * driverSpeed * 0.66f; break;
+            case 5: moveInput = speedValue * driverSpeed * 0.33f; break;
+            case 6: moveInput = -speedValue * driverSpeed * 0.33f; break;
             default: break;
         }
         //---------------------------------------------
@@ -246,6 +258,12 @@ public class CarLogicAI : Agent, IMovable
             case 0: steerInput = 0; break;
             case 1: steerInput = 1; break;
             case 2: steerInput = -1; break;
+            case 3: steerInput = 0.75f; break;
+            case 4: steerInput = -0.75f; break;
+            case 5: steerInput = 0.5f; break;
+            case 6: steerInput = -0.5f; break;
+            case 7: steerInput = 0.25f; break;
+            case 8: steerInput = -0.25f; break;
             default: break;
         }
 
@@ -273,7 +291,7 @@ public class CarLogicAI : Agent, IMovable
 
         //previousDistance = distance;
 
-        AddReward(-1 / MaxStep);
+        AddReward(-1.0f / MaxStep);
     }
 
     public void AddRewardAgent(float amount, bool kill = false)
@@ -281,7 +299,9 @@ public class CarLogicAI : Agent, IMovable
         AddReward(amount);
 
         if (kill)
+        {
             EndEpisode();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -429,6 +449,12 @@ public class CarLogicAI : Agent, IMovable
         myPosition = transform.position;
 
 
+        lastCheckPoint += Time.deltaTime;
+        if (lastCheckPoint > 15)
+        {
+            AddRewardAgent(-0.01f, true);
+        }
+
 
         forward = new Vector3(transform.forward.x, 0, transform.forward.z);
 
@@ -446,6 +472,7 @@ public class CarLogicAI : Agent, IMovable
     }
     public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right, List<GameObject> parentDirs, bool lastPoint)//Chek if endPoint to check if movement left rotation
     {
+        lastCheckPoint = 0;
         previousTarget = targetPosition;
         int rng;
         rng = Random.Range(0, pos.Count);

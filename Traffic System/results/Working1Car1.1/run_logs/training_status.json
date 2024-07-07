@@ -1,0 +1,65 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 7999992,
+                "file_path": "results\\Pablo7Final\\FollowPoints\\FollowPoints-7999992.onnx",
+                "reward": 11.90666667620341,
+                "creation_time": 1720350310.6542063,
+                "auxillary_file_paths": [
+                    "results\\Pablo7Final\\FollowPoints\\FollowPoints-7999992.pt"
+                ]
+            },
+            {
+                "steps": 8499967,
+                "file_path": "results\\Pablo7Final\\FollowPoints\\FollowPoints-8499967.onnx",
+                "reward": 10.474999994039536,
+                "creation_time": 1720360433.800926,
+                "auxillary_file_paths": [
+                    "results\\Pablo7Final\\FollowPoints\\FollowPoints-8499967.pt"
+                ]
+            },
+            {
+                "steps": 8999975,
+                "file_path": "results\\Pablo7Final\\FollowPoints\\FollowPoints-8999975.onnx",
+                "reward": 10.986999983588854,
+                "creation_time": 1720371596.975712,
+                "auxillary_file_paths": [
+                    "results\\Pablo7Final\\FollowPoints\\FollowPoints-8999975.pt"
+                ]
+            },
+            {
+                "steps": 9499945,
+                "file_path": "results\\Pablo7Final\\FollowPoints\\FollowPoints-9499945.onnx",
+                "reward": 10.29424998164177,
+                "creation_time": 1720383819.9216788,
+                "auxillary_file_paths": [
+                    "results\\Pablo7Final\\FollowPoints\\FollowPoints-9499945.pt"
+                ]
+            },
+            {
+                "steps": 9514680,
+                "file_path": "results\\Pablo7Final\\FollowPoints\\FollowPoints-9514680.onnx",
+                "reward": 17.990000009536743,
+                "creation_time": 1720384170.523644,
+                "auxillary_file_paths": [
+                    "results\\Pablo7Final\\FollowPoints\\FollowPoints-9514680.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 9514680,
+            "file_path": "results\\Pablo7Final\\FollowPoints.onnx",
+            "reward": 17.990000009536743,
+            "creation_time": 1720384170.523644,
+            "auxillary_file_paths": [
+                "results\\Pablo7Final\\FollowPoints\\FollowPoints-9514680.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.1+cpu"
+    }
+}

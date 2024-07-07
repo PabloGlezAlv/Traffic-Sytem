@@ -26,7 +26,7 @@ public class CarSpawner : MonoBehaviour
     {
         for(int i = 0; i < spawn.Count; i++)
         {
-            carSpawned.Add(Instantiate(carPrefab, spawn[i].transform.position + Vector3.up * 0.5f, spawn[i].transform.rotation));
+            carSpawned.Add(Instantiate(carPrefab, spawn[i].transform.position + Vector3.up * 1f, spawn[i].transform.rotation));
 
 
             carSpawned[i].GetComponent<IMovable>().setTarget(spawn[i].transform.position);
@@ -45,7 +45,7 @@ public class CarSpawner : MonoBehaviour
             int i = 0;
             while(i < spawn.Count && carSpawned.Count < maxNumberCars )
             {
-                carSpawned.Add(Instantiate(carPrefab, spawn[i].transform.position + Vector3.up * 0.4f, spawn[i].transform.rotation));
+                carSpawned.Add(Instantiate(carPrefab, spawn[i].transform.position + Vector3.up * 1f, spawn[i].transform.rotation));
                 carSpawned[carSpawned.Count - 1].GetComponent<IMovable>().setTarget(spawn[i].transform.position);
                 carSpawned[carSpawned.Count - 1].name = "Car " + carSpawned.Count;
 
