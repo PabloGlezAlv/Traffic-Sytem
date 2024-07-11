@@ -2,58 +2,58 @@
     "FollowPoints": {
         "checkpoints": [
             {
-                "steps": 3499961,
-                "file_path": "results\\45smooth1\\FollowPoints\\FollowPoints-3499961.onnx",
-                "reward": 9.557399034500122,
-                "creation_time": 1720574447.9417243,
+                "steps": 6499945,
+                "file_path": "results\\45smooth1\\FollowPoints\\FollowPoints-6499945.onnx",
+                "reward": 12.564532081286112,
+                "creation_time": 1720656511.8617234,
                 "auxillary_file_paths": [
-                    "results\\45smooth1\\FollowPoints\\FollowPoints-3499961.pt"
+                    "results\\45smooth1\\FollowPoints\\FollowPoints-6499945.pt"
                 ]
             },
             {
-                "steps": 3999944,
-                "file_path": "results\\45smooth1\\FollowPoints\\FollowPoints-3999944.onnx",
-                "reward": 9.64339897222817,
-                "creation_time": 1720586606.3700674,
+                "steps": 6999996,
+                "file_path": "results\\45smooth1\\FollowPoints\\FollowPoints-6999996.onnx",
+                "reward": 11.185265401999155,
+                "creation_time": 1720680160.6509602,
                 "auxillary_file_paths": [
-                    "results\\45smooth1\\FollowPoints\\FollowPoints-3999944.pt"
+                    "results\\45smooth1\\FollowPoints\\FollowPoints-6999996.pt"
                 ]
             },
             {
-                "steps": 4499961,
-                "file_path": "results\\45smooth1\\FollowPoints\\FollowPoints-4499961.onnx",
-                "reward": 6.667499196249992,
-                "creation_time": 1720600062.6284816,
+                "steps": 7302663,
+                "file_path": "results\\45smooth1\\FollowPoints\\FollowPoints-7302663.onnx",
+                "reward": 15.354798406362534,
+                "creation_time": 1720705446.7189136,
                 "auxillary_file_paths": [
-                    "results\\45smooth1\\FollowPoints\\FollowPoints-4499961.pt"
+                    "results\\45smooth1\\FollowPoints\\FollowPoints-7302663.pt"
                 ]
             },
             {
-                "steps": 4999970,
-                "file_path": "results\\45smooth1\\FollowPoints\\FollowPoints-4999970.onnx",
-                "reward": 7.1067992225289345,
-                "creation_time": 1720615443.5439632,
+                "steps": 7499967,
+                "file_path": "results\\45smooth1\\FollowPoints\\FollowPoints-7499967.onnx",
+                "reward": null,
+                "creation_time": 1720709831.2167392,
                 "auxillary_file_paths": [
-                    "results\\45smooth1\\FollowPoints\\FollowPoints-4999970.pt"
+                    "results\\45smooth1\\FollowPoints\\FollowPoints-7499967.pt"
                 ]
             },
             {
-                "steps": 5364946,
-                "file_path": "results\\45smooth1\\FollowPoints\\FollowPoints-5364946.onnx",
-                "reward": 8.44429912418127,
-                "creation_time": 1720626434.567061,
+                "steps": 7852613,
+                "file_path": "results\\45smooth1\\FollowPoints\\FollowPoints-7852613.onnx",
+                "reward": null,
+                "creation_time": 1720720331.2122593,
                 "auxillary_file_paths": [
-                    "results\\45smooth1\\FollowPoints\\FollowPoints-5364946.pt"
+                    "results\\45smooth1\\FollowPoints\\FollowPoints-7852613.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 5364946,
+            "steps": 7852613,
             "file_path": "results\\45smooth1\\FollowPoints.onnx",
-            "reward": 8.44429912418127,
-            "creation_time": 1720626434.567061,
+            "reward": null,
+            "creation_time": 1720720331.2122593,
             "auxillary_file_paths": [
-                "results\\45smooth1\\FollowPoints\\FollowPoints-5364946.pt"
+                "results\\45smooth1\\FollowPoints\\FollowPoints-7852613.pt"
             ]
         }
     },
