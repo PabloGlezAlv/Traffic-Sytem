@@ -91,6 +91,8 @@ public class CarLogic : MonoBehaviour, IMovable
     float maxAcceleration = 0;
     float maxSteerAngle = 0;
 
+    bool otherCarStoped = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -268,6 +270,7 @@ public class CarLogic : MonoBehaviour, IMovable
                         waitingToGo = true;
                         carMov.SetCarStopped(true);
                         timerToGo = 0;
+                        otherCarStoped = true;
 
                         if (gameObject.name == "Car 2")
                             Debug.Log("Car in Traffic light");
@@ -286,6 +289,8 @@ public class CarLogic : MonoBehaviour, IMovable
                         waitingToGo = true;
                         carMov.SetCarStopped(true);
                         timerToGo = 0;
+                        otherCarStoped = true ;
+
                         if (gameObject.name == "Car 2")
                             Debug.Log("Car in Traffic light");
                     }
@@ -297,6 +302,11 @@ public class CarLogic : MonoBehaviour, IMovable
                     }
                 }
             }
+        }
+        else if(otherCarStoped)
+        {
+            waitingToGo = false;
+            carMov.SetCarStopped(false);
         }
 
         switch (direction)

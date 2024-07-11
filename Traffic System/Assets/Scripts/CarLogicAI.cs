@@ -122,6 +122,9 @@ public class CarLogicAI : Agent, IMovable
     Vector3 finalLinePoint;
 
     float lastCheckPoint = 0;
+
+    bool otherCarStoped = false;
+
     public Vector3 getFinalPoint()
     {
         return finalLinePoint;
@@ -341,6 +344,7 @@ public class CarLogicAI : Agent, IMovable
         if (other.CompareTag("TrafficBarrier"))
         {
             waitingToGo = true;
+            moveInput = 0;
             carMov.SetCarStopped(true);
         }
     }
@@ -349,6 +353,7 @@ public class CarLogicAI : Agent, IMovable
         if (other.CompareTag("TrafficBarrier"))
         {
             waitingToGo = false;
+            moveInput = 0;
             carMov.SetCarStopped(false);
         }
     }
@@ -372,11 +377,12 @@ public class CarLogicAI : Agent, IMovable
                         moveInput = 0f;
                         carMov.SetCarStopped(true);
                         timerToGo = 0;
+                        otherCarStoped = true;
 
                         if (gameObject.name == "Car 2")
                             Debug.Log("Car in Traffic light");
                     }
-                    else if (lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
+                    if (lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
                     {
                         changeLane = true;
                         if (gameObject.name == "Car 2")
@@ -391,10 +397,19 @@ public class CarLogicAI : Agent, IMovable
                         moveInput = 0f;
                         carMov.SetCarStopped(true);
                         timerToGo = 0;
+                        otherCarStoped= true;
+
                         if (gameObject.name == "Car 2")
                             Debug.Log("Car in Traffic light");
                     }
-                    else if (lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
+                    else
+                    {
+                        waitingToGo = false;
+                        moveInput = 0f;
+                        carMov.SetCarStopped(false);
+                    }
+
+                    if (lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
                     {
                         changeLane = true;
                         if (gameObject.name == "Car 2")
@@ -402,6 +417,13 @@ public class CarLogicAI : Agent, IMovable
                     }
                 }
             }
+        }
+        else if(otherCarStoped)
+        {
+            otherCarStoped = false;
+            waitingToGo = false;
+            moveInput = 0;
+            carMov.SetCarStopped(false);
         }
 
         switch (direction)
