@@ -14,12 +14,23 @@ public class StopLightSystem : MonoBehaviour
     [SerializeField]
     List<GameObject> barrier = new List<GameObject>();
 
+    List<Vector3> position = new List<Vector3>();
+
     int index = 0;
+
+    private void Awake()
+    {
+        foreach(GameObject g in barrier)
+        {
+            position.Add(g.transform.position);
+            
+        }
+    }
 
     void Start()
     {
-        barrier[index].SetActive(false);
-        for(int i = 1; i < lights.Count; i++)
+        barrier[0].transform.position = new Vector3(0,-20,0);
+        for (int i = 1; i < lights.Count; i++)
         {
             lights[i].color = Color.red;
         }
@@ -30,7 +41,7 @@ public class StopLightSystem : MonoBehaviour
 
     private void setRed()
     {
-        barrier[index].SetActive(true);
+        barrier[index].transform.position = position[index];
         lights[index].color = Color.red;
         Invoke("setGreen", waitNextTime);
     }
@@ -39,7 +50,7 @@ public class StopLightSystem : MonoBehaviour
     {
         index = ++index%barrier.Count;
 
-        barrier[index].SetActive(false);
+        barrier[index].transform.position = new Vector3(0, -20, 0);
         lights[index].color = Color.green;
         Invoke("setRed", greenTime);
     }

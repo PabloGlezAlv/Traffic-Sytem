@@ -208,6 +208,7 @@ public class CarLogicAI : Agent, IMovable
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
+        if (waitingToGo) return;
         ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
         discreteActions[0] = (int)Input.GetAxis("Vertical");
         discreteActions[1] = (int)Input.GetAxis("Horizontal");
@@ -239,7 +240,15 @@ public class CarLogicAI : Agent, IMovable
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
-        moveInput = actions.DiscreteActions[0];
+        if (waitingToGo)
+        {
+            moveInput = 0;
+            steerInput = 0;
+            return;
+        }
+
+
+            moveInput = actions.DiscreteActions[0];
         switch (moveInput)
         {
             case 0: moveInput = 0; break;
@@ -267,30 +276,8 @@ public class CarLogicAI : Agent, IMovable
             default: break;
         }
 
-        //-------------------Reward getting closer------------------------------
-        //float DistanceRewardInterval = 0.3f;
-        //float distance = Vector3.Distance(transform.position, targetPosition);
-        //if (distance < previousDistance)
-        //{
-        //    if ((int)(distance / DistanceRewardInterval) < (int)(previousDistance / DistanceRewardInterval)) //Every X units that gets closer
-        //    {
-        //        AddReward(0.02f);
-        //    }
 
-        //}
-        //else
-        //{
-        //    // Note: '* 2' is a hard coded value here, which I introduced after tuning the penalty to occur less frequently than
-        //    // the reward, in order to not 'scare' the AI of performing corrective maneuvers where it has to first increase the
-        //    // distance to the target parking spot.
-        //    if ((int)(distance / (DistanceRewardInterval * 2)) > (int)(previousDistance / (DistanceRewardInterval * 2)))
-        //    {
-        //        AddReward(-0.03f);
-        //    }
-        //}
-
-        //previousDistance = distance;
-
+        if (waitingToGo) return;
         AddReward(-1.0f / MaxStep);
     }
 
@@ -347,6 +334,25 @@ public class CarLogicAI : Agent, IMovable
     {
         //Empty the AI Calculate the input now
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("TrafficBarrier"))
+        {
+            waitingToGo = true;
+            carMov.SetCarStopped(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("TrafficBarrier"))
+        {
+            waitingToGo = false;
+            carMov.SetCarStopped(false);
+        }
+    }
+
     private void DirectionsRaycast()
     {
         //FrontSensors
@@ -356,19 +362,14 @@ public class CarLogicAI : Agent, IMovable
 
         if (hitFR || hitFL) //Check collision
         {
-            if ((hitFR && hitR.transform.tag == "TrafficBarrier") || (hitFL && hitL.transform.tag == "TrafficBarrier")) //Traffic system stop
-            {
-                waitingToGo = true;
-                carMov.SetCarStopped(true);
-                timerToGo = 0;
-            }
-            else if ((hitFR && hitR.transform.tag == "Car" && hitR.transform.gameObject.GetComponent<CarMovement>() == rightSide) || (hitFL && hitL.transform.tag == "Car" && hitL.transform.gameObject.GetComponent<CarMovement>() == rightSide)) //Collision other car
+            if ((hitFR && hitR.transform.tag == "Car" && hitR.transform.gameObject.GetComponent<CarMovement>() == rightSide) || (hitFL && hitL.transform.tag == "Car" && hitL.transform.gameObject.GetComponent<CarMovement>() == rightSide)) //Collision other car
             {
                 if ((!waitingToGo && hitFR && hitR.transform.tag == "Car"))
                 {
                     if (hitR.transform.GetComponent<CarMovement>().isCarStopped()) //Front car but stop bcs traffic system
                     {
                         waitingToGo = true;
+                        moveInput = 0f;
                         carMov.SetCarStopped(true);
                         timerToGo = 0;
 
@@ -387,6 +388,7 @@ public class CarLogicAI : Agent, IMovable
                     if (hitL.transform.GetComponent<CarMovement>().isCarStopped()) //Front car but stop bcs traffic system
                     {
                         waitingToGo = true;
+                        moveInput = 0f;
                         carMov.SetCarStopped(true);
                         timerToGo = 0;
                         if (gameObject.name == "Car 2")
@@ -457,18 +459,6 @@ public class CarLogicAI : Agent, IMovable
 
 
         forward = new Vector3(transform.forward.x, 0, transform.forward.z);
-
-        if (timerToGo >= 0)
-        {
-            timerToGo += Time.deltaTime;
-
-            if (timerToGo > 15)
-            {
-                timerToGo = -1;
-                waitingToGo = false;
-                carMov.SetCarStopped(false);
-            }
-        }
     }
     public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right, List<GameObject> parentDirs, bool lastPoint)//Chek if endPoint to check if movement left rotation
     {
@@ -679,8 +669,8 @@ public class CarLogicAI : Agent, IMovable
 
 
         ////Front Sensor
-        //Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + forward * checkFrontCar * frontRangeValue);
-        //Gizmos.DrawLine(transform.position + -transform.right * distanceFrontSensor, transform.position + -transform.right * distanceFrontSensor + forward * checkFrontCar * frontRangeValue);
+        Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + forward * checkFrontCar * frontRangeValue);
+        Gizmos.DrawLine(transform.position + -transform.right * distanceFrontSensor, transform.position + -transform.right * distanceFrontSensor + forward * checkFrontCar * frontRangeValue);
 
         ////Right Sensor
         //Gizmos.DrawLine(transform.position + transform.right * distanceFrontSensor, transform.position + transform.right * distanceFrontSensor + transform.right * checkSidesCar + forward * checkSidesCar / 2);

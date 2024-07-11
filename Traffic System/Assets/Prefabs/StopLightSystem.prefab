@@ -236,8 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f412139ef88f14aab1549957044737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenTime: 10
-  waitNextTime: 4
+  greenTime: 20
+  waitNextTime: 5
   lights:
   - {fileID: 3277365381770290709}
   - {fileID: 7511689402425648507}
@@ -276,8 +276,8 @@ Transform:
   m_GameObject: {fileID: 2845206628107493951}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 5.2403, z: 3.6365554}
+  m_LocalPosition: {x: -0.76, y: 0, z: 0}
+  m_LocalScale: {x: 2.8804073, y: 0.4311352, z: 3.6365554}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8606513456298082269}
@@ -447,8 +447,8 @@ Transform:
   m_GameObject: {fileID: 5956340791840232117}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 6.2211, z: 2.8769875}
+  m_LocalPosition: {x: -1.08, y: 0, z: -0.00000095367}
+  m_LocalScale: {x: 2.8551695, y: 0.51182854, z: 2.8769875}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5693890184786577480}
@@ -552,8 +552,8 @@ Transform:
   m_GameObject: {fileID: 6151560362006043007}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 5.7362, z: 3.2327554}
+  m_LocalPosition: {x: -2.29, y: 0, z: -0}
+  m_LocalScale: {x: 4.4187546, y: 0.47193438, z: 3.2327554}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1194063466140713803}
@@ -784,8 +784,8 @@ Transform:
   m_GameObject: {fileID: 6782608198823361237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 6.0948, z: 3.3882933}
+  m_LocalPosition: {x: -2.27, y: 0, z: -0.00000071526}
+  m_LocalScale: {x: 3.7530682, y: 0.5014375, z: 3.3882933}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2174430831388547269}

@@ -2,46 +2,64 @@
     "FollowPoints": {
         "checkpoints": [
             {
-                "steps": 205821,
-                "file_path": "results\\pablo10final40\\FollowPoints\\FollowPoints-205821.onnx",
-                "reward": 7.110599291045219,
-                "creation_time": 1720219198.0857673,
+                "steps": 4130178,
+                "file_path": "results\\pablo10final40\\FollowPoints\\FollowPoints-4130178.onnx",
+                "reward": 5.287799401208758,
+                "creation_time": 1720520332.296794,
                 "auxillary_file_paths": [
-                    "results\\pablo10final40\\FollowPoints\\FollowPoints-205821.pt"
+                    "results\\pablo10final40\\FollowPoints\\FollowPoints-4130178.pt"
                 ]
             },
             {
-                "steps": 499946,
-                "file_path": "results\\pablo10final40\\FollowPoints\\FollowPoints-499946.onnx",
-                "reward": 4.41124951839447,
-                "creation_time": 1720239944.9914215,
+                "steps": 4499957,
+                "file_path": "results\\pablo10final40\\FollowPoints\\FollowPoints-4499957.onnx",
+                "reward": 6.885265864431858,
+                "creation_time": 1720580875.051569,
                 "auxillary_file_paths": [
-                    "results\\pablo10final40\\FollowPoints\\FollowPoints-499946.pt"
+                    "results\\pablo10final40\\FollowPoints\\FollowPoints-4499957.pt"
                 ]
             },
             {
-                "steps": 647533,
-                "file_path": "results\\pablo10final40\\FollowPoints\\FollowPoints-647533.onnx",
-                "reward": 5.072099418379366,
-                "creation_time": 1720262401.8057652,
+                "steps": 4623066,
+                "file_path": "results\\pablo10final40\\FollowPoints\\FollowPoints-4623066.onnx",
+                "reward": null,
+                "creation_time": 1720591387.016864,
                 "auxillary_file_paths": [
-                    "results\\pablo10final40\\FollowPoints\\FollowPoints-647533.pt"
+                    "results\\pablo10final40\\FollowPoints\\FollowPoints-4623066.pt"
+                ]
+            },
+            {
+                "steps": 4999973,
+                "file_path": "results\\pablo10final40\\FollowPoints\\FollowPoints-4999973.onnx",
+                "reward": null,
+                "creation_time": 1720601468.8493438,
+                "auxillary_file_paths": [
+                    "results\\pablo10final40\\FollowPoints\\FollowPoints-4999973.pt"
+                ]
+            },
+            {
+                "steps": 5136469,
+                "file_path": "results\\pablo10final40\\FollowPoints\\FollowPoints-5136469.onnx",
+                "reward": 12.228998543694615,
+                "creation_time": 1720605079.9762168,
+                "auxillary_file_paths": [
+                    "results\\pablo10final40\\FollowPoints\\FollowPoints-5136469.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 647533,
+            "steps": 5136469,
             "file_path": "results\\pablo10final40\\FollowPoints.onnx",
-            "reward": 5.072099418379366,
-            "creation_time": 1720262401.8057652,
+            "reward": 12.228998543694615,
+            "creation_time": 1720605079.9762168,
             "auxillary_file_paths": [
-                "results\\pablo10final40\\FollowPoints\\FollowPoints-647533.pt"
+                "results\\pablo10final40\\FollowPoints\\FollowPoints-5136469.pt"
             ]
         }
     },
     "metadata": {
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.30.0",
-        "torch_version": "2.3.0+cpu"
+        "torch_version": "2.3.1+cpu"
     }
 }

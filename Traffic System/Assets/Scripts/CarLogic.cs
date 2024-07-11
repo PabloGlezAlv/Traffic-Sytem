@@ -181,7 +181,7 @@ public class CarLogic : MonoBehaviour, IMovable
             switch (direction)
             {
                 case DriveDirection.Left:
-                    if (hitFR || hitFL || hitSideBL || hitSideFL)
+                    if (hitFR || hitFL || hitSideBL || hitSideFL || waitingToGo)
                     {
                         moveInput = 0;
                     }
@@ -192,7 +192,7 @@ public class CarLogic : MonoBehaviour, IMovable
                     break;
 
                 case DriveDirection.Right: //Leave front sensor just in case another close car
-                    if (hitFR || hitFL || hitSideBR || hitSideFR)
+                    if (hitFR || hitFL || hitSideBR || hitSideFR || waitingToGo)
                     {
                         moveInput = 0;
                     }
@@ -202,7 +202,7 @@ public class CarLogic : MonoBehaviour, IMovable
                     }
                     break;
                 case DriveDirection.Front:
-                    if (hitFR || hitFL)
+                    if (hitFR || hitFL || waitingToGo)
                     {
                         moveInput = 0;
                     }
@@ -232,6 +232,24 @@ public class CarLogic : MonoBehaviour, IMovable
 
         Invoke("CalculateCurrentSpeed", 0.1f);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if(other.CompareTag("TrafficBarrier"))
+        {
+            waitingToGo = true;
+            carMov.SetCarStopped(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("TrafficBarrier"))
+        {
+            waitingToGo = false;
+            carMov.SetCarStopped(false);
+        }
+    }
     private void DirectionsRaycast()
     {
         //FrontSensors
@@ -241,13 +259,7 @@ public class CarLogic : MonoBehaviour, IMovable
 
         if (hitFR || hitFL) //Check collision
         {
-            if ((hitFR && hitR.transform.tag == "TrafficBarrier") || (hitFL && hitL.transform.tag == "TrafficBarrier")) //Traffic system stop
-            {
-                waitingToGo = true;
-                carMov.SetCarStopped(true);
-                timerToGo = 0;
-            }
-            else if ((hitFR && hitR.transform.tag == "Car" && hitR.transform.gameObject.GetComponent<CarMovement>() == rightSide) || (hitFL && hitL.transform.tag == "Car" && hitL.transform.gameObject.GetComponent<CarMovement>() == rightSide)) //Collision other car
+            if ((hitFR && hitR.transform.tag == "Car" && hitR.transform.gameObject.GetComponent<CarMovement>() == rightSide) || (hitFL && hitL.transform.tag == "Car" && hitL.transform.gameObject.GetComponent<CarMovement>() == rightSide)) //Collision other car
             {
                 if ((!waitingToGo && hitFR && hitR.transform.tag == "Car"))
                 {
@@ -335,18 +347,6 @@ public class CarLogic : MonoBehaviour, IMovable
     void Update()
     {
         forward = new Vector3(transform.forward.x, 0, transform.forward.z);
-
-        if (timerToGo >= 0)
-        {
-            timerToGo += Time.deltaTime;
-
-            if (timerToGo > 15)
-            {
-                timerToGo = -1;
-                waitingToGo = false;
-                carMov.SetCarStopped(false);
-            }
-        }
     }
     public void setTarget(List<Vector3> pos, List<Vector3> endLane, List<DrivingLane> lanes, PointType type, bool right, List<GameObject> parentDirs, bool lastPoint)//Chek if endPoint to check if movement left rotation
     {

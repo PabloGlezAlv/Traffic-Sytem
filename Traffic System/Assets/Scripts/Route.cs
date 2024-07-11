@@ -317,7 +317,7 @@ public class Route : MonoBehaviour
                         }
                         else
                         {
-                            SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, -1, 3.0f);
+                            SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, -1, 2.7f);
                         }
                     } 
                     else if (crossProduct < -0.07f) // Left
@@ -329,7 +329,7 @@ public class Route : MonoBehaviour
                         }
                         else
                         {
-                            SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, 1, 3.0f);
+                            SpawConectionBorder(startIndex, l, i, emptyObject, lastBeforeCon, firstAfterCon, 1, 2.7f);
                         }
                     }
                     else //front

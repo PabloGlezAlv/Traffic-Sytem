@@ -6035,7 +6035,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6740480069021910173}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4163b14677e28ad45ad875a37724c4a1, type: 3}
   m_Name: 
@@ -11393,6 +11393,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2548293572066683905, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
+      propertyPath: MaxStep
+      value: 50000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548293572066683905, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
       propertyPath: targetPosition.x
       value: -53.44955
       objectReference: {fileID: 0}
@@ -13207,17 +13211,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: StopLightSystem
       objectReference: {fileID: 0}
-    - target: {fileID: 2546083851008509549, guid: ff481c4ee38fe73478018c043320f476, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 2845206628107493951, guid: ff481c4ee38fe73478018c043320f476, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4628779059875202947, guid: ff481c4ee38fe73478018c043320f476, type: 3}
-      propertyPath: greenTime
-      value: 15
+    - target: {fileID: 5956340791840232117, guid: ff481c4ee38fe73478018c043320f476, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4628779059875202947, guid: ff481c4ee38fe73478018c043320f476, type: 3}
-      propertyPath: waitNextTime
-      value: 5
+    - target: {fileID: 6151560362006043007, guid: ff481c4ee38fe73478018c043320f476, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782608198823361237, guid: ff481c4ee38fe73478018c043320f476, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8212377199603892630, guid: ff481c4ee38fe73478018c043320f476, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13276,13 +13284,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarsManager
       objectReference: {fileID: 0}
+    - target: {fileID: 510673715091982151, guid: 72327d91d01756c4bb393484ca09c93e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4681100783634444026, guid: 72327d91d01756c4bb393484ca09c93e, type: 3}
       propertyPath: carPrefab
       value: 
       objectReference: {fileID: 1973545710386584369, guid: 0f692ba42edcea24aabee2e39a070f5a, type: 3}
     - target: {fileID: 4681100783634444026, guid: 72327d91d01756c4bb393484ca09c93e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4681100783634444026, guid: 72327d91d01756c4bb393484ca09c93e, type: 3}
       propertyPath: maxNumberCars
@@ -13341,6 +13353,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 420597855195558236, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 706371767568949902, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 
@@ -13433,6 +13449,14 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
+    - target: {fileID: 1744946129702722407, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[2].endTangent.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744946129702722407, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[2].startTangent.z
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 1795669320580311852, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 
@@ -13489,6 +13513,22 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
+    - target: {fileID: 3170985309701182514, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[0].endTangent.z
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170985309701182514, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[1].endTangent.z
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170985309701182514, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[0].startTangent.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170985309701182514, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[1].startTangent.x
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 3241812653283729449, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.4410258
@@ -13541,6 +13581,10 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
+    - target: {fileID: 3886133723388446359, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.28
+      objectReference: {fileID: 0}
     - target: {fileID: 3907253355262528763, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.057171807
@@ -13565,6 +13609,14 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
+    - target: {fileID: 4280238445807790798, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[1].endTangent.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280238445807790798, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[1].startTangent.x
+      value: -7
+      objectReference: {fileID: 0}
     - target: {fileID: 4621207178081785578, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.41487014
@@ -13629,6 +13681,18 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
+    - target: {fileID: 5482757990002949152, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[0].endTangent.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482757990002949152, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[0].startTangent.z
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060372689009337987, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6432803623848558774, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 
@@ -13637,6 +13701,14 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
+    - target: {fileID: 6526526069242759898, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[2].endTangent.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526526069242759898, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: routeDirections.Array.data[2].startTangent.z
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6606525905000760767, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 
@@ -13733,6 +13805,10 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
+    - target: {fileID: 7408152465985776580, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: exitSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7475217880738435025, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawner
       value: 

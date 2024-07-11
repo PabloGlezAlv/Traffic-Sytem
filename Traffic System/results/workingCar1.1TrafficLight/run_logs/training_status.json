@@ -1,0 +1,38 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 499938,
+                "file_path": "results\\workingCar1.1TrafficLight\\FollowPoints\\FollowPoints-499938.onnx",
+                "reward": 3.371575283119455,
+                "creation_time": 1720699997.1059399,
+                "auxillary_file_paths": [
+                    "results\\workingCar1.1TrafficLight\\FollowPoints\\FollowPoints-499938.pt"
+                ]
+            },
+            {
+                "steps": 543910,
+                "file_path": "results\\workingCar1.1TrafficLight\\FollowPoints\\FollowPoints-543910.onnx",
+                "reward": 5.664183897276719,
+                "creation_time": 1720701013.528698,
+                "auxillary_file_paths": [
+                    "results\\workingCar1.1TrafficLight\\FollowPoints\\FollowPoints-543910.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 543910,
+            "file_path": "results\\workingCar1.1TrafficLight\\FollowPoints.onnx",
+            "reward": 5.664183897276719,
+            "creation_time": 1720701013.528698,
+            "auxillary_file_paths": [
+                "results\\workingCar1.1TrafficLight\\FollowPoints\\FollowPoints-543910.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.1+cpu"
+    }
+}
