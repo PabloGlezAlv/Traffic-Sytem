@@ -286,6 +286,7 @@ public class CarLogicAI : Agent, IMovable
 
     public void AddRewardAgent(float amount, bool kill = false)
     {
+        
         AddReward(amount);
 
         if (kill)
@@ -473,12 +474,15 @@ public class CarLogicAI : Agent, IMovable
         myPosition = transform.position;
 
 
-        lastCheckPoint += Time.deltaTime;
-        if (lastCheckPoint > 15)
+        if (!waitingToGo)
         {
-            AddRewardAgent(-0.01f, true);
-        }
+            lastCheckPoint += Time.deltaTime;
+            if (lastCheckPoint > 15)
+            {
 
+                AddRewardAgent(-0.01f, true);
+            }
+        }
 
         forward = new Vector3(transform.forward.x, 0, transform.forward.z);
     }
