@@ -125,6 +125,8 @@ public class CarLogicAI : Agent, IMovable
 
     bool otherCarStoped = false;
 
+    CarLogic[] autoCars;
+
     public Vector3 getFinalPoint()
     {
         return finalLinePoint;
@@ -159,6 +161,8 @@ public class CarLogicAI : Agent, IMovable
         driverSpeed = Random.Range(0.7f, 1);
 
         startSide = rightSide;
+
+        autoCars = FindObjectsOfType<CarLogic>();
     }
 
     private void RestartCar()
@@ -311,6 +315,10 @@ public class CarLogicAI : Agent, IMovable
             {
                 car.AddRewardAgent(-0.25f, true);
             }
+        }
+        else if(collision.gameObject.CompareTag("Car"))
+        {
+
         }
     }
 

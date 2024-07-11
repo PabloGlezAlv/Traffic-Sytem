@@ -11,6 +11,9 @@ public class CarSpawner : MonoBehaviour
     [SerializeField]
     GameObject carPrefab;
 
+    [SerializeField]
+    GameObject carAgent;
+
     List<GameObject> spawn = new List<GameObject>();
 
     List<GameObject> carSpawned = new List<GameObject>();
@@ -22,7 +25,7 @@ public class CarSpawner : MonoBehaviour
         spawn.Add(point);
     }
 
-    private void Start()
+    private void Awake()
     {
         for(int i = 0; i < spawn.Count; i++)
         {
