@@ -97,9 +97,14 @@ public class CarLogic : MonoBehaviour, IMovable
     Quaternion startRotation;
     Vector3 startTarget;
 
+    int deleteConectionWalls = 0;
+    GameObject parentConection;
+    Rigidbody rb;
+
     // Start is called before the first frame update
     void Awake()
     {
+        rb = GetComponent<Rigidbody>(); 
         carMov = gameObject.GetComponent<CarMovement>();
 
         maxAcceleration = carMov.GetMaxAcceleration();
@@ -128,8 +133,10 @@ public class CarLogic : MonoBehaviour, IMovable
 
     public void ResetCar()
     {
-        transform.position = startPosition;
-        transform.rotation = startRotation;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.position = startPosition + new Vector3(0,0.5f,0);
+        rb.rotation = startRotation;
         targetPosition = startTarget;
 
         waitingToGo = false;
@@ -138,8 +145,18 @@ public class CarLogic : MonoBehaviour, IMovable
         changeLane = false;
         overtaking = -1;
         safeRouteChange = false;
-        inConection = false;
         previousPosition = startPosition;
+        deleteConectionWalls = 0;
+
+        if (inConection)
+        {
+            ConectionData data = conectionParent.GetComponent<ConectionData>();
+            data.AddCar(-1);
+            if (data.GetDependantCars() <= 0)
+                conectionParent.SetActive(false);
+        }
+
+        inConection = false;
     }
 
 
@@ -313,14 +330,14 @@ public class CarLogic : MonoBehaviour, IMovable
                         timerToGo = 0;
                         otherCarStoped = true ;
 
-                        if (gameObject.name == "Car 2")
-                            Debug.Log("Car in Traffic light");
+                        //if (gameObject.name == "Car 2")
+                        //    Debug.Log("Car in Traffic light");
                     }
                     else if (lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
                     {
                         changeLane = true;
-                        if (gameObject.name == "Car 2")
-                            Debug.Log("Car");
+                        //if (gameObject.name == "Car 2")
+                        //    Debug.Log("Car");
                     }
                 }
             }
