@@ -158,7 +158,7 @@ public class CarLogicAI : Agent, IMovable
 
         speedValue = speedLimit / maxAcceleration;
 
-        driverSpeed = Random.Range(0.7f, 1);
+        driverSpeed = 0.85f;/*Random.Range(0.7f, 1);*/
 
         startSide = rightSide;
 
@@ -205,6 +205,15 @@ public class CarLogicAI : Agent, IMovable
         checkRayCast();
 
         gameObject.layer = LayerMask.NameToLayer("Car");
+
+
+        foreach (CarLogic c in autoCars)
+        {
+            if (c != null)
+            {
+                c.ResetCar();
+            }
+        }
     }
 
     // ---------------------------------AI PARAMETERS-----------------------------
@@ -318,7 +327,7 @@ public class CarLogicAI : Agent, IMovable
         }
         else if(collision.gameObject.CompareTag("Car"))
         {
-
+            AddRewardAgent(-1f, true);
         }
     }
 

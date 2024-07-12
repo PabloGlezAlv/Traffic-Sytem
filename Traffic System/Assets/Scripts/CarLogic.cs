@@ -93,6 +93,10 @@ public class CarLogic : MonoBehaviour, IMovable
 
     bool otherCarStoped = false;
 
+    Vector3 startPosition;
+    Quaternion startRotation;
+    Vector3 startTarget;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -110,6 +114,9 @@ public class CarLogic : MonoBehaviour, IMovable
 
         driverSpeed = Random.Range(0.7f, 1);
 
+        startPosition = transform.position;
+        startRotation = transform.rotation;
+
         Invoke("CalculateCurrentSpeed", 0.1f);
     }
     
@@ -117,10 +124,25 @@ public class CarLogic : MonoBehaviour, IMovable
     {
         return moveInput;
     }
-    public void AddWrongCheckPointReward()
-    {
 
+
+    public void ResetCar()
+    {
+        transform.position = startPosition;
+        transform.rotation = startRotation;
+        targetPosition = startTarget;
+
+        waitingToGo = false;
+        timerToGo = -1;
+        rightSide = false;
+        changeLane = false;
+        overtaking = -1;
+        safeRouteChange = false;
+        inConection = false;
+        previousPosition = startPosition;
     }
+
+
     public float GetSteer()
     {
         return steerInput;
@@ -475,6 +497,7 @@ public class CarLogic : MonoBehaviour, IMovable
     {
         previousTarget = targetPosition;
         targetPosition = pos;
+        startTarget = pos;
     }
 
     private void OnDrawGizmos()
