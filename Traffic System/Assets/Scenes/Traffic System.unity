@@ -11436,6 +11436,38 @@ PrefabInstance:
       propertyPath: targetPosition.z
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 6272202533010191526, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272202533010191526, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272202533010191526, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272202533010191526, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272202533010191526, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272202533010191526, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272202533010191526, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272202533010191526, guid: dd24c5eac1844cb4a9cfbfe555a46e13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13672,6 +13704,10 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1105140429}
+    - target: {fileID: 4280238445807790798, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
+      propertyPath: enterSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4280238445807790798, guid: 9ca78af6b7008644d884b5a99ff8753d, type: 3}
       propertyPath: spawnerRoute
       value: 1

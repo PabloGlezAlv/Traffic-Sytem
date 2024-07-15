@@ -117,7 +117,7 @@ public class CarLogic : MonoBehaviour, IMovable
 
         speedValue = speedLimit / maxAcceleration;
 
-        driverSpeed = Random.Range(0.7f, 1);
+        driverSpeed = Random.Range(0.7f, 0.85f);
 
         startPosition = transform.position;
         startRotation = transform.rotation;
@@ -311,14 +311,14 @@ public class CarLogic : MonoBehaviour, IMovable
                         timerToGo = 0;
                         otherCarStoped = true;
 
-                        if (gameObject.name == "Car 2")
-                            Debug.Log("Car in Traffic light");
+                        //if (gameObject.name == "Car 2")
+                        //    Debug.Log("Car in Traffic light");
                     }
                     else if (lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
                     {
                         changeLane = true;
-                        if (gameObject.name == "Car 2")
-                            Debug.Log("Car");
+                        //if (gameObject.name == "Car 2")
+                        //    Debug.Log("Car");
                     }
                 }
                 else if ((!waitingToGo && hitFL && hitL.transform.tag == "Car"))

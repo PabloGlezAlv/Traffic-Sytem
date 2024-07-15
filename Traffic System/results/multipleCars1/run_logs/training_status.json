@@ -1,0 +1,56 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 499992,
+                "file_path": "results\\multipleCars1\\FollowPoints\\FollowPoints-499992.onnx",
+                "reward": 2.5981836126496396,
+                "creation_time": 1720821445.0014622,
+                "auxillary_file_paths": [
+                    "results\\multipleCars1\\FollowPoints\\FollowPoints-499992.pt"
+                ]
+            },
+            {
+                "steps": 999944,
+                "file_path": "results\\multipleCars1\\FollowPoints\\FollowPoints-999944.onnx",
+                "reward": 1.2353067512934406,
+                "creation_time": 1720850898.7142606,
+                "auxillary_file_paths": [
+                    "results\\multipleCars1\\FollowPoints\\FollowPoints-999944.pt"
+                ]
+            },
+            {
+                "steps": 1499997,
+                "file_path": "results\\multipleCars1\\FollowPoints\\FollowPoints-1499997.onnx",
+                "reward": 2.47243022127077,
+                "creation_time": 1720891909.6928527,
+                "auxillary_file_paths": [
+                    "results\\multipleCars1\\FollowPoints\\FollowPoints-1499997.pt"
+                ]
+            },
+            {
+                "steps": 1742915,
+                "file_path": "results\\multipleCars1\\FollowPoints\\FollowPoints-1742915.onnx",
+                "reward": 2.403671677357384,
+                "creation_time": 1720909698.6191144,
+                "auxillary_file_paths": [
+                    "results\\multipleCars1\\FollowPoints\\FollowPoints-1742915.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1742915,
+            "file_path": "results\\multipleCars1\\FollowPoints.onnx",
+            "reward": 2.403671677357384,
+            "creation_time": 1720909698.6191144,
+            "auxillary_file_paths": [
+                "results\\multipleCars1\\FollowPoints\\FollowPoints-1742915.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.0+cpu"
+    }
+}
