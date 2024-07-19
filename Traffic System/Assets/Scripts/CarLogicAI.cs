@@ -132,6 +132,9 @@ public class CarLogicAI : Agent, IMovable
         return finalLinePoint;
     }
 
+    public Vector3 getPreviousTarget()
+    { return previousTarget; }
+
     public int CheckpointID
     {
         get { return checkpointID; }
