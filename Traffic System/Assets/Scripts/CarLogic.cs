@@ -127,7 +127,7 @@ public class CarLogic : MonoBehaviour, IMovable
     
     public float GetMove()
     {
-        return moveInput;
+        return moveInput * 0.2f;
     }
 
 

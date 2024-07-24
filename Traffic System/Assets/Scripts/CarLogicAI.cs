@@ -127,6 +127,8 @@ public class CarLogicAI : Agent, IMovable
 
     CarLogic[] autoCars;
 
+    bool onTrafficLight = false;
+
     public Vector3 getFinalPoint()
     {
         return finalLinePoint;
@@ -364,6 +366,7 @@ public class CarLogicAI : Agent, IMovable
 
         if (other.CompareTag("TrafficBarrier"))
         {
+            onTrafficLight = true;
             waitingToGo = true;
             moveInput = 0;
             carMov.SetCarStopped(true);
@@ -373,6 +376,7 @@ public class CarLogicAI : Agent, IMovable
     {
         if (other.CompareTag("TrafficBarrier"))
         {
+            onTrafficLight = false;
             waitingToGo = false;
             moveInput = 0;
             carMov.SetCarStopped(false);
@@ -382,13 +386,13 @@ public class CarLogicAI : Agent, IMovable
     private void DirectionsRaycast()
     {
         //FrontSensors
-        hitFR = Physics.Raycast(transform.position + transform.right * distanceFrontSensor, forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue);
-        hitFL = Physics.Raycast(transform.position - transform.right * distanceFrontSensor, forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue);
-
+        hitFR = Physics.SphereCast(transform.position + transform.right * distanceFrontSensor, 0.5f,forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue, LayerMask.GetMask("Car"));
+        hitFL = Physics.SphereCast(transform.position - transform.right * distanceFrontSensor, 0.5f ,forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue, LayerMask.GetMask("Car"));
 
         if (hitFR || hitFL) //Check collision
         {
-            if ((hitFR && hitR.transform.tag == "Car" && hitR.transform.gameObject.GetComponent<CarMovement>() == rightSide) || (hitFL && hitL.transform.tag == "Car" && hitL.transform.gameObject.GetComponent<CarMovement>() == rightSide)) //Collision other car
+
+            if ((hitFR && hitR.transform.tag == "Car") || (hitFL && hitL.transform.tag == "Car" )) //Collision other car
             {
                 if ((!waitingToGo && hitFR && hitR.transform.tag == "Car"))
                 {
@@ -400,14 +404,18 @@ public class CarLogicAI : Agent, IMovable
                         timerToGo = 0;
                         otherCarStoped = true;
 
-                        if (gameObject.name == "Car 2")
-                            Debug.Log("Car in Traffic light");
+                        
                     }
+                    else
+                    {
+                        waitingToGo = true;
+                        moveInput = 0f;
+                        carMov.SetCarStopped(true);
+                    }
+
                     if (lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
                     {
                         changeLane = true;
-                        if (gameObject.name == "Car 2")
-                            Debug.Log("Car");
                     }
                 }
                 else if ((!waitingToGo && hitFL && hitL.transform.tag == "Car"))
@@ -425,9 +433,9 @@ public class CarLogicAI : Agent, IMovable
                     }
                     else
                     {
-                        waitingToGo = false;
+                        waitingToGo = true;
                         moveInput = 0f;
-                        carMov.SetCarStopped(false);
+                        carMov.SetCarStopped(true);
                     }
 
                     if (lastCheckLine == PointType.Start && !changeLane && carLane != DrivingLane.OneLane && overtaking == -1)
@@ -442,6 +450,12 @@ public class CarLogicAI : Agent, IMovable
         else if(otherCarStoped)
         {
             otherCarStoped = false;
+            waitingToGo = true;
+            moveInput = 0;
+            carMov.SetCarStopped(true);
+        }
+        else if(waitingToGo && !onTrafficLight)
+        {
             waitingToGo = false;
             moveInput = 0;
             carMov.SetCarStopped(false);
@@ -477,6 +491,7 @@ public class CarLogicAI : Agent, IMovable
 
 
         speedValue = speedLimit / maxAcceleration;
+        frontRangeValue = speedLimit / 40;
     }
     private void checkRayCast()
     {

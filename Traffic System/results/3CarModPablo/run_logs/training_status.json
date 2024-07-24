@@ -1,0 +1,65 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 2999937,
+                "file_path": "results\\3CarModPablo\\FollowPoints\\FollowPoints-2999937.onnx",
+                "reward": 16.155861645936966,
+                "creation_time": 1721752322.0465415,
+                "auxillary_file_paths": [
+                    "results\\3CarModPablo\\FollowPoints\\FollowPoints-2999937.pt"
+                ]
+            },
+            {
+                "steps": 3499954,
+                "file_path": "results\\3CarModPablo\\FollowPoints\\FollowPoints-3499954.onnx",
+                "reward": null,
+                "creation_time": 1721763623.661173,
+                "auxillary_file_paths": [
+                    "results\\3CarModPablo\\FollowPoints\\FollowPoints-3499954.pt"
+                ]
+            },
+            {
+                "steps": 3999964,
+                "file_path": "results\\3CarModPablo\\FollowPoints\\FollowPoints-3999964.onnx",
+                "reward": 18.0489217271097,
+                "creation_time": 1721777460.2930572,
+                "auxillary_file_paths": [
+                    "results\\3CarModPablo\\FollowPoints\\FollowPoints-3999964.pt"
+                ]
+            },
+            {
+                "steps": 4499961,
+                "file_path": "results\\3CarModPablo\\FollowPoints\\FollowPoints-4499961.onnx",
+                "reward": 17.448831647634506,
+                "creation_time": 1721796115.3320832,
+                "auxillary_file_paths": [
+                    "results\\3CarModPablo\\FollowPoints\\FollowPoints-4499961.pt"
+                ]
+            },
+            {
+                "steps": 4908565,
+                "file_path": "results\\3CarModPablo\\FollowPoints\\FollowPoints-4908565.onnx",
+                "reward": 18.926801616325974,
+                "creation_time": 1721810892.0930595,
+                "auxillary_file_paths": [
+                    "results\\3CarModPablo\\FollowPoints\\FollowPoints-4908565.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4908565,
+            "file_path": "results\\3CarModPablo\\FollowPoints.onnx",
+            "reward": 18.926801616325974,
+            "creation_time": 1721810892.0930595,
+            "auxillary_file_paths": [
+                "results\\3CarModPablo\\FollowPoints\\FollowPoints-4908565.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.0+cpu"
+    }
+}

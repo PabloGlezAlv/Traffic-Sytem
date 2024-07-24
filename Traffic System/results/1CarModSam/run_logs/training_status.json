@@ -1,0 +1,65 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 999950,
+                "file_path": "results\\nuevacosa\\FollowPoints\\FollowPoints-999950.onnx",
+                "reward": 8.868274205364287,
+                "creation_time": 1721551327.9554594,
+                "auxillary_file_paths": [
+                    "results\\nuevacosa\\FollowPoints\\FollowPoints-999950.pt"
+                ]
+            },
+            {
+                "steps": 1200262,
+                "file_path": "results\\nuevacosa\\FollowPoints\\FollowPoints-1200262.onnx",
+                "reward": 12.116921317763627,
+                "creation_time": 1721556680.5639305,
+                "auxillary_file_paths": [
+                    "results\\nuevacosa\\FollowPoints\\FollowPoints-1200262.pt"
+                ]
+            },
+            {
+                "steps": 1499938,
+                "file_path": "results\\nuevacosa\\FollowPoints\\FollowPoints-1499938.onnx",
+                "reward": 8.048567525111139,
+                "creation_time": 1721615918.7605214,
+                "auxillary_file_paths": [
+                    "results\\nuevacosa\\FollowPoints\\FollowPoints-1499938.pt"
+                ]
+            },
+            {
+                "steps": 1999961,
+                "file_path": "results\\nuevacosa\\FollowPoints\\FollowPoints-1999961.onnx",
+                "reward": 6.4550339461614685,
+                "creation_time": 1721640016.760468,
+                "auxillary_file_paths": [
+                    "results\\nuevacosa\\FollowPoints\\FollowPoints-1999961.pt"
+                ]
+            },
+            {
+                "steps": 2043123,
+                "file_path": "results\\nuevacosa\\FollowPoints\\FollowPoints-2043123.onnx",
+                "reward": 8.171450696885586,
+                "creation_time": 1721642172.1808798,
+                "auxillary_file_paths": [
+                    "results\\nuevacosa\\FollowPoints\\FollowPoints-2043123.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2043123,
+            "file_path": "results\\nuevacosa\\FollowPoints.onnx",
+            "reward": 8.171450696885586,
+            "creation_time": 1721642172.1808798,
+            "auxillary_file_paths": [
+                "results\\nuevacosa\\FollowPoints\\FollowPoints-2043123.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.1+cpu"
+    }
+}

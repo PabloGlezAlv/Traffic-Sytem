@@ -1,0 +1,65 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 10999950,
+                "file_path": "results\\2ModifiedCarMoreNeurons\\FollowPoints\\FollowPoints-10999950.onnx",
+                "reward": 23.84467229852453,
+                "creation_time": 1721687294.0330262,
+                "auxillary_file_paths": [
+                    "results\\2ModifiedCarMoreNeurons\\FollowPoints\\FollowPoints-10999950.pt"
+                ]
+            },
+            {
+                "steps": 11499941,
+                "file_path": "results\\2ModifiedCarMoreNeurons\\FollowPoints\\FollowPoints-11499941.onnx",
+                "reward": null,
+                "creation_time": 1721696473.8989847,
+                "auxillary_file_paths": [
+                    "results\\2ModifiedCarMoreNeurons\\FollowPoints\\FollowPoints-11499941.pt"
+                ]
+            },
+            {
+                "steps": 11999995,
+                "file_path": "results\\2ModifiedCarMoreNeurons\\FollowPoints\\FollowPoints-11999995.onnx",
+                "reward": 69.40555675374344,
+                "creation_time": 1721705944.2191098,
+                "auxillary_file_paths": [
+                    "results\\2ModifiedCarMoreNeurons\\FollowPoints\\FollowPoints-11999995.pt"
+                ]
+            },
+            {
+                "steps": 12499988,
+                "file_path": "results\\2ModifiedCarMoreNeurons\\FollowPoints\\FollowPoints-12499988.onnx",
+                "reward": 12.687813171744347,
+                "creation_time": 1721716850.2958086,
+                "auxillary_file_paths": [
+                    "results\\2ModifiedCarMoreNeurons\\FollowPoints\\FollowPoints-12499988.pt"
+                ]
+            },
+            {
+                "steps": 12761742,
+                "file_path": "results\\2ModifiedCarMoreNeurons\\FollowPoints\\FollowPoints-12761742.onnx",
+                "reward": null,
+                "creation_time": 1721728709.9516513,
+                "auxillary_file_paths": [
+                    "results\\2ModifiedCarMoreNeurons\\FollowPoints\\FollowPoints-12761742.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 12761742,
+            "file_path": "results\\2ModifiedCarMoreNeurons\\FollowPoints.onnx",
+            "reward": null,
+            "creation_time": 1721728709.9516513,
+            "auxillary_file_paths": [
+                "results\\2ModifiedCarMoreNeurons\\FollowPoints\\FollowPoints-12761742.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.1+cpu"
+    }
+}
