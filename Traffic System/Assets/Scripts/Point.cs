@@ -90,18 +90,32 @@ public class Point : MonoBehaviour
     {
         if (other.tag == "Car") 
         {
-            IMovable car = other.transform.GetComponent<IMovable>();
             
-            Vector3 target = car.getTarget();
+            IMovable car = other.transform.GetComponent<IMovable>();
 
-            if (Vector3.Distance(transform.position, target) < 0.01)
+
+            if (car.getBehaviour() == behaviours.competitive)
             {
-                if (type != PointType.Start)
-                    SendCarSpeedLimit(car);
-
-                car.setTarget(nextPoints, endTrail, nextLane, type, right, conectionParent, lastPoint);
-
                 car.AddRewardAgent(0.25f);
+
+                if(type == PointType.Start) // Just to make visible the side where the car is running
+                {
+                    car.setTarget(nextPoints, endTrail, nextLane, type, right, conectionParent, lastPoint);
+                }
+            }
+            else
+            {
+                Vector3 target = car.getTarget();
+
+                if (Vector3.Distance(transform.position, target) < 0.01)
+                {
+                    if (type != PointType.Start)
+                        SendCarSpeedLimit(car);
+
+                    car.setTarget(nextPoints, endTrail, nextLane, type, right, conectionParent, lastPoint);
+
+                    car.AddRewardAgent(0.25f);
+                }
             }
         }
     }

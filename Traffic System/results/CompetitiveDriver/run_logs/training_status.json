@@ -1,0 +1,65 @@
+{
+    "FollowPoints": {
+        "checkpoints": [
+            {
+                "steps": 1499984,
+                "file_path": "results\\CompetitiveDriver\\FollowPoints\\FollowPoints-1499984.onnx",
+                "reward": 8.282349491957575,
+                "creation_time": 1722847745.17275,
+                "auxillary_file_paths": [
+                    "results\\CompetitiveDriver\\FollowPoints\\FollowPoints-1499984.pt"
+                ]
+            },
+            {
+                "steps": 1999956,
+                "file_path": "results\\CompetitiveDriver\\FollowPoints\\FollowPoints-1999956.onnx",
+                "reward": 8.288449564483017,
+                "creation_time": 1722860563.8964915,
+                "auxillary_file_paths": [
+                    "results\\CompetitiveDriver\\FollowPoints\\FollowPoints-1999956.pt"
+                ]
+            },
+            {
+                "steps": 2499970,
+                "file_path": "results\\CompetitiveDriver\\FollowPoints\\FollowPoints-2499970.onnx",
+                "reward": 7.38254970125854,
+                "creation_time": 1722878499.442937,
+                "auxillary_file_paths": [
+                    "results\\CompetitiveDriver\\FollowPoints\\FollowPoints-2499970.pt"
+                ]
+            },
+            {
+                "steps": 2999969,
+                "file_path": "results\\CompetitiveDriver\\FollowPoints\\FollowPoints-2999969.onnx",
+                "reward": 9.586999183520675,
+                "creation_time": 1722910324.3016105,
+                "auxillary_file_paths": [
+                    "results\\CompetitiveDriver\\FollowPoints\\FollowPoints-2999969.pt"
+                ]
+            },
+            {
+                "steps": 3198017,
+                "file_path": "results\\CompetitiveDriver\\FollowPoints\\FollowPoints-3198017.onnx",
+                "reward": 8.350399916991591,
+                "creation_time": 1722942733.9161432,
+                "auxillary_file_paths": [
+                    "results\\CompetitiveDriver\\FollowPoints\\FollowPoints-3198017.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 3198017,
+            "file_path": "results\\CompetitiveDriver\\FollowPoints.onnx",
+            "reward": 8.350399916991591,
+            "creation_time": 1722942733.9161432,
+            "auxillary_file_paths": [
+                "results\\CompetitiveDriver\\FollowPoints\\FollowPoints-3198017.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.0+cpu"
+    }
+}

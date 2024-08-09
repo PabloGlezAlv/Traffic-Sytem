@@ -335,6 +335,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 5000
+  CarType: 1
   wheel: {fileID: 6224237703981240020}
   normalSensor: {fileID: -335726830339577185}
   topSensor: {fileID: 1767586913856940761}

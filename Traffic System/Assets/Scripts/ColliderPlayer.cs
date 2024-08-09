@@ -30,6 +30,24 @@ public class ColliderPlayer : MonoBehaviour
                 carLogic.AddRewardAgent(-0.01f, true);
             }
         }
+
+
+        CarLogicAICompetive carLogicComp = collision.gameObject.GetComponent<CarLogicAICompetive>();
+
+        if (!isConexion)
+        {
+            if (carLogicComp != null)
+            {
+                carLogicComp.AddRewardAgent(-0.01f, true);
+            }
+        }
+        else
+        {
+            if (carLogicComp != null && _finalTarget == carLogicComp.getFinalPoint())
+            {
+                carLogicComp.AddRewardAgent(-0.01f, true);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,6 +65,22 @@ public class ColliderPlayer : MonoBehaviour
             if(carLogic != null && _finalTarget == carLogic.getFinalPoint())
             {
                 carLogic.AddRewardAgent(-0.01f, true);
+            }
+        }
+
+        CarLogicAICompetive carLogicComp = other.gameObject.GetComponent<CarLogicAICompetive>();
+        if (!isConexion)
+        {
+            if (carLogicComp != null)
+            {
+                carLogicComp.AddRewardAgent(-0.01f, true);
+            }
+        }
+        else
+        {
+            if (carLogicComp != null && _finalTarget == carLogicComp.getFinalPoint())
+            {
+                carLogicComp.AddRewardAgent(-0.01f, true);
             }
         }
     }

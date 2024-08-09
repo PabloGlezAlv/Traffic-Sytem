@@ -6,6 +6,8 @@ using static Point;
 
 public interface IMovable
 {
+    behaviours getBehaviour();
+
     float GetMove();
     float GetSteer();
 

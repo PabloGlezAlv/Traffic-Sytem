@@ -9,7 +9,14 @@ using static CarMovement;
 using static Point;
 
 public class CarLogic : MonoBehaviour, IMovable
-{ 
+{
+    [SerializeField]
+    behaviours CarType;
+    public behaviours getBehaviour()
+    {
+        return CarType;
+    }
+
     [Header("CollisionSensors")]
     [SerializeField]
     float checkFrontCar = 3.0f;

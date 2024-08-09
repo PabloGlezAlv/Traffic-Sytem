@@ -13,6 +13,12 @@ public class CheckSideRoad : MonoBehaviour
         {
             carLogic.AddRewardAgent(-0.5f);
         }
+
+        CarLogicAICompetive carLogicComp = other.gameObject.GetComponentInParent<CarLogicAICompetive>();
+        if (carLogicComp != null && carLogicComp.GetRight() != sideRight)
+        {
+            carLogicComp.AddRewardAgent(-0.5f);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -21,6 +27,12 @@ public class CheckSideRoad : MonoBehaviour
         if (carLogic != null && carLogic.GetRight() != sideRight)
         {
             carLogic.AddRewardAgent(-0.001f);
+        }
+
+        CarLogicAICompetive carLogicComp = other.gameObject.GetComponentInParent<CarLogicAICompetive>();
+        if (carLogicComp != null && carLogicComp.GetRight() != sideRight)
+        {
+            carLogicComp.AddRewardAgent(-0.001f);
         }
     }
 }

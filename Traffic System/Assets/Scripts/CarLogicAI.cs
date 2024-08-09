@@ -4,6 +4,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngineInternal;
 using static CarMovement;
@@ -12,6 +13,13 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CarLogicAI : Agent, IMovable
 {
+    [SerializeField]
+    behaviours CarType;
+    public behaviours getBehaviour()
+    {
+        return CarType;
+    }
+
     [SerializeField]
     WheelCollider wheel;
     [SerializeField]
@@ -70,9 +78,6 @@ public class CarLogicAI : Agent, IMovable
     bool inConection = false;
     GameObject conectionParent;
 
-    bool safeRouteChange = false;
-
-
     private float frontRangeValue = 1;
 
     [SerializeField]
@@ -129,6 +134,12 @@ public class CarLogicAI : Agent, IMovable
 
     bool onTrafficLight = false;
 
+
+    bool sleeping = false;
+
+
+
+
     public Vector3 getFinalPoint()
     {
         return finalLinePoint;
@@ -168,6 +179,8 @@ public class CarLogicAI : Agent, IMovable
         startSide = rightSide;
 
         autoCars = FindObjectsOfType<CarLogic>();
+
+        Invoke("GoToSleep", Random.Range(7f, 10f));
     }
 
     private void RestartCar()
@@ -211,6 +224,7 @@ public class CarLogicAI : Agent, IMovable
 
         gameObject.layer = LayerMask.NameToLayer("Car");
 
+        sleeping = false;
 
         foreach (CarLogic c in autoCars)
         {
@@ -219,6 +233,26 @@ public class CarLogicAI : Agent, IMovable
                 c.ResetCar();
             }
         }
+    }
+    
+    // Tired parameters
+
+
+    void GoToSleep()
+    {
+        Debug.Log("Sleeping");
+        sleeping = true;
+        steerInput = 0;
+        moveInput = speedValue * driverSpeed;
+        Invoke("WakeUp", Random.Range(2f, 6f));
+    }
+
+
+    void WakeUp()
+    {
+        Debug.Log("Awake");
+        sleeping = false;
+        Invoke("GoToSleep", Random.Range(12f, 16f));
     }
 
     // ---------------------------------AI PARAMETERS-----------------------------
@@ -261,12 +295,23 @@ public class CarLogicAI : Agent, IMovable
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
+
         if (waitingToGo)
         {
             moveInput = 0;
             steerInput = 0;
             return;
         }
+
+        if (sleeping && !inConection)
+        {
+            moveInput *= 0.9999F;
+            steerInput += 0.001f;
+
+            if(steerInput > 1) steerInput = 1;
+            return;
+        }
+
 
 
             moveInput = actions.DiscreteActions[0];
@@ -386,6 +431,14 @@ public class CarLogicAI : Agent, IMovable
     private void DirectionsRaycast()
     {
         //FrontSensors
+        if(sleeping)
+        {
+            onTrafficLight = false;
+            waitingToGo = false;
+            moveInput = speedValue * driverSpeed * 1.5f;
+            carMov.SetCarStopped(false);
+            return;
+        }
         hitFR = Physics.SphereCast(transform.position + transform.right * distanceFrontSensor, 0.5f,forward * checkFrontCar, out hitR, checkFrontCar * frontRangeValue, LayerMask.GetMask("Car"));
         hitFL = Physics.SphereCast(transform.position - transform.right * distanceFrontSensor, 0.5f ,forward * checkFrontCar, out hitL, checkFrontCar * frontRangeValue, LayerMask.GetMask("Car"));
 
@@ -683,8 +736,6 @@ public class CarLogicAI : Agent, IMovable
 
             if (type == PointType.End) //Check direction to turn
             {
-                safeRouteChange = pos.Count == 1; //Only one route, its safe
-
                 Vector3 targetDirection = (endLane[rng] - transform.position).normalized;
                 float angle = Vector3.SignedAngle(transform.forward, targetDirection, Vector3.up);
 
@@ -708,8 +759,6 @@ public class CarLogicAI : Agent, IMovable
             }
             else if (type == PointType.Start)
             {
-                safeRouteChange = false;
-
                 direction = DriveDirection.Front;
             }
 

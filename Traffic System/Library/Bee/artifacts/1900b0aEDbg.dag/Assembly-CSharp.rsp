@@ -385,6 +385,7 @@
 "Assets/ConectionHelp.cs"
 "Assets/Scripts/CarLogic.cs"
 "Assets/Scripts/CarLogicAI.cs"
+"Assets/Scripts/CarLogicAICompetitive.cs"
 "Assets/Scripts/CarMovement.cs"
 "Assets/Scripts/CarSpawner.cs"
 "Assets/Scripts/checkPointCar.cs"
